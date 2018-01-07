@@ -8,14 +8,12 @@ const app = dva();
 // app.use({});
 
 // 3. Model
-// [
-//     'header',
-//     'newsNotice'
-// ].forEach((model) => {
-//     app.model(require(`./models/${model}`));
-// })
-app.model(require('./models/header').default);
-
+[
+    'header',
+    'newsNotice'
+].forEach((model) => {
+    app.model(require(`./models/${model}`).default);
+})
 // 4. Router
 app.router(require('./router').default);
 

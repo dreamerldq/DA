@@ -4,7 +4,9 @@ export default {
 
   namespace: 'header',
 
-  state: {},
+  state: {
+    modelVisiable: false
+  },
 
   subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
@@ -30,6 +32,12 @@ export default {
     save(state, action) {
       return { ...state, ...action.payload };
     },
+    showModel(state, { payload }) {
+      return { ...state, modelVisiable: true }
+    },
+    hiddenModel(state, { payload }) {
+      return { ...state, modelVisiable: false }
+    }
   },
 
 };
