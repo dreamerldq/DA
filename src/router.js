@@ -1,19 +1,21 @@
-import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './routes/IndexPage';
+import React from 'react'
+import 'antd/dist/antd.css'
+import { Router, Route, IndexRoute } from 'dva/router'
 import NewsNotice from './routes/NewsNotice'
 import DepartmentProfile from './routes/DepartmentProfile'
-import 'antd/dist/antd.css'
+import MainLayout from './components/MainLayout'
+
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
-      <Switch>
-        <Route path="/" exact component={IndexPage} />
-        <Route path="/NewsNotice" exact component={NewsNotice} />
-        <Route path='/DepartmentProfile' exact component={DepartmentProfile} />
-      </Switch>
+      <Route
+        path="/"
+        component={MainLayout}
+      />
+      <Route path="/NewsNotice" component={NewsNotice} />
+      <Route path="/DepartmentProfile" component={DepartmentProfile} />
     </Router>
-  );
+  )
 }
 
-export default RouterConfig;
+export default RouterConfig
