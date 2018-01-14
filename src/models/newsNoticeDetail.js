@@ -4,20 +4,19 @@ import queryString from 'query-string'
 
 export default {
 
-  namespace: 'newsNotice',
+  namespace: 'newsNoticeDetail',
 
   state: {},
 
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen(({ pathname, search }) => {
-        const id = queryString.parse(search)
-        dispatch({ type: 'saveFetchId', payload: id })
-        console.log('QQQ', pathname)
-        console.log('AAAA', id)
-        const match = pathToRegexp('/NewsNotice').exec(pathname);
+        const query = queryString.parse(search)
+        console.log('RRRR', query)
+        const match = pathToRegexp('NewsNotice/detail/:id+').exec(pathname);
         if (match) {
-          console.log('这是新闻通知界面')
+          console.log('这是新闻通知详情界面')
+          dispatch({ type: 'saveFetchId', payload: query })
         }
       })
     }

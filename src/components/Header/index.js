@@ -1,13 +1,13 @@
 import React from 'react';
-import { Menu, Icon, Button } from 'antd';
+import { Menu, Icon, Button, Row, Col } from 'antd';
 import { connect } from 'dva';
 import _ from 'lodash';
-import { Row, Col } from 'antd/lib/grid';
 import title from './menu';
 import Modal from './Modal';
-import styles from './index.less';
+import styles from './index.css';
+//import './index.less'
 
-const { SubMenu } = Menu.SubMenu;
+const { SubMenu } = Menu;
 const MenuItemGroup = Menu.ItemGroup;
 const { Item } = Menu
 
@@ -21,40 +21,43 @@ const Header = ({ dispatch, header, form }) => {
   }
 
   return (
-    <div className={styles.container} >
-      <Menu
-        onClick={handleClick}
-        mode="horizontal"
-      >
-        {title.map((menu) => {
-              if (menu.subTitle) {
+    <Row className="header_container">
+      <Col span={20}>
+        <Menu
+          onClick={handleClick}
+          mode="horizontal"
+        >
+          {title.map((item) => {
+              if (item.subTitle) {
                   return (
-                    <SubMenu key={menu.key} title={<span><Icon type="setting" />{menu.title}</span>}>
-                      {menu.subTitle.map((sub) => {
+                    <SubMenu key={item.key} title={<span><Icon type="setting" />{item.title}</span>}>
+                      {item.subTitle.map((sub) => {
                         return <Item key={sub.key}>{sub.title}</Item>
                       })}
                     </SubMenu>
                       )
               }
                 return (
-                  <Item key={menu.key}>
-                    <Icon type="appstore" />{menu.title}
+                  <Item key={item.key}>
+                    <Icon type="appstore" />{item.title}
                   </Item>
               )
             })}
-      </Menu>
+        </Menu>
+      </Col>
 
-      <Button onClick={loginToggle}>
-              登陆
-      </Button>
-
-
-      {
+      <Col span={4}>
+        <Button className="header_login_button" onClick={loginToggle}>
+        登陆
+        </Button>
+        {
         modelVisiable ?
           <Modal visible={modelVisiable} dispatch={dispatch} />
         : null
       }
-    </div>
+      </Col>
+
+    </Row>
 
   );
 };

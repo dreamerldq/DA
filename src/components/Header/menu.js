@@ -1,4 +1,4 @@
-const Menu = [
+export default [
   {
     title: '首页',
     key: 'Index',
@@ -180,4 +180,4 @@ const Menu = [
     ]
   }
 ]
-export default Menu
+

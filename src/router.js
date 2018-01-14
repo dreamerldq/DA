@@ -1,21 +1,26 @@
 import React from 'react'
 import 'antd/dist/antd.css'
-import { Router, Route, IndexRoute } from 'dva/router'
+import { Router, Route, Switch } from 'dva/router'
 import NewsNotice from './routes/NewsNotice'
 import DepartmentProfile from './routes/DepartmentProfile'
-import MainLayout from './components/MainLayout'
+import Index from './routes/Index'
+import Header from './components/Header'
+import NewsNoticeDetail from './routes/newsNoticeDetail/index'
 
-function RouterConfig({ history }) {
+export default ({ history }) => {
+  console.log('HISTORY', history)
   return (
     <Router history={history}>
-      <Route
-        path="/"
-        component={MainLayout}
-      />
-      <Route path="/NewsNotice" component={NewsNotice} />
-      <Route path="/DepartmentProfile" component={DepartmentProfile} />
+      <div>
+        <Header />
+        <div className="container">
+          <Route path="/NewsNotice" component={NewsNotice} />
+          <Route path="/DepartmentProfile" component={DepartmentProfile} />
+          <Route path="/NewsNotice/detail/:id" component={NewsNoticeDetail} />
+        </div>
+
+      </div>
+
     </Router>
   )
 }
-
-export default RouterConfig

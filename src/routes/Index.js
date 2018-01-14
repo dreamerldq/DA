@@ -2,17 +2,19 @@ import React from 'react';
 import { Menu, Icon } from 'antd';
 import { connect } from 'dva';
 import _ from 'lodash';
+import Header from '../components/Header'
 
-const DepartmentProfile = ({ dispatch, departmentProfile }) => {
+const Index = ({ dispatch, departmentProfile }) => {
   return (
     <div>
-      <div>这是系部简介的界面</div>
+      <Header />
+      <div>这是首页</div>
     </div>
   )
 }
-DepartmentProfile.propTypes = {
+Index.propTypes = {
 };
 const mapStateToProps = ({ departmentProfile }) => ({
   departmentProfile
 });
-export default connect(mapStateToProps)(DepartmentProfile);
+export default connect(mapStateToProps)(Index);
