@@ -12,11 +12,9 @@ export default {
     setup({ dispatch, history }) {
       history.listen(({ pathname, search }) => {
         const query = queryString.parse(search)
-        console.log('RRRR', query)
-        const match = pathToRegexp('NewsNotice/detail/:id+').exec(pathname);
+        const match = pathToRegexp('/News/detail/:id+').exec(pathname);
         if (match) {
-          console.log('这是新闻通知详情界面')
-          dispatch({ type: 'saveFetchId', payload: query })
+          dispatch({ type: 'saveFetchId', payload: match[1] })
         }
       })
     }

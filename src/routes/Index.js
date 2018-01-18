@@ -7,7 +7,6 @@ import Header from '../components/Header'
 const Index = ({ dispatch, departmentProfile }) => {
   return (
     <div>
-      <Header />
       <div>这是首页</div>
     </div>
   )

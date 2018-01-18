@@ -178,6 +178,11 @@ export default [
         key: 'CampusCulture'
       }
     ]
+  },
+  {
+    title: '发布文章',
+    key: 'PostArticle',
+    subTitle: null
   }
 ]
 

@@ -13,11 +13,8 @@ export default {
       history.listen(({ pathname, search }) => {
         const id = queryString.parse(search)
         dispatch({ type: 'saveFetchId', payload: id })
-        console.log('QQQ', pathname)
-        console.log('AAAA', id)
         const match = pathToRegexp('/NewsNotice').exec(pathname);
         if (match) {
-          console.log('这是新闻通知界面')
         }
       })
     }
