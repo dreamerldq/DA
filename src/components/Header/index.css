@@ -1,11 +1,10 @@
 .ant-menu-horizontal{
     border: 0px;
-    background: #fab848;
+    background: #0077B4;
+    color: #ffffff;
 }
 .header_container{
-    background: #fab848;
+    background: #0077B4;
     height: 48px;
     line-height: 48px;
-}
-.header_login_button{
 }

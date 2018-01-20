@@ -21,7 +21,7 @@ export default {
   },
 
   effects: {
-    *link({ payload: path }, { call, put }) {  // eslint-disable-line
+    * link({ payload: path }, { call, put }) {
       yield put(routerRedux.push({
         pathname: `/${path}`
       }));

@@ -1,0 +1,25 @@
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: 500px;
+    line-height: 160px;
+    overflow: hidden;
+  }
+  
+  .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }
+  .img_01{
+    background-image: url('../../assets/01.jpg');
+  }
+  .img_02{
+    background-image: url('../../assets/02.jpg')
+}
+.img_03{
+    background-image: url('../../assets/03.jpg')
+}
+.img_04{
+    background-image: url('../../assets/04.jpg')
+}
+.img_05{
+    background-image: url('../../assets/05.jpg')
+}

@@ -1,0 +1,17 @@
+.login_container{
+    width: 400px;
+    height: 300px;
+    background: #f7eaea;
+    margin: 100px auto;
+    text-align: center;
+}
+.login_container_form{
+    text-align: left;
+    line-height: 32px;
+}
+.login_container_button{
+    width: 100%;
+}
+.login_container_inner{
+    margin: 0 50px;
+}

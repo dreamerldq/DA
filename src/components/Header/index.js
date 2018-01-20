@@ -3,9 +3,7 @@ import { Menu, Icon, Button, Row, Col } from 'antd';
 import { connect } from 'dva';
 import _ from 'lodash';
 import title from './menu';
-import Modal from './Modal';
 import styles from './index.css';
-//import './index.less'
 
 const { SubMenu } = Menu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -45,18 +43,6 @@ const Header = ({ dispatch, header, form }) => {
             })}
         </Menu>
       </Col>
-
-      <Col span={4}>
-        <Button className="header_login_button" onClick={loginToggle}>
-        登陆
-        </Button>
-        {
-        modelVisiable ?
-          <Modal visible={modelVisiable} dispatch={dispatch} />
-        : null
-      }
-      </Col>
-
     </Row>
 
   );

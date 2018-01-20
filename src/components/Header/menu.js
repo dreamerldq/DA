@@ -12,24 +12,7 @@ export default [
   {
     title: '系部概括',
     key: 'DepartmentSummary',
-    subTitle: [
-      {
-        title: '系部简介',
-        key: 'DepartmentProfile'
-      },
-      {
-        title: '系部领导',
-        key: 'DepartmentLeadership'
-      },
-      {
-        title: '组织结构',
-        key: 'OrganizationalStructure'
-      },
-      {
-        title: '主任寄语',
-        key: 'DirectorMessage'
-      }
-    ]
+    subTitle: null
   },
   {
     title: '专业介绍',

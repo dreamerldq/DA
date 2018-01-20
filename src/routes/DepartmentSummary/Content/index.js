@@ -1,21 +1,26 @@
 import React, { PropTypes, Component } from 'react'
+import { Element } from 'react-scroll';
 import './index.css'
+import Director from '../Director'
+import Leadership from '../Leadership'
+import Organization from '../Organization'
+import Profile from '../Profile'
 
 const Content = () => {
   return (
-    <div className="container">
-      <div className="section" key="DepartmentProfile">
-         系部介绍
-      </div>
-      <div className="section" key="DepartmentLeadership">
-         系部领导
-      </div>
-      <div className="section" key="OrganizationalStructure">
-         组织架构
-      </div>
-      <div className="section" key="DirectorMessage">
-         主任寄语
-      </div>
+    <div className="contenr_container">
+      <Element className="section" name="DepartmentProfile">
+        <Profile />
+      </Element>
+      <Element className="section" name="DepartmentLeadership">
+        <Leadership />
+      </Element>
+      <Element className="section" name="OrganizationalStructure">
+        <Organization />
+      </Element>
+      <Element className="section" name="DirectorMessage">
+        <Director />
+      </Element>
     </div>
   );
 }

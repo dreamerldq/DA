@@ -3,13 +3,8 @@ html, body, :global(#root) {
   height: 100%;
 }
 body{
-  background-image: url('http://shimmer.neusoft.edu.cn/background/Uploads/2017-12-13/5a307c9334903.jpg');
-  height: 1080px;
+  /* background-image: url('http://shimmer.neusoft.edu.cn/background/Uploads/2017-12-13/5a307c9334903.jpg'); */
+  background-color: #F5F5F5 !important;
   background-attachment: fixed;
-}
-.container{
-  width: 1000px;
-  height: 100%;
-  margin: 0 auto;
 }
 
