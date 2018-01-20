@@ -6,7 +6,8 @@ export default {
   namespace: 'header',
 
   state: {
-    modelVisiable: false
+    modelVisiable: false,
+    HTMLContent: ''
   },
 
   subscriptions: {
@@ -15,6 +16,7 @@ export default {
         const { pathname, query } = location;
         const match = pathToRegexp('/').exec(pathname);
         if (match) {
+
         }
       })
     }
@@ -37,6 +39,9 @@ export default {
     },
     hiddenModel(state, { payload }) {
       return { ...state, modelVisiable: false }
+    },
+    saveHTMLContent(state, { payload }) {
+      return { ...state, HTMLContent: payload }
     }
   }
 

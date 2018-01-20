@@ -8,6 +8,7 @@ import NewsNoticeDetail from './routes/newsNoticeDetail/index'
 import PostArticle from './routes/PostArticle/index'
 import DepartmentSummary from './routes/DepartmentSummary/index'
 import AdminLogin from './routes/login/index'
+import ArtSpaceProfile from './routes/ArtSpaceProfile'
 
 export default ({ history }) => {
   return (
@@ -21,6 +22,7 @@ export default ({ history }) => {
           <Route path="/DepartmentSummary" component={DepartmentSummary} />
           <Route path="/Login" component={AdminLogin} />
           <Route path="/index" component={ArtIndex} />
+          <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
         </div>
 
       </div>
