@@ -2,7 +2,8 @@ import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
 import {
-  updateArticle
+  updateArticle,
+  createArticle
 } from '.././services/postArticle';
 
 export default {
@@ -25,7 +26,12 @@ export default {
   },
 
   effects: {
-    * postArticle({ payload }, { select, call, put }) {
+    * createArticle({ payload }, { select, call, put }) {
+      yield put({ type: 'saveArticleTitle', payload });
+      const state = yield select(state => state.postArticle);
+      yield call(createArticle, state.article);
+    },
+    * updateArticle({ payload }, { select, call, put }) {
       yield put({ type: 'saveArticleTitle', payload });
       const state = yield select(state => state.postArticle);
       yield call(updateArticle, state.article);

@@ -116,6 +116,11 @@ export default [
     title: '发布文章',
     key: 'PostArticle',
     subTitle: null
+  },
+  {
+    title: '编辑文章',
+    key: 'ArticleEdit',
+    subTitle: null
   }
 ]
 

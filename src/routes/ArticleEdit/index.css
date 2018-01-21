@@ -1,0 +1,14 @@
+.postArticle_container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.postArticle_content{
+    border: 1px solid blue;
+    border-radius: 15px;
+}
+.postArticle_subButton{
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    height: 40px;
+}
