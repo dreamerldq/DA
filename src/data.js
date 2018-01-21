@@ -46,4 +46,15 @@ const newsContainer = [
     id: '0'
   }
 ]
-export { newsContainer, newsTitle }
+const professionalTable = [
+  {
+    id: 1,
+    name: '赵伟',
+    professionalTeam: '数字媒体技术',
+    jobTitle: '副教授',
+    education: '硕士',
+    graduatedSchool: '大连理工大学',
+    researchDirection: '移动互联网方向研究，企业移动信息化研究等'
+  }
+]
+export { newsContainer, newsTitle, professionalTable }

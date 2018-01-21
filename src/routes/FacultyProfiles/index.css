@@ -1,0 +1,10 @@
+.contentDetail_container{
+    width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+}
+.contentDetail_introduction{
+    color: #0077B4 !important;
+    border-bottom: 3px solid #ff9100 !important;
+    width: 120px;
+}

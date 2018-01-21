@@ -27,8 +27,8 @@ export default {
   effects: {
     * postArticle({ payload }, { select, call, put }) {
       yield put({ type: 'saveArticleTitle', payload });
-      const { article } = yield select(state => state.postArticle);
-      yield call(updateArticle, article);
+      const state = yield select(state => state.postArticle);
+      yield call(updateArticle, state.article);
     }
   },
 
@@ -37,10 +37,10 @@ export default {
       return { ...state, ...action.payload };
     },
     saveArticleContent(state, { payload }) {
-      return { ...state, article: { ...article, content: payload } }
+      return { ...state, article: { ...state.article, content: payload } }
     },
     saveArticleTitle(state, { payload }) {
-      return { ...state, article: { ...article, title: payload } }
+      return { ...state, article: { ...state.article, title: payload } }
     }
   }
 

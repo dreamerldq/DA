@@ -9,6 +9,8 @@ import PostArticle from './routes/PostArticle/index'
 import DepartmentSummary from './routes/DepartmentSummary/index'
 import AdminLogin from './routes/login/index'
 import ArtSpaceProfile from './routes/ArtSpaceProfile'
+import TeachersDetails from './routes/TeachersDetails'
+import FacultyProfiles from './routes/FacultyProfiles'
 
 export default ({ history }) => {
   return (
@@ -23,6 +25,8 @@ export default ({ history }) => {
           <Route path="/Login" component={AdminLogin} />
           <Route path="/index" component={ArtIndex} />
           <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
+          <Route path="/TeachersDetails" component={TeachersDetails} />
+          <Route path="/FacultyProfiles" component={FacultyProfiles} />
         </div>
 
       </div>

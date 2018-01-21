@@ -49,58 +49,8 @@ export default [
         key: 'FacultyProfiles'
       },
       {
-        title: '影视摄影与制作专业教育管理团队教师风采',
-        key: 'FilmPhotographyStyle'
-      },
-      {
-        title: '数字媒体艺术教育管理团队教师风采',
-        key: 'DigitalMediaArtStyle'
-      },
-      {
-        title: '数字媒体技术教育管理团队教师风采',
-        key: 'DigitalMediaTechnologyStyle'
-      },
-      {
-        title: '视觉传达设计教育管理团队教师风采',
-        key: 'VisualCommunicationDesignStyle'
-      },
-      {
-        title: '动画专业教育管理团队教师风采',
-        key: 'AnimationStyle'
-      }
-    ]
-  },
-  {
-    title: '教学科研',
-    key: 'teachingResearch',
-    subTitle: [
-      {
-        title: '重点实验室',
-        key: 'MainLab'
-      },
-      {
-        title: '专业建设',
-        key: 'ProfessionalConstruction'
-      },
-      {
-        title: '课程建设',
-        key: 'CourseBuilding'
-      },
-      {
-        title: '教学成果',
-        key: 'TeachingAchievements'
-      },
-      {
-        title: '科研概况',
-        key: 'Research Overview'
-      },
-      {
-        title: '科研成果',
-        key: 'ResearchAchievements'
-      },
-      {
-        title: '科研队伍',
-        key: 'ResearchTeam'
+        title: '师资详情',
+        key: 'TeachersDetails'
       }
     ]
   },
