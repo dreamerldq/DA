@@ -28,7 +28,7 @@ const Header = ({ dispatch, header, form }) => {
           {title.map((item) => {
               if (item.subTitle) {
                   return (
-                    <SubMenu key={item.key} title={<span><Icon type="setting" />{item.title}</span>}>
+                    <SubMenu key={item.key} title={<span>{item.title}</span>}>
                       {item.subTitle.map((sub) => {
                         return <Item key={sub.key}>{sub.title}</Item>
                       })}
@@ -37,7 +37,7 @@ const Header = ({ dispatch, header, form }) => {
               }
                 return (
                   <Item key={item.key}>
-                    <Icon type="appstore" />{item.title}
+                    {item.title}
                   </Item>
               )
             })}
