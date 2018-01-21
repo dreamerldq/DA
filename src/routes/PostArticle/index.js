@@ -10,10 +10,11 @@ const FormItem = Form.Item;
 const PostArticle = ({ dispatch, form }) => {
   const { getFieldDecorator, getFieldValue } = form;
   const handleHTMLChange = (htmlContent) => {
-    dispatch({ type: 'header/saveHTMLContent', payload: htmlContent })
+    dispatch({ type: 'postArticle/saveArticleContent', payload: htmlContent })
   }
   const submit = () => {
     const title = form.getFieldValue('articleTitle')
+    dispatch({ type: 'postArticle/postArticle', payload: title })
   }
   const editorProps = {
     contentFormat: 'html',
@@ -21,7 +22,6 @@ const PostArticle = ({ dispatch, form }) => {
     initialContent: '',
     onHTMLChange: handleHTMLChange,
     viewWrapper: '.article',
-    // 增加自定义预览按钮
     extendControls: [
 
     ],
