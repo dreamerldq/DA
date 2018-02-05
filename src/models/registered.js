@@ -1,6 +1,6 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
-import createUser from '../services/login';
+import createUser from '../services/registered';
 
 export default {
 
@@ -23,7 +23,8 @@ export default {
   },
 
   effects: {
-    * saveUserData({ payload }, { call, put }) {
+    * createProfile({ payload }, { call, put }) {
+      console.log('sssss', payload)
       const { data, err } = yield call(createUser, { user: payload });
       if (!err) {
         console.log('注册用户成功', data)

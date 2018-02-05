@@ -7,11 +7,20 @@ import Content from './Content/index'
 import configs from './configs'
 import './index.css'
 
-const Registered = ({ registered, form }) => {
-  const { getFieldsValue } = form
+const Registered = ({ dispatch, registered, form }) => {
+  const { getFieldsValue, validateFields } = form
   const createProfile = () => {
-    const value = getFieldsValue()
-    console.log('这是表单中的所有的值', value)
+    const values = getFieldsValue()
+    console.log('按钮被点击', values)
+    dispatch({ type: 'registered/createProfile', payload: values })
+    // validateFields((values, errors) => {
+    //   if (!errors) {
+    //     console.log('这是表单中的所有的值', values)
+
+    //   } else {
+    //     console.log('校验出现了错误', errors)
+    //   }
+    // })
   }
   return (
     <div className="profile_Container">
