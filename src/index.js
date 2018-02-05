@@ -12,7 +12,8 @@ const app = dva();
 [
   'header',
   'newsNotice',
-  'newsNoticeDetail'
+  'newsNoticeDetail',
+  'login'
 ].forEach((model) => {
   app.model(require(`./models/${model}`).default)
 })

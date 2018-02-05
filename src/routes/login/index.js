@@ -4,6 +4,7 @@ import { connect } from 'dva';
 import _ from 'lodash';
 import { routerRedux } from 'dva/router';
 import './index.css'
+import login from '../../models/login';
 
 const AdminLogin = ({ form, visible, dispatch }) => {
   const FormItem = Form.Item
@@ -11,6 +12,7 @@ const AdminLogin = ({ form, visible, dispatch }) => {
   const handleOk = () => {
     validateFields((err, values) => {
       if (!err) {
+        dispatch({ type: 'login/saveUserData', payload: values })
       } else {
       }
     })
@@ -20,6 +22,11 @@ const AdminLogin = ({ form, visible, dispatch }) => {
       pathname: '/'
     }));
   }
+  const registered = () => {
+    dispatch(routerRedux.push({
+      pathname: '/Registered'
+    }))
+  }
   return (
     <div className="login_container">
       <div className="login_container_inner">
@@ -27,7 +34,7 @@ const AdminLogin = ({ form, visible, dispatch }) => {
           <Row className="login_container_form">
             <Col>
               <FormItem >
-                {getFieldDecorator('userName', {
+                {getFieldDecorator('username', {
             rules: [{ required: true, message: 'Please input your username!' }]
           })(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />)}
               </FormItem>
@@ -39,7 +46,7 @@ const AdminLogin = ({ form, visible, dispatch }) => {
               <FormItem >
                 {getFieldDecorator('password', {
             rules: [{ required: true, message: 'Please input your Password!' }]
-          })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />)}
+          })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Password" />)}
               </FormItem>
 
             </Col>
@@ -53,7 +60,7 @@ const AdminLogin = ({ form, visible, dispatch }) => {
             <a>忘记密码？</a>
           </Col>
           <Col span={8} offset={10}>
-            <a>注册</a>/<a onClick={normal}>游客登录</a>
+            <a onClick={registered}>注册</a>/<a onClick={normal}>游客登录</a>
           </Col>
         </Row>
       </div>
@@ -61,5 +68,10 @@ const AdminLogin = ({ form, visible, dispatch }) => {
 
 
   )
+}
+const mapStateToProps = ({ login }) => {
+  return {
+    login
+  }
 }
 export default Form.create()(connect()(AdminLogin))

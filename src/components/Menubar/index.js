@@ -2,9 +2,8 @@ import React, { PropTypes } from 'react'
 import { Menu, Affix } from 'antd';
 import { Link, Events, scrollSpy } from 'react-scroll';
 import './index.css'
-import configs from '../configs'
 
-const MenuBar = () => {
+const MenuBar = ({ configs }) => {
   return (
     <div>
       <Affix>

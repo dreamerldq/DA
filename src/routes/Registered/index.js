@@ -1,45 +1,31 @@
-import React from 'react';
-import { Icon, Button, Modal, Form, Input, Col, Row, Checkbox } from 'antd';
-import { connect } from 'dva';
-import _ from 'lodash';
-import { routerRedux } from 'dva/router';
-import basicInfo from './basicInfo'
-import Avatar from '../../components/upload'
+import React, { PropTypes, Component } from 'react'
+import { connect } from 'dva'
+import { Menu, Affix, Button, Form } from 'antd';
+import { Link, Events, scrollSpy } from 'react-scroll';
+import MenuBar from '../../components/Menubar'
+import Content from './Content/index'
+import configs from './configs'
+import './index.css'
 
-const Registered = ({ form, visible, dispatch }) => {
-  const FormItem = Form.Item
-  const { getFieldDecorator, validateFields } = form;
+const Registered = ({ registered, form }) => {
+  const { getFieldsValue } = form
+  const createProfile = () => {
+    const value = getFieldsValue()
+    console.log('这是表单中的所有的值', value)
+  }
   return (
-    <div >
-      <div >
-        <Avatar />
-        <Form>
-          {
-              basicInfo.map((item) => {
-                return (
-                  <Row>
-                    <Col span={12}>
-                      <Col span={4}>
-                        {item.lable}
-                      </Col>
-                      <Col span={20}>
-                        <FormItem >
-                          {getFieldDecorator(`${item.key}`, {
-            rules: [{ required: true, message: `${item.placeholder}为必填项!` }]
-          })(<Input placeholder={`${item.placeholder}`} />)}
-                        </FormItem>
-                      </Col>
-
-                    </Col>
-                  </Row>
-                )
-              })
-            }
-        </Form>
+    <div className="profile_Container">
+      <MenuBar configs={configs} />
+      <Content form={form} />
+      <div style={{ position: 'fixed', bottom: '0px' }}>
+        <Button onClick={createProfile}>创建教师档案</Button>
       </div>
     </div>
-
-
-  )
+  );
+}
+const mapStateToProps = ({ registered }) => {
+  return {
+    registered
+  }
 }
 export default Form.create()(connect()(Registered))
