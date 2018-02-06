@@ -1,24 +1,21 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
-// import {
-//   updateArticle
-// } from '.././services/teachersDetails';
+
 
 export default {
 
-  namespace: 'teachersDetails',
+  namespace: 'teacherList',
 
   state: {
+    key: 'DigitalMediaTechnologyTeam'
   },
 
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen(({ pathname, search }) => {
-        const query = queryString.parse(search)
-        const match = pathToRegexp('/teachersDetails').exec(pathname);
-        if (match) {
-        }
+        const path = pathname.split('/')[1]
+        dispatch({ type: 'saveKey', payload: path })
       })
     }
   },
@@ -32,8 +29,8 @@ export default {
   },
 
   reducers: {
-    save(state, action) {
-      return { ...state, ...action.payload };
+    saveKey(state, { payload }) {
+      return { ...state, key: payload };
     }
   }
 

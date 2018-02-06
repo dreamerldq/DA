@@ -3,14 +3,21 @@ import { connect } from 'dva';
 import _ from 'lodash';
 import DetailsTable from '../../components/DetailsTable'
 import { professionalTable } from '../../data'
+import TeachersList from '../../components/TeachersList'
 
-const FilmPhotographyTeam = ({ dispatch, departmentProfile }) => {
+const FilmPhotographyTeam = ({ dispatch }) => {
   return (
     <div>
-      <DetailsTable dataSource={professionalTable} />
+      <TeachersList />
+      <div>
+        <DetailsTable dataSource={professionalTable} />
+      </div>
     </div>
   )
 }
-FilmPhotographyTeam.propTypes = {
-};
-export default connect()(FilmPhotographyTeam);
+const mapStateToProps = () => {
+  return {
+
+  }
+}
+export default connect(mapStateToProps)(FilmPhotographyTeam);

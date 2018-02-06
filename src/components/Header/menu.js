@@ -50,7 +50,7 @@ export default [
       },
       {
         title: '师资详情',
-        key: 'TeachersDetails'
+        key: 'DigitalMediaTechnologyTeam'
       }
     ]
   },
