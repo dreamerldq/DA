@@ -5,20 +5,21 @@ import DetailsTable from '../../components/DetailsTable'
 import { professionalTable } from '../../data'
 import TeachersList from '../../components/TeachersList'
 
-const DigitalMediaArtTeam = ({ dispatch }) => {
+const DigitalMediaArtTeam = ({ dispatch, digitalMediaArtTeam }) => {
+  const dataSource = digitalMediaArtTeam.user
   return (
     <div>
       <TeachersList />
       <div>
-        <DetailsTable dataSource={professionalTable} />
+        <DetailsTable dataSource={dataSource} />
       </div>
     </div>
 
   )
 }
-const mapStateToProps = () => {
+const mapStateToProps = ({ digitalMediaArtTeam }) => {
   return {
-
+    digitalMediaArtTeam
   }
 }
 export default connect(mapStateToProps)(DigitalMediaArtTeam);

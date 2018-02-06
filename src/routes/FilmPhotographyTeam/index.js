@@ -5,19 +5,20 @@ import DetailsTable from '../../components/DetailsTable'
 import { professionalTable } from '../../data'
 import TeachersList from '../../components/TeachersList'
 
-const FilmPhotographyTeam = ({ dispatch }) => {
+const FilmPhotographyTeam = ({ dispatch, filmPhotographyTeam }) => {
+  const dataSource = filmPhotographyTeam.user
   return (
     <div>
       <TeachersList />
       <div>
-        <DetailsTable dataSource={professionalTable} />
+        <DetailsTable dataSource={dataSource} />
       </div>
     </div>
   )
 }
-const mapStateToProps = () => {
+const mapStateToProps = ({ filmPhotographyTeam }) => {
   return {
-
+    filmPhotographyTeam
   }
 }
 export default connect(mapStateToProps)(FilmPhotographyTeam);

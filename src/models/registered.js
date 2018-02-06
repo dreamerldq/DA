@@ -1,6 +1,6 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
-import createUser from '../services/registered';
+import { createUser } from '../services/registered';
 
 export default {
 

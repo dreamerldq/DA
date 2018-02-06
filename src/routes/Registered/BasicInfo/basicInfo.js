@@ -1,8 +1,8 @@
 const basicInfo = [
   {
-    lable: '账号',
+    lable: '教师工号',
     key: 'username',
-    placeholder: '账号'
+    placeholder: '教师工号'
   },
   {
     lable: '密码',

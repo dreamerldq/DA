@@ -5,19 +5,21 @@ import DetailsTable from '../../components/DetailsTable'
 import { professionalTable } from '../../data'
 import TeachersList from '../../components/TeachersList'
 
-const VisualCommunicationDesignTeam = ({ dispatch }) => {
+const VisualCommunicationDesignTeam = ({ dispatch, visualCommunicationDesignTeam }) => {
+  const dataSource = visualCommunicationDesignTeam.user
+  console.log('data', dataSource)
   return (
     <div>
       <TeachersList />
       <div>
-        <DetailsTable dataSource={professionalTable} />
+        <DetailsTable dataSource={dataSource} />
       </div>
     </div>
   )
 }
-const mapStateToProps = () => {
+const mapStateToProps = ({ visualCommunicationDesignTeam }) => {
   return {
-
+    visualCommunicationDesignTeam
   }
 }
 export default connect(mapStateToProps)(VisualCommunicationDesignTeam);

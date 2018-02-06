@@ -2,8 +2,7 @@ import _ from 'lodash'
 import request from '../utils/request';
 
 const url = 'http://127.0.0.1:3000/users'
-export default async function createUser(params) {
-  console.log('这是转换成json的数据', JSON.stringify(params))
+export async function createUser(params) {
   return request(url, {
     method: 'POST',
     headers: _.pickBy({
@@ -12,3 +11,12 @@ export default async function createUser(params) {
     body: JSON.stringify(params)
   });
 }
+export async function getUser(params) {
+  return request(`http://127.0.0.1:3000/users/${params}`, {
+    method: 'GET',
+    headers: _.pickBy({
+      'Content-Type': 'application/json'
+    })
+  });
+}
+
