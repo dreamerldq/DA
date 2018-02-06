@@ -27,6 +27,11 @@ export default {
   effects: {
     * createNews({ payload }, { select, call, put }) {
       const { data, err } = yield call(createUser, { news: payload });
+      if (!err) {
+        console.log('这是返回的Data', data)
+      } else {
+        console.log('请求失败')
+      }
     }
   },
 

@@ -3,11 +3,10 @@ import { connect } from 'dva';
 import { newsContainer, newsTitle } from '../../data'
 
 const NewsNoticeDetail = ({ dispatch, newsNoticeDetail }) => {
-  const { id } = newsNoticeDetail
+  const { news } = newsNoticeDetail
   return (
-    <div key={id}>
-      <h1>{newsTitle[id].title}</h1>
-      <p>{newsContainer[id].body}</p>
+    <div>
+      <div dangerouslySetInnerHTML={{ __html: news.content }} />
     </div>
 
   )

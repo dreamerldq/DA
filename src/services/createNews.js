@@ -11,8 +11,8 @@ export async function createUser(params) {
     body: JSON.stringify(params)
   });
 }
-export async function getUser(params) {
-  return request(`http://127.0.0.1:3000/news/${params}`, {
+export async function getNews() {
+  return request('http://127.0.0.1:3000/news', {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'

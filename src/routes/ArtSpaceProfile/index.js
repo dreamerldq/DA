@@ -1,15 +1,13 @@
 import React from 'react';
 import { connect } from 'dva';
 
-const ArtSpaceProfile = ({ dispatch, postArticle }) => {
-  const { content, title } = postArticle
+const ArtSpaceProfile = ({ dispatch }) => {
   return (
-    <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div>这里是艺创空间</div>
 
   )
 }
-const mapStateToProps = ({ artSpaceProfile, postArticle }) => ({
-  artSpaceProfile,
-  postArticle
+const mapStateToProps = () => ({
+
 })
 export default connect(mapStateToProps)(ArtSpaceProfile)
