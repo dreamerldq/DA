@@ -16,11 +16,13 @@ const app = dva();
   'login',
   'registered',
   'teacherList',
+  'teacherDetail',
   'digitalMediaTechnologyTeam',
   'animationTeam',
   'digitalMediaArtTeam',
   'filmPhotographyTeam',
-  'visualCommunicationDesignTeam'
+  'visualCommunicationDesignTeam',
+  'createNews'
 ].forEach((model) => {
   app.model(require(`./models/${model}`).default)
 })

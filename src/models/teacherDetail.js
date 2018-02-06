@@ -1,46 +1,57 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
-import createUser from '../services/teacherDetail';
+import getUser from '../services/teacherDetail';
 
 export default {
 
   namespace: 'teacherDetail',
 
   state: {
-    id: null,
-    user: null
+    user: {},
+    loading: true
   },
 
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen((location) => {
         const { pathname, query } = location;
-        const match = pathToRegexp('/teacherDetail/:id+').exec(pathname);
+        const match = pathToRegexp('/TeacherDetail/:id+').exec(pathname);
         if (match) {
-          dispatch({ type: 'saveFetchId', payload: match[1] })
+          console.log('ASAAAA')
+          dispatch({ type: 'fetchUser', payload: match[1] })
+        } else {
+          console.log('1111')
         }
       })
     }
   },
 
   effects: {
-    * fetchProfileInfo({ payload }, { call, put, select }) {
-      const { id } = yield select(state => state.teacherDetail);
-      const { data, err } = yield call(createUser, id);
+    * fetchUser({ payload }, { call, put, select }) {
+      console.log('开始获取')
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(getUser, payload);
       if (!err) {
-        console.log('注册用户成功', data)
+        console.log('获取单个员工记录', data)
         yield put({ type: 'saveRecord', payload: data })
+        yield put({ type: 'endSpin' })
+      } else {
+        console.log('获取失败')
       }
     }
   },
 
 
   reducers: {
-    saveFetchId(state, { payload }) {
-      return { ...state, id: payload }
-    },
     saveRecord(state, { payload }) {
+      console.log('成功读取了数据')
       return { ...state, user: payload }
+    },
+    startSpin(state, { payload }) {
+      return { ...state, loading: true }
+    },
+    endSpin(state, { payload }) {
+      return { ...state, loading: false }
     }
   }
 

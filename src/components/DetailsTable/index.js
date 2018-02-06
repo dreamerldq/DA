@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Tabs } from 'antd';
 import { connect } from 'dva';
-import { Link } from 'dva/router'
+import { routerRedux, Link } from 'dva/router';
 import _ from 'lodash';
 import column from './column'
 import { professionalTable } from '../../data'

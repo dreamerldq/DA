@@ -1,20 +1,24 @@
 import React from 'react';
 import { connect } from 'dva';
 import _ from 'lodash';
+import { Spin } from 'antd'
+
 import DetailsTable from '../../components/DetailsTable'
 import { professionalTable } from '../../data'
 import TeachersList from '../../components/TeachersList'
 
-const VisualCommunicationDesignTeam = ({ dispatch, visualCommunicationDesignTeam }) => {
-  const dataSource = visualCommunicationDesignTeam.user
-  console.log('data', dataSource)
+const VisualCommunicationDesignTeam = ({ dispatch, visualCommunicationDesignTeam: model }) => {
+  const dataSource = model.user
+  const { loading } = model
   return (
-    <div>
-      <TeachersList />
+    <Spin spinning={loading}>
       <div>
-        <DetailsTable dataSource={dataSource} />
+        <TeachersList />
+        <div>
+          <DetailsTable dataSource={dataSource} />
+        </div>
       </div>
-    </div>
+    </Spin>
   )
 }
 const mapStateToProps = ({ visualCommunicationDesignTeam }) => {

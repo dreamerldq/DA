@@ -7,7 +7,8 @@ export default {
   namespace: 'filmPhotographyTeam',
 
   state: {
-    user: []
+    user: [],
+    loading: true
   },
 
   subscriptions: {
@@ -26,9 +27,11 @@ export default {
   effects: {
     * getProfile({ payload }, { call, put }) {
       console.log('开始执行请求')
+      yield put({ type: 'startSpin' })
       const { data, err } = yield call(getUser, payload);
       if (!err) {
         yield put({ type: 'save', payload: data })
+        yield put({ type: 'endSpin' })
       } else {
         console.log(err)
       }
@@ -38,6 +41,12 @@ export default {
   reducers: {
     save(state, { payload }) {
       return { ...state, user: payload };
+    },
+    startSpin(state, { payload }) {
+      return { ...state, loading: true }
+    },
+    endSpin(state, { payload }) {
+      return { ...state, loading: false }
     }
   }
 

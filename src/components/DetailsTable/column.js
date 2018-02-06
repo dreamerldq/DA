@@ -1,4 +1,5 @@
 import React from 'react';
+import { routerRedux, Link } from 'dva/router';
 
 const column = [
   {
@@ -35,9 +36,9 @@ const column = [
     key: 'operate',
     dataIndex: 'operate',
     title: '操作',
-    render: (text, render, index) => {
+    render: (text, record, index) => {
       return (
-        <span><a href={`/TeachersDetails:${render.id}`}>详情</a></span>
+        <span><Link to={`/TeacherDetail/${record.id}`}>详情</Link></span>
       )
     }
   }

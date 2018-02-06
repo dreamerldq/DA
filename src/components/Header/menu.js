@@ -114,7 +114,7 @@ export default [
   },
   {
     title: '发布文章',
-    key: 'PostArticle',
+    key: 'CreateNews',
     subTitle: null
   },
   {
