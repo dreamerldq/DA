@@ -19,4 +19,12 @@ export async function getNews() {
     })
   });
 }
+export async function deleteNews(id) {
+  return request(`http://127.0.0.1:3000/news/${id}`, {
+    method: 'DELETE',
+    headers: _.pickBy({
+      'Content-Type': 'application/json'
+    })
+  });
+}
 

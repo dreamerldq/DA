@@ -10,7 +10,6 @@ import DepartmentSummary from './routes/DepartmentSummary/index'
 import AdminLogin from './routes/login/index'
 import ArtSpaceProfile from './routes/ArtSpaceProfile'
 import FacultyProfiles from './routes/FacultyProfiles'
-import ArticleEdit from './routes/ArticleEdit'
 import Registered from './routes/Registered'
 import DigitalMediaArtTeam from './routes/DigitalMediaArtTeam'
 import DigitalMediaTechnologyTeam from './routes/DigitalMediaTechnologyTeam'
@@ -43,7 +42,6 @@ export default ({ history }) => {
 
             <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
             <Route path="/FacultyProfiles" component={FacultyProfiles} />
-            <Route path="/ArticleEdit" component={ArticleEdit} />
             <Route path="/Registered" component={Registered} />
             <Route path="/" component={ArtIndex} />
           </Switch>

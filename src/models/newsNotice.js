@@ -1,7 +1,7 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
-import { getNews } from '../services/createNews';
+import { getNews, deleteNews } from '../services/createNews';
 
 export default {
 
@@ -9,7 +9,9 @@ export default {
 
   state: {
     newsList: [],
-    loading: true
+    loading: true,
+    modalVisible: false,
+    id: null
   },
 
   subscriptions: {
@@ -36,6 +38,19 @@ export default {
       } else {
         console.log('请求失败')
       }
+    },
+    * deleteNewsRecord({ payload }, { call, put, select }) {
+      const { id } = yield select(state => state.newsNotice)
+      console.log('将要删除的是', id)
+      yield put({ type: 'hiddenModal' })
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(deleteNews, id)
+      if (!err) {
+        yield put({ type: 'saveRecord', payload: data })
+        yield put({ type: 'endSpin' })
+      } else {
+        console.log('请求失败')
+      }
     }
   },
 
@@ -48,6 +63,15 @@ export default {
     },
     saveRecord(state, { payload }) {
       return { ...state, newsList: payload }
+    },
+    showModal(state, { payload }) {
+      return { ...state, modalVisible: true }
+    },
+    hiddenModal(state, { payload }) {
+      return { ...state, modalVisible: false }
+    },
+    saveID(state, { payload }) {
+      return { ...state, id: payload }
     }
   }
 
