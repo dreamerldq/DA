@@ -68,7 +68,7 @@ export default [
       },
       {
         title: '双创项目',
-        key: 'DoubleProject'
+        key: 'ventureProject'
       },
       {
         title: '创业典范',

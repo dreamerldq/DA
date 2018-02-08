@@ -23,6 +23,9 @@ import StudioIntroductionListCreate from './routes/StudioIntroductionListCreate'
 import ProfessionCreate from './routes/Profession/ProfessionCreate'
 import StudioIntroductionDetail from './routes/StudioIntroductionDetail'
 import ProfessionDetail from './routes/Profession/ProfessionDetail'
+import VentureProjectCreate from './routes/VentureProject/VentureProjectCreate'
+import VentureProjectDetail from './routes/VentureProject/VentureProjectDetail'
+import VentureProjectList from './routes/VentureProject/VentureProjectList'
 
 export default ({ history }) => {
   return (
@@ -39,9 +42,14 @@ export default ({ history }) => {
             <Route path="/VisualCommunicationDesignTeam" component={VisualCommunicationDesignTeam} />
             {/* 师资介绍 end */}
 
+            {/* 创业项目 start */}
+            <Route path="/VentureProject/create" component={VentureProjectCreate} />
+            <Route path="/VentureProject/detail/:id" component={VentureProjectDetail} />
+            <Route path="/VentureProject" component={VentureProjectList} />
+            {/* 创业项目 end */}
+
             <Route path="/NewsNotice" component={NewsNotice} />
             <Route path="/ProfileManagement" component={ProfileManagement} />
-
             <Route path="/News/detail/:id" component={NewsNoticeDetail} />
             <Route path="/TeacherDetail/:id" component={TeacherDetail} />
             <Route path="/CreateNews" component={CreateNews} />
@@ -52,10 +60,10 @@ export default ({ history }) => {
             <Route path="/ProfessionCreate" component={ProfessionCreate} />
             <Route path="/ProfessionIntroduction/:profession" component={ProfessionDetail} />
             <Route path="/Login" component={AdminLogin} />
-
             <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
             <Route path="/FacultyProfiles" component={FacultyProfiles} />
             <Route path="/Registered" component={Registered} />
+
             <Route path="/" component={ArtIndex} />
           </Switch>
 
