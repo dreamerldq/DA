@@ -17,6 +17,10 @@ import FilmPhotographyTeam from './routes/FilmPhotographyTeam'
 import VisualCommunicationDesignTeam from './routes/VisualCommunicationDesignTeam'
 import AnimationTeam from './routes/AnimationTeam'
 import TeacherDetail from './routes/TeacherDetail/index'
+import StudioIntroductionList from './routes/StudioIntroductionList'
+import ProfileManagement from './routes/ProfileManagement'
+import StudioIntroductionListCreate from './routes/StudioIntroductionListCreate'
+import StudioIntroductionDetail from './routes/StudioIntroductionDetail'
 
 export default ({ history }) => {
   return (
@@ -34,10 +38,15 @@ export default ({ history }) => {
             {/* 师资介绍 end */}
 
             <Route path="/NewsNotice" component={NewsNotice} />
+            <Route path="/ProfileManagement" component={ProfileManagement} />
+
             <Route path="/News/detail/:id" component={NewsNoticeDetail} />
             <Route path="/TeacherDetail/:id" component={TeacherDetail} />
             <Route path="/CreateNews" component={CreateNews} />
             <Route path="/DepartmentSummary" component={DepartmentSummary} />
+            <Route path="/StudioIntroduction/:id" component={StudioIntroductionDetail} />
+            <Route path="/StudioIntroduction/create" component={StudioIntroductionListCreate} />
+            <Route path="/StudioIntroductionList" component={StudioIntroductionList} />
             <Route path="/Login" component={AdminLogin} />
 
             <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />

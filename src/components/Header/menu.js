@@ -118,8 +118,8 @@ export default [
     subTitle: null
   },
   {
-    title: '编辑文章',
-    key: 'ArticleEdit',
+    title: '概况管理',
+    key: 'ProfileManagement',
     subTitle: null
   }
 ]

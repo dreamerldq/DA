@@ -22,7 +22,11 @@ const app = dva();
   'digitalMediaArtTeam',
   'filmPhotographyTeam',
   'visualCommunicationDesignTeam',
-  'createNews'
+  'createNews',
+  'studioIntroductionList',
+  'studioIntroductionListCreate',
+  'profileManagement',
+  'studioIntroductionDetail'
 ].forEach((model) => {
   app.model(require(`./models/${model}`).default)
 })
