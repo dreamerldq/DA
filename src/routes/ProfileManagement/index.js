@@ -4,6 +4,7 @@ import { Tabs } from 'antd';
 import { routerRedux } from 'dva/router';
 import _ from 'lodash';
 import StudioIntroductionList from '../StudioIntroductionList';
+import ProfessionList from '../Profession/ProfessionList';
 
 import './index.css'
 
@@ -12,7 +13,7 @@ const { TabPane } = Tabs;
 const ProfileManagement = ({ dispatch, profileManagement }) => {
   const callback = (key) => {
     console.log('KEY', key)
-    dispatch({ type: 'profileManagement/saveTab', payload: key })
+    dispatch({ type: 'profileManagement/changeTab', payload: key })
   }
   return (
     <div className="ProfileManagement">
@@ -20,7 +21,9 @@ const ProfileManagement = ({ dispatch, profileManagement }) => {
         <TabPane tab="工作室" key="studio" >
           <StudioIntroductionList />
         </TabPane>
-        <TabPane tab="专业" key="profession" />
+        <TabPane tab="专业" key="profession" >
+          <ProfessionList />
+        </TabPane>
       </Tabs>
     </div>
   )

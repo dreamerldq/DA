@@ -26,7 +26,8 @@ const app = dva();
   'studioIntroductionList',
   'studioIntroductionListCreate',
   'profileManagement',
-  'studioIntroductionDetail'
+  'studioIntroductionDetail',
+  'professionCreate'
 ].forEach((model) => {
   app.model(require(`./models/${model}`).default)
 })

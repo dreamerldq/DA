@@ -20,7 +20,9 @@ import TeacherDetail from './routes/TeacherDetail/index'
 import StudioIntroductionList from './routes/StudioIntroductionList'
 import ProfileManagement from './routes/ProfileManagement'
 import StudioIntroductionListCreate from './routes/StudioIntroductionListCreate'
+import ProfessionCreate from './routes/Profession/ProfessionCreate'
 import StudioIntroductionDetail from './routes/StudioIntroductionDetail'
+import ProfessionDetail from './routes/Profession/ProfessionDetail'
 
 export default ({ history }) => {
   return (
@@ -47,6 +49,8 @@ export default ({ history }) => {
             <Route path="/StudioIntroduction/:id" component={StudioIntroductionDetail} />
             <Route path="/StudioIntroduction/create" component={StudioIntroductionListCreate} />
             <Route path="/StudioIntroductionList" component={StudioIntroductionList} />
+            <Route path="/ProfessionCreate" component={ProfessionCreate} />
+            <Route path="/ProfessionIntroduction/:profession" component={ProfessionDetail} />
             <Route path="/Login" component={AdminLogin} />
 
             <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />

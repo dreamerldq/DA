@@ -20,23 +20,23 @@ export default [
     subTitle: [
       {
         title: '视觉传达设计',
-        key: 'VisualCommunicationDesign'
+        key: 'ProfessionIntroduction/VisualCommunicationDesign'
       },
       {
         title: '数字媒体技术',
-        key: 'DigitalMediaTechnology'
+        key: 'ProfessionIntroduction/DigitalMediaTechnology'
       },
       {
         title: '数字媒体艺术',
-        key: 'DigitalMediaArt'
+        key: 'ProfessionIntroduction/DigitalMediaArt'
       },
       {
         title: '动画专业',
-        key: 'Animation'
+        key: 'ProfessionIntroduction/Animation'
       },
       {
         title: '影视摄影与制作',
-        key: 'FilmPhotography'
+        key: 'ProfessionIntroduction/FilmPhotography'
       }
     ]
   },

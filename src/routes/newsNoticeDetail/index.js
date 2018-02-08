@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
 import { newsContainer, newsTitle } from '../../data'
+import './index.css'
 
 const NewsNoticeDetail = ({ dispatch, newsNoticeDetail }) => {
   const { news } = newsNoticeDetail
   return (
-    <div>
+    <div className="newsDetailContainer">
       <div dangerouslySetInnerHTML={{ __html: news.content }} />
     </div>
 

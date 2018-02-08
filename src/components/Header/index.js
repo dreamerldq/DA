@@ -9,8 +9,12 @@ const { SubMenu } = Menu;
 const MenuItemGroup = Menu.ItemGroup;
 const { Item } = Menu
 
-const Header = ({ dispatch, header, form }) => {
+const Header = ({
+  dispatch, header, form, profileManagement
+}) => {
   const { modelVisiable } = header;
+  const { profession } = profileManagement
+  console.log('这是公共的数据', profession)
   const handleClick = (e) => {
     dispatch({ type: 'header/link', payload: e.key })
   }
@@ -50,7 +54,7 @@ const Header = ({ dispatch, header, form }) => {
 
 Header.propTypes = {
 };
-const mapStateToProps = ({ header }) => ({
-  header
+const mapStateToProps = ({ header, profileManagement }) => ({
+  header, profileManagement
 });
 export default connect(mapStateToProps)(Header);
