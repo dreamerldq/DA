@@ -28,7 +28,8 @@ const app = dva();
   'profileManagement',
   'studioIntroductionDetail',
   'professionCreate',
-  'ventureProject'
+  'ventureProject',
+  'campusCulture'
 ].forEach((model) => {
   app.model(require(`./models/${model}`).default)
 })

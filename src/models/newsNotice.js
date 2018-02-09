@@ -1,7 +1,7 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
-import { getNews, deleteNews } from '../services/createNews';
+import { getNews, deleteNews } from '../services/news';
 
 export default {
 

@@ -1,17 +1,18 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
-import { getNews, deleteNews } from '../services/news';
+import { getNews, deleteNews, getNewsDetail } from '../services/news';
 
 export default {
 
-  namespace: 'studioIntroductionList',
+  namespace: 'campusCulture',
 
   state: {
-    newsList: [],
+    allRecord: [],
     loading: true,
     modalVisible: false,
-    id: null
+    id: null,
+    record: {}
   },
 
   subscriptions: {
@@ -19,37 +20,53 @@ export default {
       history.listen(({ pathname, search }) => {
         const id = queryString.parse(search)
         dispatch({ type: 'saveFetchId', payload: id })
-        const match = pathToRegexp('/NewsNotice').exec(pathname);
-        if (match) {
+        const matchList = pathToRegexp('/CampusCulture').exec(pathname);
+        const matchDetail = pathToRegexp('/CampusCulture/:id').exec(pathname);
+        if (matchList) {
           dispatch({ type: 'getNewsList' })
+        }
+        if (matchDetail) {
+          dispatch({ type: 'getNewsDetails', payload: matchDetail[1] })
         }
       })
     }
   },
 
   effects: {
+    * getNewsDetails({ payload }, { call, put }) {
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(getNewsDetail, payload)
+      if (!err) {
+        yield put({ type: 'saveRecord', payload: data })
+        yield put({ type: 'endSpin' })
+      }
+    },
     * getNewsList({ payload }, { call, put }) {
       yield put({ type: 'startSpin' })
       const { data, err } = yield call(getNews)
       if (!err) {
-        yield put({ type: 'saveRecord', payload: data })
+        const allRecord = data.filter((item) => {
+          return item.articleType === 'campusCulture'
+        })
+        yield put({ type: 'saveAllRecord', payload: allRecord })
         yield put({ type: 'endSpin' })
-        console.log('这是返回的新闻列表', data)
       } else {
-        console.log('请求失败')
+
       }
     },
     * deleteNewsRecord({ payload }, { call, put, select }) {
-      const { id } = yield select(state => state.newsNotice)
-      console.log('将要删除的是', id)
+      const { id } = yield select(state => state.campusCulture)
+
       yield put({ type: 'hiddenModal' })
       yield put({ type: 'startSpin' })
       const { data, err } = yield call(deleteNews, id)
       if (!err) {
-        yield put({ type: 'saveRecord', payload: data })
+        const allRecord = data.filter((item) => {
+          return item.articleType === 'campusCulture'
+        })
+        yield put({ type: 'saveAllRecord', payload: allRecord })
         yield put({ type: 'endSpin' })
       } else {
-        console.log('请求失败')
       }
     }
   },
@@ -61,8 +78,11 @@ export default {
     endSpin(state, { payload }) {
       return { ...state, loading: false }
     },
+    saveAllRecord(state, { payload }) {
+      return { ...state, allRecord: payload }
+    },
     saveRecord(state, { payload }) {
-      return { ...state, newsList: payload }
+      return { ...state, record: payload }
     },
     showModal(state, { payload }) {
       return { ...state, modalVisible: true }

@@ -1,7 +1,7 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
-import getNewsDetail from '../services/newsDetail';
+import { getNewsDetail } from '../services/news';
 
 export default {
 
@@ -17,10 +17,8 @@ export default {
         const query = queryString.parse(search)
         const match = pathToRegexp('/News/detail/:id+').exec(pathname);
         if (match) {
-          console.log('ASAAAA')
           dispatch({ type: 'fetchUser', payload: match[1] })
         } else {
-          console.log('1111')
         }
       })
     }

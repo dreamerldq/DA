@@ -3,7 +3,7 @@ import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
 import {
   createUser
-} from '.././services/createNews';
+} from '.././services/news';
 
 export default {
 

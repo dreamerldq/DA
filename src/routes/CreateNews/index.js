@@ -1,18 +1,19 @@
 import React from 'react'
-import { Row, Col, Input, Button, Form } from 'antd'
+import { Row, Col, Input, Button, Form, Select } from 'antd'
 import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/braft.css'
 import { connect } from 'dva';
 import './index.css'
 
 const FormItem = Form.Item;
-
+const { Option } = Select;
 class CreateNews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       content: '',
-      title: ''
+      title: '',
+      articleType: ''
     };
     this.handleHTMLChange = this.handleHTMLChange.bind(this)
     this.submit = this.submit.bind(this)
@@ -25,8 +26,10 @@ class CreateNews extends React.Component {
   submit() {
     const { form, dispatch } = this.props
     const title = form.getFieldValue('articleTitle')
+    const articleType = form.getFieldValue('articleType')
     this.setState({
-      title
+      title,
+      articleType
     }, () => {
       dispatch({ type: 'createNews/createNews', payload: this.state })
     })
@@ -56,19 +59,35 @@ class CreateNews extends React.Component {
     }
     return (
       <div className="postArticle_container">
-        <Row>
+
+
+        <Form>
+          <Row>
          标题：
-        </Row>
-        <Row>
-          <Form>
+          </Row>
+          <Row>
             <FormItem>
               {getFieldDecorator('articleTitle', {
-            rules: [{ required: true, message: '请输入文章标题!' }]
+            rules: [{ required: true, message: '请选择将要生成文章的类型!' }]
           })(<Input style={{ textAlign: 'center', marginBottom: '5px' }} placeholder="请输入文章标题" />)}
             </FormItem>
-          </Form>
+          </Row>
+          <Row>
+         类型：
+          </Row>
+          <Row>
+            <FormItem>
+              {getFieldDecorator('articleType', {
+            rules: [{ required: true, message: '请输入文章标题!' }]
+          })(<Select>
+            <Option value="campusCulture">校园文化</Option>
+            <Option value="news">新闻通知</Option>
+          </Select>)}
+            </FormItem>
+          </Row>
+        </Form>
 
-        </Row>
+
         <Row>
          正文：
         </Row>

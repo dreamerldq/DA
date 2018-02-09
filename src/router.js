@@ -26,6 +26,8 @@ import ProfessionDetail from './routes/Profession/ProfessionDetail'
 import VentureProjectCreate from './routes/VentureProject/VentureProjectCreate'
 import VentureProjectDetail from './routes/VentureProject/VentureProjectDetail'
 import VentureProjectList from './routes/VentureProject/VentureProjectList'
+import CampusCultureList from './routes/CampusCulture/CampusCultureList'
+import CampusCultureDetail from './routes/CampusCulture/CampusCultureDetail'
 
 export default ({ history }) => {
   return (
@@ -47,6 +49,11 @@ export default ({ history }) => {
             <Route path="/VentureProject/detail/:id" component={VentureProjectDetail} />
             <Route path="/VentureProject" component={VentureProjectList} />
             {/* 创业项目 end */}
+
+            {/* 校园文化 start */}
+            <Route path="/CampusCulture/:id" component={CampusCultureDetail} />
+            <Route path="/CampusCulture" component={CampusCultureList} />
+            {/* 校园文化 end */}
 
             <Route path="/NewsNotice" component={NewsNotice} />
             <Route path="/ProfileManagement" component={ProfileManagement} />
