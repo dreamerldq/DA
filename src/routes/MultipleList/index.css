@@ -1,0 +1,15 @@
+
+.profile_Container{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.registered_container_lable{
+    line-height: 40px;
+    height: 32px;
+}
+.registered_container_form{
+    line-height: 32px;
+    height: 32px;
+}

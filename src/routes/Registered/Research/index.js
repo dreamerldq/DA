@@ -1,8 +1,10 @@
 import React from 'react';
+import MultipleList from '../../MultipleList'
 
 const Research = () => {
   return (
-    <div>科研</div>
+
+    <MultipleList catagory="research" />
   )
 }
 export default Research

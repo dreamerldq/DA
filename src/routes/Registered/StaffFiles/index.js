@@ -75,9 +75,9 @@ const StaffFiles = ({ form, visible, dispatch }) => {
                             initialValue: '学士',
               rules: [{ required: true, message: `${item.placeholder}为必填项!` }]
             })(<Select>
-              <Option value="学士">数字媒体技术</Option>
-              <Option value="硕士">数字媒体技术</Option>
-              <Option value="博士">数字媒体艺术</Option>
+              <Option value="学士">学士</Option>
+              <Option value="硕士">硕士</Option>
+              <Option value="博士">博士</Option>
             </Select>)}
                         </FormItem>
                       </Col>

@@ -1,10 +1,14 @@
 import React from 'react'
 import { connect } from 'dva'
-import { Col, Row, Spin } from 'antd'
+import { Col, Row, Spin, List } from 'antd'
 import './index.css'
 
+const { Item } = List
 const TeacherDetail = ({ teacherDetail }) => {
   const { user, loading } = teacherDetail
+  const {
+    patent, research, teacherTrainning, award, studentAward
+  } = user
   return (
     <Spin spinning={loading}>
       <div className="teacherDetail_Container">
@@ -39,6 +43,97 @@ const TeacherDetail = ({ teacherDetail }) => {
           <Col span={2}>电子邮件:</Col>
           <Col span={3}>{user.email}</Col>
         </Row>
+        <Row>
+          <List
+            header={<div>教师培训</div>}
+            bordered
+            dataSource={teacherTrainning}
+            renderItem={(item) => {
+              return (
+                <Item>
+                  <Row style={{ width: '100%' }}>
+                    <Col span={2}>
+                      {item}
+                    </Col>
+                  </Row>
+                </Item>
+              )
+            }}
+          />
+        </Row>
+        <Row>
+          <List
+            header={<div>专利</div>}
+            bordered
+            dataSource={patent}
+            renderItem={(item) => {
+              return (
+                <Item>
+                  <Row style={{ width: '100%' }}>
+                    <Col span={2}>
+                      {item}
+                    </Col>
+                  </Row>
+                </Item>
+              )
+            }}
+          />
+        </Row>
+        <Row>
+          <List
+            header={<div>科研成果</div>}
+            bordered
+            dataSource={research}
+            renderItem={(item) => {
+              return (
+                <Item>
+                  <Row style={{ width: '100%' }}>
+                    <Col span={2}>
+                      {item}
+                    </Col>
+                  </Row>
+                </Item>
+              )
+            }}
+          />
+        </Row>
+        <Row>
+          <List
+            header={<div>获奖情况</div>}
+            bordered
+            dataSource={award}
+            renderItem={(item) => {
+              return (
+                <Item>
+                  <Row style={{ width: '100%' }}>
+                    <Col span={2}>
+                      {item}
+                    </Col>
+                  </Row>
+                </Item>
+              )
+            }}
+          />
+        </Row>
+        <Row>
+          <List
+            header={<div>指导学生获奖情况</div>}
+            bordered
+            dataSource={studentAward}
+            renderItem={(item) => {
+              return (
+                <Item>
+                  <Row style={{ width: '100%' }}>
+                    <Col span={2}>
+                      {item}
+                    </Col>
+                  </Row>
+                </Item>
+              )
+            }}
+          />
+        </Row>
+
       </div>
     </Spin>
 

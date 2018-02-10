@@ -3,7 +3,6 @@ import { Icon, Button, Modal, Form, Input, Col, Row, Table, List } from 'antd';
 import { connect } from 'dva';
 import { routerRedux } from 'dva/router';
 import _ from 'lodash';
-import createModal from './createModal'
 import './index.css'
 
 const { Item } = List
@@ -29,7 +28,6 @@ class StudioIntroductionListCreate extends React.Component {
     const { dispatch } = this.props
     const { getFieldsValue } = this.props.form
     const value = getFieldsValue()
-    console.log('value', value)
     const params = {
       address: value.address,
       introduction: value.introduction,

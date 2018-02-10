@@ -1,8 +1,9 @@
 import React from 'react';
+import MultipleList from '../../MultipleList'
 
 const TeacherTraining = () => {
   return (
-    <div>教师培训</div>
+    <MultipleList catagory="teacherTrainning" />
   )
 }
 export default TeacherTraining

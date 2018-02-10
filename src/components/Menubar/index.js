@@ -5,11 +5,9 @@ import './index.css'
 
 const MenuBar = ({ configs }) => {
   return (
-    <div>
-      <Affix>
-        <div>
-          <ul className="menu_bar" >
-            {
+    <Affix className="menu_bar">
+      <ul >
+        {
                   configs.map(config => (
                     <li
                       key={config.key}
@@ -26,10 +24,8 @@ const MenuBar = ({ configs }) => {
                     </li>
                   ))
                 }
-          </ul>
-        </div>
-      </Affix>
-    </div>
+      </ul>
+    </Affix>
   );
 }
 

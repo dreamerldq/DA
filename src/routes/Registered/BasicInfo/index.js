@@ -12,7 +12,8 @@ const BasicInfo = ({ form, visible, dispatch }) => {
   return (
     <div className="registered_container" >
       <Form>
-        {
+        <Row>
+          {
               basicInfo.map((item) => {
                 if (item.key === 'email') {
                   return (
@@ -72,6 +73,8 @@ const BasicInfo = ({ form, visible, dispatch }) => {
                 )
               })
             }
+        </Row>
+
       </Form>
     </div>
 

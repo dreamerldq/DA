@@ -1,8 +1,9 @@
 import React from 'react';
+import MultipleList from '../../MultipleList'
 
 const Awards = () => {
   return (
-    <div>教师获奖</div>
+    <MultipleList catagory="award" />
   )
 }
 export default Awards

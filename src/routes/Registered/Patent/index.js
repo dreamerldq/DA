@@ -1,8 +1,9 @@
 import React from 'react';
+import MultipleList from '../../MultipleList'
 
 const Patent = () => {
   return (
-    <div>专利</div>
+    <MultipleList catagory="patent" />
   )
 }
 export default Patent

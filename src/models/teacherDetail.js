@@ -17,10 +17,9 @@ export default {
         const { pathname, query } = location;
         const match = pathToRegexp('/TeacherDetail/:id+').exec(pathname);
         if (match) {
-          console.log('ASAAAA')
           dispatch({ type: 'fetchUser', payload: match[1] })
         } else {
-          console.log('1111')
+
         }
       })
     }
@@ -28,15 +27,26 @@ export default {
 
   effects: {
     * fetchUser({ payload }, { call, put, select }) {
-      console.log('开始获取')
       yield put({ type: 'startSpin' })
       const { data, err } = yield call(getUser, payload);
       if (!err) {
-        console.log('获取单个员工记录', data)
-        yield put({ type: 'saveRecord', payload: data })
+        const patent = data.patent ? data.patent.split('&') : []
+        const research = data.research ? data.research.split('&') : []
+        const teacherTrainning = data.teacherTrainning ? data.teacherTrainning.split('&') : []
+        const award = data.award ? data.award.split('&') : []
+        const studentAward = data.studentAward ? data.studentAward.split('&') : []
+        const record = {
+          ...data,
+          patent,
+          research,
+          award,
+          studentAward,
+          teacherTrainning
+        }
+        yield put({ type: 'saveRecord', payload: record })
         yield put({ type: 'endSpin' })
       } else {
-        console.log('获取失败')
+
       }
     }
   },
@@ -44,7 +54,6 @@ export default {
 
   reducers: {
     saveRecord(state, { payload }) {
-      console.log('成功读取了数据')
       return { ...state, user: payload }
     },
     startSpin(state, { payload }) {
