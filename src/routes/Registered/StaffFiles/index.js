@@ -7,9 +7,12 @@ import basicInfo from './basicInfo'
 import '../index.css'
 
 const { Option } = Select;
-const StaffFiles = ({ form, visible, dispatch }) => {
+const StaffFiles = ({
+  form, visible, dispatch, registered, model
+}) => {
   const FormItem = Form.Item
   const { getFieldDecorator } = form;
+  const { user } = model
   return (
     <div className="registered_container" >
       <Form>
@@ -24,7 +27,7 @@ const StaffFiles = ({ form, visible, dispatch }) => {
                       <Col span={20}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
-              initialValue: '数字媒体技术',
+              initialValue: `${user.professionalTeam || '数字媒体技术'}`,
               rules: [{ required: true, message: `${item.placeholder}为必填项!` }]
             })(<Select>
               <Option value="数字媒体技术">数字媒体技术</Option>
@@ -49,7 +52,7 @@ const StaffFiles = ({ form, visible, dispatch }) => {
                       <Col span={20}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
-                            initialValue: '教授',
+                            initialValue: `${user.jobTitle || '教授'}`,
               rules: [{ required: true, message: `${item.placeholder}为必填项!` }]
             })(<Select>
               <Option value="教授">教授</Option>
@@ -72,7 +75,7 @@ const StaffFiles = ({ form, visible, dispatch }) => {
                       <Col span={20}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
-                            initialValue: '学士',
+                            initialValue: `${user.education || '学士'}`,
               rules: [{ required: true, message: `${item.placeholder}为必填项!` }]
             })(<Select>
               <Option value="学士">学士</Option>
@@ -94,6 +97,7 @@ const StaffFiles = ({ form, visible, dispatch }) => {
                     <Col span={20}>
                       <FormItem className="registered_container_form" >
                         {getFieldDecorator(`${item.key}`, {
+                           initialValue: `${user[item.key] || ''}`,
             rules: [{ required: true, message: `${item.placeholder}为必填项!` }]
           })(<Input placeholder={`${item.placeholder}`} />)}
                       </FormItem>
@@ -110,4 +114,9 @@ const StaffFiles = ({ form, visible, dispatch }) => {
 
   )
 }
-export default connect()(StaffFiles)
+const mapStateToProps = ({ registered }) => {
+  return {
+    registered
+  }
+}
+export default connect(mapStateToProps)(StaffFiles)

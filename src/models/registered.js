@@ -1,6 +1,6 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
-import { createUser } from '../services/registered';
+import { createUser, updateUser, getAloneUser } from '../services/registered';
 import _ from 'lodash';
 
 const changeString = (staffInfo, arr) => {
@@ -24,7 +24,8 @@ export default {
       studentAward: [],
       teacherTrainning: []
     },
-    basicInfo: {}
+    basicInfo: {},
+    id: null
   },
 
   subscriptions: {
@@ -32,7 +33,10 @@ export default {
       history.listen((location) => {
         const { pathname, query } = location;
         const match = pathToRegexp('/registered').exec(pathname);
-        if (match) {
+        const matchId = pathToRegexp('/registered/:id').exec(pathname);
+        if (matchId) {
+          dispatch({ type: 'saveId', payload: matchId[1] })
+          dispatch({ type: 'getProfile', payload: matchId[1] })
         }
       })
     }
@@ -57,17 +61,75 @@ export default {
       }
       const { data, err } = yield call(createUser, { user: params });
       if (!err) {
-        console.log('创建成功')
+        yield put(routerRedux.push({
+          pathname: '/DigitalMediaTechnologyTeam'
+        }))
+      }
+    },
+    * getProfile({ payload }, { call, put, select }) {
+      const { data, err } = yield call(getAloneUser, payload);
+      if (!err) {
+        const patent = data.patent ? data.patent.split('&') : []
+        const research = data.research ? data.research.split('&') : []
+        const teacherTrainning = data.teacherTrainning ? data.teacherTrainning.split('&') : []
+        const award = data.award ? data.award.split('&') : []
+        const studentAward = data.studentAward ? data.studentAward.split('&') : []
+        const record = {
+          ...data,
+          patent,
+          research,
+          award,
+          studentAward,
+          teacherTrainning
+        }
+        const staffInfo = {
+          patent,
+          research,
+          award,
+          studentAward,
+          teacherTrainning
+        }
+        yield put({ type: 'saveProfile', payload: record })
+        yield put({ type: 'saveInfo', payload: staffInfo })
+      }
+    },
+    * updateProfile({ payload }, { call, put, select }) {
+      const { staffInfo } = yield select(state => state.registered)
+      const { id } = yield select(state => state.registered)
+      const patent = changeString(staffInfo, 'patent')
+      const research = changeString(staffInfo, 'research')
+      const award = changeString(staffInfo, 'award')
+      const studentAward = changeString(staffInfo, 'studentAward')
+      const teacherTrainning = changeString(staffInfo, 'teacherTrainning')
+      const params = {
+        ...payload,
+        patent,
+        research,
+        award,
+        studentAward,
+        teacherTrainning
+      }
+      const { data, err } = yield call(updateUser, params, id);
+      if (!err) {
+        yield put(routerRedux.push({
+          pathname: '/DigitalMediaTechnologyTeam'
+        }))
       }
     }
   },
 
   reducers: {
-    save(state, { payload }) {
-      return { ...state, user: payload };
+    saveProfile(state, { payload }) {
+      return { ...state, user: payload }
+    },
+    saveId(state, { payload }) {
+      return { ...state, id: payload }
     },
     saveBasicInfo(state, { payload }) {
       return { ...state, basicInfo: payload }
+    },
+    saveInfo(state, { payload }) {
+      return { ...state, staffInfo: payload }
     },
     addInfo(state, { payload }) {
       const { value, type } = payload

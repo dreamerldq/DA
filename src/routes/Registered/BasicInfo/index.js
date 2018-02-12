@@ -6,8 +6,11 @@ import { routerRedux } from 'dva/router';
 import basicInfo from './basicInfo'
 import '../index.css'
 
-const BasicInfo = ({ form, visible, dispatch }) => {
+const BasicInfo = ({
+  form, visible, dispatch, model
+}) => {
   const FormItem = Form.Item
+  const { user } = model
   const { getFieldDecorator } = form;
   return (
     <div className="registered_container" >
@@ -24,6 +27,7 @@ const BasicInfo = ({ form, visible, dispatch }) => {
                       <Col span={20}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
+                            initialValue: `${user.email || ''}`,
               rules: [{
                 required: true,
                 message: '请输入正确的邮箱格式',
@@ -46,6 +50,7 @@ const BasicInfo = ({ form, visible, dispatch }) => {
                       <Col span={20}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
+                             initialValue: `${user.password || ''}`,
               rules: [{ required: true, message: `${item.placeholder}为必填项!` }]
             })(<Input type="password" placeholder={`${item.placeholder}`} />)}
                         </FormItem>
@@ -63,6 +68,7 @@ const BasicInfo = ({ form, visible, dispatch }) => {
                     <Col span={20}>
                       <FormItem className="registered_container_form" >
                         {getFieldDecorator(`${item.key}`, {
+                           initialValue: `${user[item.key] || ''}`,
             rules: [{ required: true, message: `${item.placeholder}为必填项!` }]
           })(<Input placeholder={`${item.placeholder}`} />)}
                       </FormItem>

@@ -19,4 +19,21 @@ export async function getUser(params) {
     })
   });
 }
+export async function getAloneUser(params) {
+  return request(`http://127.0.0.1:3000/users/detail/${params}`, {
+    method: 'GET',
+    headers: _.pickBy({
+      'Content-Type': 'application/json'
+    })
+  });
+}
+export async function updateUser(params, id) {
+  return request(`http://127.0.0.1:3000/users/${id}`, {
+    method: 'PATCH',
+    headers: _.pickBy({
+      'Content-Type': 'application/json'
+    }),
+    body: JSON.stringify(params)
+  });
+}
 

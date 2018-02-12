@@ -18,10 +18,12 @@ class MultipleList extends React.Component {
     this.handleOk = this.handleOk.bind(this)
   }
   showModal(type) {
+    const { resetFields } = this.props.form
     this.setState({
       visible: true,
       type
     })
+    resetFields()
   }
   handleCancel() {
     this.setState({
@@ -39,8 +41,30 @@ class MultipleList extends React.Component {
   }
   render() {
     const {
-      form, dispatch, registered, catagory
+      form, dispatch, registered, catagory, dataSource
     } = this.props
+    const data = null
+    let chineseNameCatagory = ''
+    switch (catagory) {
+      case 'patent':
+        chineseNameCatagory = '专利'
+        break;
+      case 'research':
+        chineseNameCatagory = '科研成果'
+        break;
+      case 'award':
+        chineseNameCatagory = '获得奖项'
+        break;
+      case 'studentAward':
+        chineseNameCatagory = '学生获得奖项'
+        break;
+      case 'teacherTrainning':
+        chineseNameCatagory = '教师培训'
+        break;
+
+      default:
+        break;
+    }
     const { getFieldDecorator, getFieldValue } = form;
     const {
       staffInfo
@@ -48,10 +72,10 @@ class MultipleList extends React.Component {
     return (
       <div className="registered_container" >
         <Form>
-          <Row gutter={16}>
-            <Col span={8}>
+          <Row>
+            <Col>
               <div>
-                <span>工作室成员</span>
+                <span>{`${chineseNameCatagory}`}</span>
                 <List
                   header={<Button onClick={this.showModal.bind(this, `${catagory}`)} icon="plus" type="primary">添加</Button>}
                   bordered
@@ -80,7 +104,7 @@ class MultipleList extends React.Component {
             onOk={this.handleOk}
             onCancel={this.handleCancel}
           >
-            <span>{`添加${catagory}`}</span>
+            <span>{`添加${chineseNameCatagory}`}</span>
             <FormItem className="registered_container_form" >
               {getFieldDecorator(`${catagory}`, {
            })(<Input />)}

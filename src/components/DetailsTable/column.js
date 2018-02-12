@@ -38,7 +38,10 @@ const column = [
     title: '操作',
     render: (text, record, index) => {
       return (
-        <span><Link to={`/TeacherDetail/${record.id}`}>详情</Link></span>
+        <div>
+          <span><Link to={`/TeacherDetail/${record.id}`}>详情</Link></span>
+          <span><Link to={`/Registered/${record.id}`}>编辑</Link></span>
+        </div>
       )
     }
   }

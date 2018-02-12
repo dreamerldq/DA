@@ -1,9 +1,10 @@
 import React from 'react';
 import MultipleList from '../../MultipleList'
 
-const Awards = () => {
+const Awards = ({ model }) => {
+  const { user } = model
   return (
-    <MultipleList catagory="award" />
+    <MultipleList catagory="award" dataSource={user.award} />
   )
 }
 export default Awards

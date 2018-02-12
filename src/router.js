@@ -69,6 +69,7 @@ export default ({ history }) => {
             <Route path="/Login" component={AdminLogin} />
             <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
             <Route path="/FacultyProfiles" component={FacultyProfiles} />
+            <Route path="/Registered/:id" component={Registered} />
             <Route path="/Registered" component={Registered} />
 
             <Route path="/" component={ArtIndex} />
