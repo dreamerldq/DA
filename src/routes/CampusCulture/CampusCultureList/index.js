@@ -26,8 +26,9 @@ class CampusCultureList extends React.Component {
   }
 
   render() {
-    const { dispatch, campusCulture } = this.props;
+    const { dispatch, campusCulture, currentUser } = this.props;
     const { allRecord, loading, modalVisible } = campusCulture
+    const { user } = currentUser
     return (
 
 
@@ -48,7 +49,7 @@ class CampusCultureList extends React.Component {
                     <Col span={2}>
                       {item.time}
                     </Col>
-                    <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>
+                    {user && <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>}
                   </Row>
 
                 </Item>
@@ -69,7 +70,7 @@ class CampusCultureList extends React.Component {
     )
   }
 }
-const mapStateToProps = ({ campusCulture }) => ({
-  campusCulture
+const mapStateToProps = ({ campusCulture, currentUser }) => ({
+  campusCulture, currentUser
 });
 export default connect(mapStateToProps)(CampusCultureList);

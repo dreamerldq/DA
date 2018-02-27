@@ -13,20 +13,23 @@ class NewsNotice extends React.Component {
     super(props);
   }
   deleteNews(id, dispatch) {
-    console.log('AAAAA', id)
+    const self = this
     dispatch({ type: 'newsNotice/showModal' })
     dispatch({ type: 'newsNotice/saveID', payload: id })
   }
   handleOk(dispatch) {
+    const self = this
     dispatch({ type: 'newsNotice/deleteNewsRecord' })
   }
   handleCancel(dispatch) {
+    const self = this
     dispatch({ type: 'newsNotice/hiddenModal' })
   }
 
   render() {
-    const { dispatch, newsNotice } = this.props;
+    const { dispatch, newsNotice, currentUser } = this.props;
     const { newsList, loading, modalVisible } = newsNotice
+    const { user } = currentUser
     return (
 
 
@@ -47,7 +50,8 @@ class NewsNotice extends React.Component {
                     <Col span={2}>
                       {item.time}
                     </Col>
-                    <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>
+                    {user && <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>}
+
                   </Row>
 
                 </Item>
@@ -68,7 +72,8 @@ class NewsNotice extends React.Component {
     )
   }
 }
-const mapStateToProps = ({ newsNotice }) => ({
-  newsNotice
+const mapStateToProps = ({ newsNotice, currentUser }) => ({
+  newsNotice,
+  currentUser
 });
 export default connect(mapStateToProps)(NewsNotice);

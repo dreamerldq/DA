@@ -1,6 +1,6 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
-import createUser from '../services/login';
+import createSession from '../services/login';
 
 export default {
 
@@ -16,7 +16,6 @@ export default {
         const { pathname, query } = location;
         const match = pathToRegexp('/login').exec(pathname);
         if (match) {
-          console.log('这是登录界面')
         }
       })
     }
@@ -24,9 +23,17 @@ export default {
 
   effects: {
     * saveUserData({ payload }, { call, put }) {
-      const { data, err } = yield call(createUser, { user: payload });
+      const { data, err } = yield call(createSession, { session: payload });
       if (!err) {
-        console.log('注册用户成功', data)
+        // yield put({ type: 'header/saveCurrentUser', payload: data })
+        const dataString = JSON.stringify(data)
+        window.localStorage.setItem('data', dataString);
+        yield put({ type: 'currentUser/saveCurrentUser', payload: dataString })
+        yield put(routerRedux.push({
+          // pathname: `/TeacherDetail/${data}`
+          pathname: './index'
+        }))
+      } else {
       }
     }
   },

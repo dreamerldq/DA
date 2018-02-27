@@ -11,12 +11,11 @@ export default {
   },
 
   subscriptions: {
-    setup({ dispatch, history }) {  // eslint-disable-line
+    setup({ dispatch, history }) {
       history.listen((location) => {
         const { pathname, query } = location;
         const match = pathToRegexp('/').exec(pathname);
         if (match) {
-
         }
       })
     }

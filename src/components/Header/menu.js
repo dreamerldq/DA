@@ -112,11 +112,7 @@ export default [
       }
     ]
   },
-  {
-    title: '发布文章',
-    key: 'CreateNews',
-    subTitle: null
-  },
+
   {
     title: '概况管理',
     key: 'ProfileManagement',
