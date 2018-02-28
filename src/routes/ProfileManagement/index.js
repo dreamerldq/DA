@@ -5,6 +5,7 @@ import { routerRedux } from 'dva/router';
 import _ from 'lodash';
 import StudioIntroductionList from '../StudioIntroductionList';
 import ProfessionList from '../Profession/ProfessionList';
+import VentureProjectList from '../VentureProject/VentureProjectList';
 
 import './index.css'
 
@@ -12,7 +13,6 @@ const { TabPane } = Tabs;
 
 const ProfileManagement = ({ dispatch, profileManagement }) => {
   const callback = (key) => {
-    console.log('KEY', key)
     dispatch({ type: 'profileManagement/changeTab', payload: key })
   }
   return (
@@ -23,6 +23,12 @@ const ProfileManagement = ({ dispatch, profileManagement }) => {
         </TabPane>
         <TabPane tab="专业" key="profession" >
           <ProfessionList />
+        </TabPane>
+        <TabPane tab="双创项目" key="ventureProject" >
+          <VentureProjectList />
+        </TabPane>
+        <TabPane tab="简介" key="introduction" >
+          <VentureProjectList />
         </TabPane>
       </Tabs>
     </div>

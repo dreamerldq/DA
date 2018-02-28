@@ -1,5 +1,10 @@
-.teacherDetail_Container{
-    width: 1200px;
+.studioDetail_container{
+    width: 1000px;
     background: #fff;
     margin: 0 auto;
+    padding: 25px;
+}
+.studioDetail_contant{
+    width: 650px;
+    float: left;
 }

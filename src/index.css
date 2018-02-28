@@ -4,7 +4,7 @@ html, body, :global(#root) {
 }
 body{
   /* background-image: url('http://shimmer.neusoft.edu.cn/background/Uploads/2017-12-13/5a307c9334903.jpg'); */
-  background-color: #F5F5F5 !important;
+  background-color: #fff !important;
   background-attachment: fixed;
 }
 

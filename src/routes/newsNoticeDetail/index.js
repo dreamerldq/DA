@@ -7,7 +7,7 @@ const NewsNoticeDetail = ({ dispatch, newsNoticeDetail }) => {
   const { news } = newsNoticeDetail
   return (
     <div className="newsDetailContainer">
-      <div dangerouslySetInnerHTML={{ __html: news.content }} />
+      <div style={{ width: '100%' }} dangerouslySetInnerHTML={{ __html: news.content }} />
     </div>
 
   )

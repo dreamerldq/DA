@@ -4,6 +4,7 @@ import { connect } from 'dva';
 import { Link } from 'dva/router'
 import _ from 'lodash';
 import { Row, Col } from 'antd/lib/grid';
+import './index.css'
 
 const { Item } = List
 
@@ -33,7 +34,7 @@ class CampusCultureList extends React.Component {
 
 
       <Spin spinning={loading}>
-        <div>
+        <div className="campus_container">
           <List
             header={<div>校园文化列表</div>}
             footer={<div>Footer</div>}

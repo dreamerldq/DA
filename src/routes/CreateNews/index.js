@@ -82,6 +82,7 @@ class CreateNews extends React.Component {
           })(<Select>
             <Option value="campusCulture">校园文化</Option>
             <Option value="news">新闻通知</Option>
+            <Option value="profileIntroduction">内容简介</Option>
           </Select>)}
             </FormItem>
           </Row>

@@ -2,7 +2,6 @@ import _ from 'lodash'
 import request from '../utils/request';
 
 const url = `${window.host}/news`
-console.log('SSSS', url)
 //const url = 'http://127.0.0.1:3000/news'
 export async function createUser(params) {
   return request(url, {

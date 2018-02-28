@@ -1,54 +1,69 @@
 import React from 'react'
 import { connect } from 'dva'
 import { Col, Row, Spin } from 'antd'
+import RightSide from '../RightSide'
 import './index.css'
 
 const StudioIntroductionDetail = ({ studioIntroductionDetail }) => {
   const { studio, loading } = studioIntroductionDetail
-  console.log('OOO', studio)
   return (
     <Spin spinning={loading}>
-      <div className="teacherDetail_Container">
-        <Row>
-          <h2>工作室简介</h2>
-        </Row>
-        <Row>
-          <Col span={4}>工作室名称:</Col>
-          <Col span={4}>{studio.studioName}</Col>
-        </Row>
-        <Row>
-          <Col span={4}>负责人:</Col>
-          <Col span={4}>{studio.principal}</Col>
-        </Row>
-        <Row>
-          <Col span={4}>工作室介绍:</Col>
-          <Col span={4}>{studio.introduction}</Col>
-        </Row>
-        <Row>
-          <Col span={4}>工作室地址:</Col>
-          <Col span={4}>{studio.address}</Col>
-        </Row>
-        {(studio.name || []).map((item, index) => {
+      <div className="studioDetail_container">
+        <div className="studioDetail_contant">
+          <Row>
+            <h2>{studio.studioName}</h2>
+          </Row>
+          <Row>
+            <Col span={4}>负责人:</Col>
+            <Col span={20}>{studio.principal}</Col>
+          </Row>
+          <Row>
+            <Col span={4}>工作室介绍:</Col>
+            <Col sspan={20}>{studio.introduction}</Col>
+          </Row>
+          <Row>
+            <Col span={4}>工作室地址:</Col>
+            <Col span={20}>{studio.address}</Col>
+          </Row>
+          <Row>
+            <Col span={4}>工作室成员:</Col>
+          </Row>
+          <Row>
+            <ul>
+              {(studio.name || []).map((item, index) => {
             return (
-              <Row key={index}>
-                <Col span={4}>{item}</Col>
-              </Row>
+              <li key={index}>{item}</li>
+            )
+          })}
+            </ul>
+          </Row>
+          <Row>
+            <Col>工作室承担课程:</Col>
+          </Row>
+          <Row>
+            <ul>
+              {(studio.course || []).map((item, index) => {
+            return (
+              <li key={index}>{item}</li>
             )
         })}
-        {(studio.course || []).map((item, index) => {
+            </ul>
+          </Row>
+          <Row>
+            <Col>工作室承担项目方向:</Col>
+          </Row>
+          <Row>
+            <ul>
+              {(studio.research || []).map((item, index) => {
             return (
-              <Row key={index}>
-                <Col span={4}>{item}</Col>
-              </Row>
+              <li key={index}>{item}</li>
             )
         })}
-        {(studio.reserach || []).map((item, index) => {
-            return (
-              <Row key={index}>
-                <Col span={4}>{item}</Col>
-              </Row>
-            )
-        })}
+            </ul>
+          </Row>
+
+        </div>
+        <RightSide />
       </div>
     </Spin>
 

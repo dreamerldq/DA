@@ -23,14 +23,16 @@ const app = dva();
   'filmPhotographyTeam',
   'visualCommunicationDesignTeam',
   'createNews',
-  'studioIntroductionList',
+  'studioIntroduction',
   'studioIntroductionListCreate',
   'profileManagement',
   'studioIntroductionDetail',
   'professionCreate',
   'ventureProject',
   'campusCulture',
-  'currentUser'
+  'currentUser',
+  'rightSide',
+  'profileIntroduction'
 ].forEach((model) => {
   app.model(require(`./models/${model}`).default)
 })

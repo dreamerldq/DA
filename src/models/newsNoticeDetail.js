@@ -26,15 +26,12 @@ export default {
 
   effects: {
     * fetchUser({ payload }, { call, put, select }) {
-      console.log('开始获取')
       yield put({ type: 'startSpin' })
       const { data, err } = yield call(getNewsDetail, payload);
       if (!err) {
-        console.log('获取单个员工记录', data)
         yield put({ type: 'saveRecord', payload: data })
         yield put({ type: 'endSpin' })
       } else {
-        console.log('获取失败')
       }
     }
   },

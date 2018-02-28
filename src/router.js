@@ -1,15 +1,15 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import { Router, Route, Switch } from 'dva/router'
-import NewsNotice from './routes/NewsNotice'
+import NewsList from './routes/NewsList'
 import ArtIndex from './routes/ArtIndex/index'
 import Header from './components/Header'
 import NewsNoticeDetail from './routes/newsNoticeDetail/index'
 import CreateNews from './routes/CreateNews/index'
 import DepartmentSummary from './routes/DepartmentSummary/index'
 import AdminLogin from './routes/login/index'
-import ArtSpaceProfile from './routes/ArtSpaceProfile'
-import FacultyProfiles from './routes/FacultyProfiles'
+import FacultyProfiles from './routes/ProfileIntroduction/FacultyProfiles'
+import InnovationProfiles from './routes/ProfileIntroduction/InnovationProfiles'
 import Registered from './routes/Registered'
 import DigitalMediaArtTeam from './routes/DigitalMediaArtTeam'
 import DigitalMediaTechnologyTeam from './routes/DigitalMediaTechnologyTeam'
@@ -28,6 +28,8 @@ import VentureProjectDetail from './routes/VentureProject/VentureProjectDetail'
 import VentureProjectList from './routes/VentureProject/VentureProjectList'
 import CampusCultureList from './routes/CampusCulture/CampusCultureList'
 import CampusCultureDetail from './routes/CampusCulture/CampusCultureDetail'
+import DisciplineCompetition from './routes/ProfileIntroduction/DisciplineCompetition'
+import ArtSpaceProfile from './routes/ProfileIntroduction/ArtSpaceProfile'
 
 export default ({ history }) => {
   return (
@@ -54,8 +56,13 @@ export default ({ history }) => {
             <Route path="/CampusCulture/:id" component={CampusCultureDetail} />
             <Route path="/CampusCulture" component={CampusCultureList} />
             {/* 校园文化 end */}
-
-            <Route path="/NewsNotice" component={NewsNotice} />
+            {/* 简介  start*/}
+            <Route path="/FacultyProfiles" component={FacultyProfiles} />
+            <Route path="/InnovationProfile" component={InnovationProfiles} />
+            <Route path="/DisciplineCompetition" component={DisciplineCompetition} />
+            <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
+            {/* 简介  end*/}
+            <Route path="/NewsNotice" component={NewsList} />
             <Route path="/ProfileManagement" component={ProfileManagement} />
             <Route path="/News/detail/:id" component={NewsNoticeDetail} />
             <Route path="/TeacherDetail/:id" component={TeacherDetail} />
@@ -63,15 +70,14 @@ export default ({ history }) => {
             <Route path="/DepartmentSummary" component={DepartmentSummary} />
             <Route path="/StudioIntroduction/:id" component={StudioIntroductionDetail} />
             <Route path="/StudioIntroduction/create" component={StudioIntroductionListCreate} />
-            <Route path="/StudioIntroductionList" component={StudioIntroductionList} />
+            <Route path="/StudioIntroduction" component={StudioIntroductionList} />
             <Route path="/ProfessionCreate" component={ProfessionCreate} />
             <Route path="/ProfessionIntroduction/:profession" component={ProfessionDetail} />
             <Route path="/Login" component={AdminLogin} />
             <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
-            <Route path="/FacultyProfiles" component={FacultyProfiles} />
+
             <Route path="/Registered/:id" component={Registered} />
             <Route path="/Registered" component={Registered} />
-
             <Route path="/" component={ArtIndex} />
           </Switch>
 

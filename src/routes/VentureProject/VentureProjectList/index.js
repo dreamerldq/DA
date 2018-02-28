@@ -7,7 +7,7 @@ import { Row, Col } from 'antd/lib/grid';
 
 const { Item } = List
 
-class ProfessionList extends React.Component {
+class VentureProjectList extends React.Component {
   constructor({ props }) {
     super(props);
   }
@@ -46,4 +46,4 @@ class ProfessionList extends React.Component {
 const mapStateToProps = ({ ventureProject }) => ({
   ventureProject
 });
-export default connect(mapStateToProps)(ProfessionList);
+export default connect(mapStateToProps)(VentureProjectList);

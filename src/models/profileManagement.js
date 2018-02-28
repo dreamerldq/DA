@@ -47,10 +47,10 @@ export default {
           payload = '动画'
           break;
         case 'VisualCommunicationDesign':
-          payload = '视觉传达设计'
+          payload = '视觉传达设计专业'
           break;
         case 'FilmPhotography':
-          payload = '影视摄影与制作'
+          payload = '影视摄影与制作专业'
           break;
         case 'DigitalMediaArt':
           payload = '数字媒体艺术'
@@ -98,9 +98,9 @@ export default {
               return { ...item, professionEnglishName: 'DigitalMediaTechnology' }
             case '动画':
               return { ...item, professionEnglishName: 'Animation' }
-            case '视觉传达设计':
+            case '视觉传达设计专业':
               return { ...item, professionEnglishName: 'VisualCommunicationDesign' }
-            case '影视摄影与制作':
+            case '影视摄影与制作专业':
               return { ...item, professionEnglishName: 'FilmPhotography' }
             case '数字媒体艺术':
               return { ...item, professionEnglishName: 'DigitalMediaArt' }
