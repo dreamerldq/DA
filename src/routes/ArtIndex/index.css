@@ -1,12 +1,15 @@
 .ant-carousel .slick-slide {
-    text-align: center;
+    padding: 50px;
     height: 500px;
     line-height: 160px;
     overflow: hidden;
   }
-  
   .ant-carousel .slick-slide h3 {
     color: #fff;
+  }
+  .card{
+      width: 1000px;
+      margin: 50px auto;
   }
   .img_01{
     background-image: url('../../assets/01.jpg');

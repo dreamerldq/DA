@@ -76,7 +76,6 @@ export default ({ history }) => {
           </Switch>
 
         </div>
-
       </div>
 
     </Router>

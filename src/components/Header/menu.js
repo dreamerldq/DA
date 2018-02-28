@@ -1,10 +1,5 @@
 export default [
   {
-    title: '首页',
-    key: 'Index',
-    subTitle: null
-  },
-  {
     title: '新闻通知',
     key: 'NewsNotice',
     subTitle: null
@@ -12,12 +7,7 @@ export default [
   {
     title: '系部概括',
     key: 'DepartmentSummary',
-    subTitle: null
-  },
-  {
-    title: '专业介绍',
-    key: 'professionalPresentation',
-    subTitle: [
+    subTitle_professionIntroduction: [
       {
         title: '视觉传达设计',
         key: 'ProfessionIntroduction/VisualCommunicationDesign'
@@ -38,12 +28,8 @@ export default [
         title: '影视摄影与制作',
         key: 'ProfessionIntroduction/FilmPhotography'
       }
-    ]
-  },
-  {
-    title: '教师风采',
-    key: 'teacherStyle',
-    subTitle: [
+    ],
+    subTitle_teacherStyle: [
       {
         title: '师资概况',
         key: 'FacultyProfiles'
@@ -53,11 +39,19 @@ export default [
         key: 'DigitalMediaTechnologyTeam'
       }
     ]
+
   },
+  // {
+  //   title: '教师风采',
+  //   key: 'teacherStyle',
+  //   subTitle: [
+
+  //   ]
+  // },
   {
     title: '创新创业',
     key: 'innovation',
-    subTitle: [
+    subTitle_innovation: [
       {
         title: '创新创业概况',
         key: 'InnovationProfile'
@@ -74,12 +68,8 @@ export default [
         title: '创业典范',
         key: 'BusinessModel'
       }
-    ]
-  },
-  {
-    title: '艺创空间',
-    key: 'artSpace',
-    subTitle: [
+    ],
+    subTitle_artSpace: [
       {
         title: '艺创空间介绍',
         key: 'ArtSpaceProfile'

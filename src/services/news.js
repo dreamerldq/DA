@@ -1,7 +1,9 @@
 import _ from 'lodash'
 import request from '../utils/request';
 
-const url = 'http://127.0.0.1:3000/news'
+const url = `${window.host}/news`
+console.log('SSSS', url)
+//const url = 'http://127.0.0.1:3000/news'
 export async function createUser(params) {
   return request(url, {
     method: 'POST',
@@ -12,7 +14,7 @@ export async function createUser(params) {
   });
 }
 export async function getNews() {
-  return request('http://127.0.0.1:3000/news', {
+  return request(`${url}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -20,7 +22,7 @@ export async function getNews() {
   });
 }
 export async function deleteNews(id) {
-  return request(`http://127.0.0.1:3000/news/${id}`, {
+  return request(`${url}/${id}`, {
     method: 'DELETE',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -28,7 +30,7 @@ export async function deleteNews(id) {
   });
 }
 export async function getNewsDetail(id) {
-  return request(`http://127.0.0.1:3000/news/${id}`, {
+  return request(`${url}/${id}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'

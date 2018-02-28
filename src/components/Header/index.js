@@ -6,6 +6,7 @@ import _ from 'lodash';
 import title from './menu';
 import styles from './index.css';
 
+
 const { SubMenu } = Menu;
 const MenuItemGroup = Menu.ItemGroup;
 const { Item } = Menu
@@ -22,6 +23,11 @@ const Header = ({
   }
   const loginToggle = () => {
     dispatch({ type: 'header/showModel' })
+  }
+  const toIndex = () => {
+    dispatch(routerRedux.push({
+      pathname: '/index'
+    }))
   }
   const confirm = () => {
     message.info('已经退出')
@@ -40,13 +46,51 @@ const Header = ({
     })
   }
   return (
-    <Row className="header_container">
-      <Col span={18}>
-        <Menu
-          onClick={handleClick}
-          mode="horizontal"
-        >
-          {title.map((item) => {
+    <div className="header_container_outer">
+      <Row className="header_container">
+        <Col span={6}>
+          <div>
+            <span onClick={toIndex}><img className="logo" src={require('../../assets/logo.png')} alt="logo" /></span>
+          </div>
+        </Col>
+        <Col span={16}>
+          <Menu
+            onClick={handleClick}
+            mode="horizontal"
+          >
+            {title.map((item) => {
+              if (item.key === 'DepartmentSummary') {
+                return (
+                  <SubMenu title={<span>{item.title}</span>}>
+                    <MenuItemGroup title="专业介绍">
+                      {item.subTitle_professionIntroduction.map((sub) => {
+                          return <Item key={sub.key}>{sub.title}</Item>
+                      })}
+                    </MenuItemGroup>
+                    <MenuItemGroup title="教师风采">
+                      {item.subTitle_teacherStyle.map((sub) => {
+                        return <Item key={sub.key}>{sub.title}</Item>
+                     })}
+                    </MenuItemGroup>
+                  </SubMenu>
+                )
+              }
+              if (item.key === 'innovation') {
+                return (
+                  <SubMenu title={<span>{item.title}</span>}>
+                    <MenuItemGroup title="创新创业">
+                      {item.subTitle_innovation.map((sub) => {
+                          return <Item key={sub.key}>{sub.title}</Item>
+                      })}
+                    </MenuItemGroup>
+                    <MenuItemGroup title="艺创空间">
+                      {item.subTitle_artSpace.map((sub) => {
+                        return <Item key={sub.key}>{sub.title}</Item>
+                     })}
+                    </MenuItemGroup>
+                  </SubMenu>
+                )
+              }
               if (item.subTitle) {
                   return (
                     <SubMenu key={item.key} title={<span>{item.title}</span>}>
@@ -62,28 +106,31 @@ const Header = ({
                   </Item>
               )
             })}
-        </Menu>
-      </Col>
-      <Col span={6}>
-        {user ?
-          <Menu
-            mode="horizontal"
-          >
-            <SubMenu title={<span>{user.name}</span>}>
-              <Item key="setting">
-                <Link style={{ color: 'black' }} to={`/Registered/${user.id}`}>设置</Link>
-              </Item>
-              <Item key="quit">
-                <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+          </Menu>
+        </Col>
+        <Col span={2}>
+          {user ?
+            <Menu
+              mode="horizontal"
+            >
+              <SubMenu title={<span><Icon type="menu-unfold" /> {user.name}</span>}>
+                <Item key="setting">
+                  <Link style={{ color: 'black' }} to={`/Registered/${user.id}`}>设置</Link>
+                </Item>
+                <Item key="quit">
+                  <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
                   退出
-                </Popconfirm>
-              </Item>
-            </SubMenu>
-          </Menu> :
+                  </Popconfirm>
+                </Item>
+              </SubMenu>
+            </Menu> :
       null
       }
-      </Col>
-    </Row>
+        </Col>
+      </Row>
+
+    </div>
+
 
   );
 };

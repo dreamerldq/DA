@@ -1,10 +1,21 @@
 .ant-menu-horizontal{
+    font-size: 0.9em !important;
     border: 0px;
     background: #0077B4;
     color: #ffffff;
 }
+.header_container_outer{
+    widows: 100%;
+    background: #0077B4;
+}
 .header_container{
     background: #0077B4;
     height: 48px;
+    width: 1000px;
+    margin: 0 auto;
     line-height: 48px;
+}
+.header_container img{
+    width: 75%;
+    height: 75%;
 }

@@ -1,8 +1,9 @@
 import _ from 'lodash'
 import request from '../utils/request';
 
+const url = `${window.host}/professions`
 export async function createProfession(params) {
-  return request('http://127.0.0.1:3000/professions', {
+  return request(`${url}`, {
     method: 'POST',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -11,7 +12,7 @@ export async function createProfession(params) {
   });
 }
 export async function getProfessionList() {
-  return request('http://127.0.0.1:3000/professions', {
+  return request(`${url}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -19,7 +20,7 @@ export async function getProfessionList() {
   });
 }
 export async function getProfession(id) {
-  return request(`http://127.0.0.1:3000/professions/${id}`, {
+  return request(`${url}/${id}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'

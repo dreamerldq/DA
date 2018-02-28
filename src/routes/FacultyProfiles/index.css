@@ -1,7 +1,7 @@
 .contentDetail_container{
-    width: 1200px;
     margin: 0 auto;
     background: #fff;
+    padding: 50px;
 }
 .contentDetail_introduction{
     color: #0077B4 !important;

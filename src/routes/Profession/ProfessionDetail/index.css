@@ -1,5 +1,6 @@
 .teacherDetail_Container{
-    width: 1200px;
+    width: 100%;
     background: #fff;
     margin: 0 auto;
+    padding: 50px;
 }
