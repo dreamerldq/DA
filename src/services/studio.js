@@ -1,8 +1,10 @@
 import _ from 'lodash'
 import request from '../utils/request';
 
+const url = `${window.host}/studios`
+const url2 = `${window.host}`
 export async function createStudio(params) {
-  return request('http://127.0.0.1:3000/studios', {
+  return request(`${url}`, {
     method: 'POST',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -11,7 +13,7 @@ export async function createStudio(params) {
   });
 }
 export async function getStudioList() {
-  return request('http://127.0.0.1:3000/studios', {
+  return request(`${url}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -19,7 +21,7 @@ export async function getStudioList() {
   });
 }
 export async function getProfessionList() {
-  return request('http://127.0.0.1:3000/professions', {
+  return request(`${url2}/professions`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -27,7 +29,7 @@ export async function getProfessionList() {
   });
 }
 export async function getProfession(profession) {
-  return request(`http://127.0.0.1:3000/professions/detail/${profession}`, {
+  return request(`${url2}/professions/detail/${profession}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -35,7 +37,7 @@ export async function getProfession(profession) {
   });
 }
 export async function getStudio(id) {
-  return request(`http://127.0.0.1:3000/studios/${id}`, {
+  return request(`${url}/${id}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'

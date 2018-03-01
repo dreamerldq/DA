@@ -4,6 +4,7 @@ import { connect } from 'dva';
 import { Link, routerRedux } from 'dva/router'
 import _ from 'lodash';
 import { Row, Col } from 'antd/lib/grid';
+import './index.css'
 
 const { Item } = List
 
@@ -12,18 +13,18 @@ class VentureProjectList extends React.Component {
     super(props);
   }
   render() {
-    const { dispatch, ventureProject } = this.props;
-    const { allRecord } = ventureProject
+    const { dispatch, profileManagement } = this.props;
+    const { ventureProject } = profileManagement
     return (
 
 
       <Spin spinning={false}>
-        <div>
+        <div className="ventureProject">
           <List
             header={
               <span>双创项目</span>
             }
-            dataSource={allRecord}
+            dataSource={ventureProject}
             bordered
             renderItem={(item) => {
               return (
@@ -43,7 +44,7 @@ class VentureProjectList extends React.Component {
     )
   }
 }
-const mapStateToProps = ({ ventureProject }) => ({
-  ventureProject
+const mapStateToProps = ({ profileManagement }) => ({
+  profileManagement
 });
 export default connect(mapStateToProps)(VentureProjectList);

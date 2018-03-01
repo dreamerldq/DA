@@ -13,7 +13,8 @@ export default {
     data: {
       studio: null,
       news: null
-    }
+    },
+    loading: false
   },
 
   subscriptions: {
@@ -34,18 +35,21 @@ export default {
       const { data } = yield select(state => state.rightSide)
       const { studio, news } = data
       if (!studio && !news) {
-        console.log('aaaa')
+        yield put({ type: 'startSpin' })
         const { data, err } = yield call(getNews)
         if (!err) {
           yield put({ type: 'saveNewsRecord', payload: data })
           yield put({ type: 'getStudio' })
+          yield put({ type: 'endSpin' })
         }
       }
     },
     * getStudio({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
       const { data, err } = yield call(getStudioList)
       if (!err) {
         yield put({ type: 'saveStudioRecord', payload: data })
+        yield put({ type: 'endSpin' })
       }
     }
   },

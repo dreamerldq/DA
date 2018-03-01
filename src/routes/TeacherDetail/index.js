@@ -12,126 +12,147 @@ const TeacherDetail = ({ teacherDetail }) => {
   return (
     <Spin spinning={loading}>
       <div className="teacherDetail_Container">
-        <Row>
+        <Row className="basicInfo">
           <h2>教师详情</h2>
         </Row>
-        <Row>
+        <Row className="basicInfo">
           <Col span={2}>姓名:</Col>
           <Col span={2}>{user.name}</Col>
         </Row>
-        <Row>
+        <Row className="basicInfo">
           <Col span={2}>职称:</Col>
           <Col span={2}>{user.jobTitle}</Col>
         </Row>
-        <Row>
+        <Row className="basicInfo">
           <Col span={2}>学历:</Col>
           <Col span={2}>{user.education}</Col>
         </Row>
-        <Row>
+        <Row className="basicInfo">
           <Col span={2}>所属团队:</Col>
           <Col span={3}>{user.professionalTeam}</Col>
         </Row>
-        <Row>
+        <Row className="basicInfo">
           <Col span={2}>研究方向:</Col>
           <Col span={3}>{user.researchDirection}</Col>
         </Row>
-        <Row>
+        <Row className="basicInfo">
           <Col span={2}>毕业院校:</Col>
           <Col span={3}>{user.graduatedSchool}</Col>
         </Row>
-        <Row>
+        <Row className="basicInfo">
           <Col span={2}>电子邮件:</Col>
           <Col span={3}>{user.email}</Col>
         </Row>
         <Row>
-          <List
-            header={<div>教师培训</div>}
-            bordered
-            dataSource={teacherTrainning}
-            renderItem={(item) => {
+          {
+            teacherTrainning.length > 1 ?
+              <List
+                className="list"
+                header={<span>教师培训</span>}
+                bordered
+                dataSource={teacherTrainning}
+                renderItem={(item) => {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Col span={2}>
+                    <Col>
                       {item}
                     </Col>
                   </Row>
                 </Item>
               )
             }}
-          />
+              /> : null
+          }
         </Row>
         <Row>
-          <List
-            header={<div>专利</div>}
-            bordered
-            dataSource={patent}
-            renderItem={(item) => {
+          {
+            patent.length > 1 ?
+              <List
+                className="list"
+                header={<span>专利</span>}
+                bordered
+                dataSource={patent}
+                renderItem={(item) => {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Col span={2}>
+                    <Col>
                       {item}
                     </Col>
                   </Row>
                 </Item>
               )
             }}
-          />
+              /> : null
+          }
+
         </Row>
         <Row>
-          <List
-            header={<div>科研成果</div>}
-            bordered
-            dataSource={research}
-            renderItem={(item) => {
+          {
+            research.length > 1 ?
+              <List
+                className="list"
+                header={<span>科研成果</span>}
+                bordered
+                dataSource={research}
+                renderItem={(item) => {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Col span={2}>
+                    <Col>
                       {item}
                     </Col>
                   </Row>
                 </Item>
               )
             }}
-          />
+              /> : null
+          }
         </Row>
         <Row>
-          <List
-            header={<div>获奖情况</div>}
-            bordered
-            dataSource={award}
-            renderItem={(item) => {
+          {
+            award.length > 1 ?
+              <List
+                className="list"
+                header={<span>获奖情况</span>}
+                bordered
+                dataSource={award}
+                renderItem={(item) => {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Col span={2}>
+                    <Col>
                       {item}
                     </Col>
                   </Row>
                 </Item>
               )
             }}
-          />
+              /> : null
+          }
         </Row>
         <Row>
-          <List
-            header={<div>指导学生获奖情况</div>}
-            bordered
-            dataSource={studentAward}
-            renderItem={(item) => {
+          {
+            studentAward.length > 1 ?
+              <List
+                className="list"
+                header={<span>指导学生获奖情况</span>}
+                bordered
+                dataSource={studentAward}
+                renderItem={(item) => {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Col span={2}>
+                    <Col>
                       {item}
                     </Col>
                   </Row>
                 </Item>
               )
             }}
-          />
+              /> : null
+          }
         </Row>
 
       </div>

@@ -3,6 +3,9 @@ import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
 import _ from 'lodash'
 import { getStudioList, getProfessionList, getProfession } from '../services/studio';
+import { getAll } from '../services/ventureProject'
+import { getNews } from '../services/news'
+
 
 export default {
 
@@ -12,7 +15,9 @@ export default {
     key: 'studio',
     studio: [],
     profession: [],
-    content: {}
+    content: {},
+    ventureProject: [],
+    introduction: []
   },
 
   subscriptions: {
@@ -75,6 +80,12 @@ export default {
         case 'profession':
           yield put({ type: 'getProfessionList' })
           break;
+        case 'ventureProject':
+          yield put({ type: 'getVentureProjectList' })
+          break;
+        case 'introduction':
+          yield put({ type: 'getProfileIntroductionList' })
+          break;
         default:
           break;
       }
@@ -84,6 +95,27 @@ export default {
       const { data, err } = yield call(getStudioList)
       if (!err) {
         yield put({ type: 'saveStudioRecord', payload: data })
+        yield put({ type: 'endSpin' })
+      } else {
+      }
+    },
+    * getProfileIntroductionList({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(getNews)
+      if (!err) {
+        const introductions = data.filter((item) => {
+          return item.articleType === 'profileIntroduction'
+        })
+        yield put({ type: 'saveIntroductionRecord', payload: introductions })
+        yield put({ type: 'endSpin' })
+      } else {
+      }
+    },
+    * getVentureProjectList({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(getAll)
+      if (!err) {
+        yield put({ type: 'saveVentureProjectRecord', payload: data })
         yield put({ type: 'endSpin' })
       } else {
       }
@@ -125,18 +157,22 @@ export default {
       return { ...state, loading: false }
     },
     saveStudioRecord(state, { payload }) {
-      console.log('payload', payload)
       return { ...state, studio: payload }
     },
     saveProfessionRecord(state, { payload }) {
-      console.log('payload', payload)
       return { ...state, profession: payload }
+    },
+    saveVentureProjectRecord(state, { payload }) {
+      return { ...state, ventureProject: payload }
     },
     saveTab(state, { payload }) {
       return { ...state, key: payload }
     },
     saveProfessionDetail(state, { payload }) {
       return { ...state, content: payload }
+    },
+    saveIntroductionRecord(state, { payload }) {
+      return { ...state, introduction: payload }
     }
   }
 

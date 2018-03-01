@@ -8,7 +8,8 @@ export default {
   namespace: 'newsNoticeDetail',
 
   state: {
-    news: {}
+    news: {},
+    loading: false
   },
 
   subscriptions: {

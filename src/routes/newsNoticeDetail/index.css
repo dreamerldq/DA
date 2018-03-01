@@ -1,5 +1,10 @@
 .newsDetailContainer{
-    width: 1000px;
+    width: 1000px !important;
     margin: 0 auto;
     overflow: hidden;
+}
+.newsDetailContainer img{
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
 }

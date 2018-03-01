@@ -9,9 +9,7 @@ export default {
 
   state: {
     newsList: [],
-    loading: true,
-    modalVisible: false,
-    id: null
+    loading: false
   },
 
   subscriptions: {
@@ -21,7 +19,6 @@ export default {
         dispatch({ type: 'saveFetchId', payload: id })
         const match = pathToRegexp('/*').exec(pathname);
         if (match) {
-          console.log('AAAA')
           dispatch({ type: 'getNewsList' })
         }
       })
@@ -36,10 +33,8 @@ export default {
         const profileIntroductionNews = data.filter((item) => {
           return item.articleType === 'profileIntroduction'
         })
-        console.log(profileIntroductionNews)
         yield put({ type: 'saveRecord', payload: profileIntroductionNews })
         yield put({ type: 'endSpin' })
-        console.log('这是返回的新闻列表', data)
       } else {
         console.log('请求失败')
       }

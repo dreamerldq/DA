@@ -5,7 +5,7 @@ import { Link } from 'dva/router'
 import './index.css'
 
 const RightSide = ({ rightSide }) => {
-  const { data } = rightSide
+  const { data, loading } = rightSide
   const { news, studio } = data
   const profession = [
     {
@@ -30,43 +30,48 @@ const RightSide = ({ rightSide }) => {
     }
   ]
   return (
-    <div className="right_side_container">
-      <Row>
-        <h3>专业介绍</h3>
-        <ul>
-          {(profession || []).map((item) => {
+    <Spin spinning={loading}>
+      <div className="right_side_container">
+        <Row>
+          <h3>专业介绍</h3>
+          <ul>
+            {(profession || []).map((item) => {
           return (
             <Link style={{ color: 'black' }} to={`/${item.key}`}><li>{item.title}</li></Link>
           )
         })}
-        </ul>
+          </ul>
 
-      </Row>
-      <Row>
-        <div>
-          <h3>新闻通知</h3>
-          <ul>
-            {(news || []).map((item) => {
+        </Row>
+        <Row>
+          <div>
+            <h3>新闻通知</h3>
+            <ul>
+              {(news || []).filter((item, index) => {
+               return index < 5
+            })
+            .map((item) => {
           return (
             <Link style={{ color: 'black' }} to={`/News/detail/${item.id}`}><li>{item.title}</li></Link>
           )
         })}
-          </ul>
+            </ul>
 
-        </div>
+          </div>
 
-      </Row>
-      <Row>
-        <h3>工作室</h3>
-        <ul>
-          {(studio || []).map((item) => {
+        </Row>
+        <Row>
+          <h3>工作室</h3>
+          <ul>
+            {(studio || []).map((item) => {
           return (
             <Link style={{ color: 'black' }} to={`/StudioIntroduction/${item.id}`}><li>{item.studioName}</li></Link>
           )
         })}
-        </ul>
-      </Row>
-    </div>
+          </ul>
+        </Row>
+      </div>
+    </Spin>
 
 
   )

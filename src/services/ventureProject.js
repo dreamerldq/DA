@@ -1,8 +1,9 @@
 import _ from 'lodash'
 import request from '../utils/request';
 
+const url = `${window.host}/projects`
 export async function get(id) {
-  return request(`http://127.0.0.1:3000/projects/${id}`, {
+  return request(`${url}/${id}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -10,7 +11,7 @@ export async function get(id) {
   });
 }
 export async function create(params) {
-  return request('http://127.0.0.1:3000/projects', {
+  return request(`${url}`, {
     method: 'POST',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -20,7 +21,7 @@ export async function create(params) {
 }
 
 export async function getAll() {
-  return request('http://127.0.0.1:3000/projects', {
+  return request(`${url}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'

@@ -14,7 +14,6 @@ class ProfessionList extends React.Component {
   render() {
     const { dispatch, profileManagement } = this.props;
     const { profession } = profileManagement
-    console.log('aaaaa', profession)
     return (
 
 

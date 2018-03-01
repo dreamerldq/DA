@@ -6,6 +6,7 @@ import _ from 'lodash';
 import StudioIntroductionList from '../StudioIntroductionList';
 import ProfessionList from '../Profession/ProfessionList';
 import VentureProjectList from '../VentureProject/VentureProjectList';
+import ProfileIntroductionList from '../ProfileIntroduction/ProfileIntroductionList'
 
 import './index.css'
 
@@ -28,7 +29,7 @@ const ProfileManagement = ({ dispatch, profileManagement }) => {
           <VentureProjectList />
         </TabPane>
         <TabPane tab="简介" key="introduction" >
-          <VentureProjectList />
+          <ProfileIntroductionList />
         </TabPane>
       </Tabs>
     </div>

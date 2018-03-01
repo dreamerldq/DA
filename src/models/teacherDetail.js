@@ -7,7 +7,13 @@ export default {
   namespace: 'teacherDetail',
 
   state: {
-    user: {},
+    user: {
+      patent: [],
+      research: [],
+      teacherTrainning: [],
+      award: [],
+      studentAward: []
+    },
     loading: true
   },
 

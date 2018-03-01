@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import request from '../utils/request';
 
-const url = 'http://127.0.0.1:3000/users'
+const url = `${window.host}/users`
 export async function createUser(params) {
   return request(url, {
     method: 'POST',
@@ -12,7 +12,7 @@ export async function createUser(params) {
   });
 }
 export async function getUser(params) {
-  return request(`http://127.0.0.1:3000/users/${params}`, {
+  return request(`${url}/${params}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export async function getUser(params) {
   });
 }
 export async function getAloneUser(params) {
-  return request(`http://127.0.0.1:3000/users/detail/${params}`, {
+  return request(`${url}/detail/${params}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ export async function getAloneUser(params) {
   });
 }
 export async function updateUser(params, id) {
-  return request(`http://127.0.0.1:3000/users/${id}`, {
+  return request(`${url}/${id}`, {
     method: 'PATCH',
     headers: _.pickBy({
       'Content-Type': 'application/json'

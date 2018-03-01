@@ -5,7 +5,7 @@ import './index.css'
 const CampusCultureDetail = ({ dispatch, campusCulture }) => {
   const { record } = campusCulture
   return (
-    <div className="newsDetailContainer">
+    <div className="campusDetailContainer">
       <div dangerouslySetInnerHTML={{ __html: record.content }} />
     </div>
 

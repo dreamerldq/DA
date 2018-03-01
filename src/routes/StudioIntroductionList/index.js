@@ -13,8 +13,8 @@ class StudioIntroductionList extends React.Component {
     super(props);
   }
   render() {
-    const { dispatch, studioIntroduction } = this.props;
-    const { studio } = studioIntroduction
+    const { dispatch, profileManagement } = this.props;
+    const { studio } = profileManagement
     return (
       <Spin spinning={false}>
         <div className="studio_container">
@@ -41,7 +41,7 @@ class StudioIntroductionList extends React.Component {
     )
   }
 }
-const mapStateToProps = ({ studioIntroduction }) => ({
-  studioIntroduction
+const mapStateToProps = ({ profileManagement }) => ({
+  profileManagement
 });
 export default connect(mapStateToProps)(StudioIntroductionList);

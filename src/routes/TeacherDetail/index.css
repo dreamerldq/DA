@@ -3,3 +3,12 @@
     background: #fff;
     margin: 0 auto;
 }
+.list{
+    margin-top: 30px;
+}
+.list span{
+    font-size: 24px;
+}
+.basicInfo{
+    font-size: 20px;
+}
