@@ -2,32 +2,17 @@ import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string';
 import _ from 'lodash';
-import { createProfession } from '../services/profession';
+import { createProfession, editProfession } from '../services/profession';
+import { getProfession } from '../services/studio'
 
-const changeString = (studioInfo, arr) => {
-  console.log('卡四肢西华县')
-  let stringName = ''
-  console.log('CCCC', studioInfo[arr].length)
-  _.forEach(studioInfo[arr], (str) => {
-    stringName += `${str}&`
-  })
-  stringName = stringName.substring(0, stringName.length - 1)
-  return stringName
-}
 export default {
 
   namespace: 'professionCreate',
 
   state: {
-    newsList: [],
     loading: true,
-    modalVisible: false,
     id: null,
-    studioInfo: {
-      name: [],
-      course: [],
-      research: []
-    }
+    profession: {}
   },
 
   subscriptions: {
@@ -35,9 +20,10 @@ export default {
       history.listen(({ pathname, search }) => {
         const id = queryString.parse(search)
         dispatch({ type: 'saveFetchId', payload: id })
-        const match = pathToRegexp('/ProfessionCreate').exec(pathname);
+        const match = pathToRegexp('/ProfessionCreate/*').exec(pathname);
         if (match) {
-
+          dispatch({ type: 'saveID', payload: match[1] })
+          dispatch({ type: 'getProfessionDetail', payload: match[1] })
         }
       })
     }
@@ -46,16 +32,72 @@ export default {
   effects: {
     * createProfessionInfo({ payload }, { call, put, select }) {
       yield put({ type: 'startSpin' })
-      console.log('传递的参数', payload)
       const { data, err } = yield call(createProfession, { profession: payload })
       if (!err) {
         yield put({ type: 'endSpin' })
         yield put(routerRedux.push({
           pathname: '/ProfileManagement'
         }))
-        console.log('这是返回的数据', data)
       } else {
-        console.log('请求错误')
+      }
+    },
+    * editProfessionInfo({ payload: value }, { call, put, select }) {
+      let { id: payload } = yield select(state => state.professionCreate)
+      switch (payload) {
+        case 'DigitalMediaTechnology':
+          payload = '数字媒体技术'
+          break;
+        case 'Animation':
+          payload = '动画'
+          break;
+        case 'VisualCommunicationDesign':
+          payload = '视觉传达设计专业'
+          break;
+        case 'FilmPhotography':
+          payload = '影视摄影与制作专业'
+          break;
+        case 'DigitalMediaArt':
+          payload = '数字媒体艺术'
+          break;
+        default:
+          break;
+      }
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(editProfession, payload, value)
+      if (!err) {
+        yield put({ type: 'endSpin' })
+        yield put(routerRedux.push({
+          pathname: '/ProfileManagement'
+        }))
+      } else {
+      }
+    },
+    * getProfessionDetail({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
+      switch (payload) {
+        case 'DigitalMediaTechnology':
+          payload = '数字媒体技术'
+          break;
+        case 'Animation':
+          payload = '动画'
+          break;
+        case 'VisualCommunicationDesign':
+          payload = '视觉传达设计专业'
+          break;
+        case 'FilmPhotography':
+          payload = '影视摄影与制作专业'
+          break;
+        case 'DigitalMediaArt':
+          payload = '数字媒体艺术'
+          break;
+        default:
+          break;
+      }
+      const { data, err } = yield call(getProfession, payload)
+      if (!err) {
+        yield put({ type: 'saveDetail', payload: data })
+        yield put({ type: 'endSpin' })
+      } else {
       }
     }
   },
@@ -67,17 +109,11 @@ export default {
     endSpin(state, { payload }) {
       return { ...state, loading: false }
     },
-    addInfo(state, { payload }) {
-      switch (payload.type) {
-        case 'name':
-          return { ...state, studioInfo: { ...state.studioInfo, name: [...state.studioInfo.name, payload.value] } }
-        case 'course':
-          return { ...state, studioInfo: { ...state.studioInfo, course: [...state.studioInfo.course, payload.value] } }
-        case 'research':
-          return { ...state, studioInfo: { ...state.studioInfo, research: [...state.studioInfo.research, payload.value] } }
-        default:
-          break;
-      }
+    saveDetail(state, { payload }) {
+      return { ...state, profession: payload[0] }
+    },
+    saveID(state, { payload }) {
+      return { ...state, id: payload }
     }
   }
 

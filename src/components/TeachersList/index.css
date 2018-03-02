@@ -1,3 +1,5 @@
 .TeachersDetails{
-    text-align: center
+    text-align: center;
+    width: 1000px;
+    margin:  0 auto;
 }

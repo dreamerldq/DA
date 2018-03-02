@@ -6,21 +6,6 @@ import './index.css'
 import Footer from '../../components/Footer';
 
 const { Meta } = Card;
-const props = {
-  name: 'file',
-  action: 'http://oli7sq88l.bkt.clouddn.com',
-  onChange(info) {
-    console.log(info.file.name)
-    if (info.file.status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === 'done') {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  }
-};
 const ArtIndex = ({ dispatch, departmentProfile }) => {
   return (
     <div>
@@ -47,7 +32,18 @@ const ArtIndex = ({ dispatch, departmentProfile }) => {
           <Card
             hoverable="true"
             style={{ width: 240 }}
-            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            cover={<img alt="example"src={require('../../assets/school1.jpg')} />}
+          >
+            <Meta
+              title="校园文化 "
+            />
+          </Card>
+        </Col>
+        <Col>
+          <Card
+            hoverable="true"
+            style={{ width: 240 }}
+            cover={<img alt="example" src={require('../../assets/school2.jpg')} />}
           >
             <Meta
               title="Europe Street beat"
@@ -59,19 +55,7 @@ const ArtIndex = ({ dispatch, departmentProfile }) => {
           <Card
             hoverable="true"
             style={{ width: 240 }}
-            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-          >
-            <Meta
-              title="Europe Street beat"
-              description="www.instagram.com"
-            />
-          </Card>
-        </Col>
-        <Col>
-          <Card
-            hoverable="true"
-            style={{ width: 240 }}
-            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            cover={<img alt="example" src={require('../../assets/school3.jpg')} />}
           >
             <Meta
               title="Europe Street beat"

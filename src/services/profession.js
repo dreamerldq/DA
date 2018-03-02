@@ -11,6 +11,15 @@ export async function createProfession(params) {
     body: JSON.stringify(params)
   });
 }
+export async function editProfession(id, params) {
+  return request(`${url}/${id}`, {
+    method: 'PATCH',
+    headers: _.pickBy({
+      'Content-Type': 'application/json'
+    }),
+    body: JSON.stringify(params)
+  });
+}
 export async function getProfessionList() {
   return request(`${url}`, {
     method: 'GET',
@@ -20,7 +29,7 @@ export async function getProfessionList() {
   });
 }
 export async function getProfession(id) {
-  return request(`${url}/${id}`, {
+  return request(`${url}/detail/${id}`, {
     method: 'GET',
     headers: _.pickBy({
       'Content-Type': 'application/json'

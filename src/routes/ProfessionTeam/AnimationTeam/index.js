@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'dva';
 import { Spin } from 'antd'
 import _ from 'lodash';
-import DetailsTable from '../../components/DetailsTable'
-import { professionalTable } from '../../data'
-import TeachersList from '../../components/TeachersList'
+import TeachersList from '../../../components/TeachersList'
+import DetailsTable from '../../../components/DetailsTable'
+import '../index.css'
 
 const AnimationTeam = ({ dispatch, animationTeam: model }) => {
   const dataSource = model.user
   const { loading } = model
   return (
     <Spin spinning={loading}>
-      <div>
+      <div className="teacherList">
         <TeachersList />
         <div>
           <DetailsTable dataSource={dataSource} />

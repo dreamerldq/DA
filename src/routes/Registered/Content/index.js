@@ -11,7 +11,6 @@ import TeacherTraining from '../TeacherTraining'
 import Patent from '../Patent'
 
 const Content = ({ form, registered }) => {
-  console.log('ASSSS', registered)
   return (
     <div className="contenr_container">
       <Element className="section" name="BasicInfo">

@@ -4,6 +4,7 @@ import { connect } from 'dva';
 import { Link, routerRedux } from 'dva/router'
 import _ from 'lodash';
 import { Row, Col } from 'antd/lib/grid';
+import './index.css'
 
 const { Item } = List
 
@@ -18,7 +19,7 @@ class ProfessionList extends React.Component {
 
 
       <Spin spinning={false}>
-        <div>
+        <div className="profession_container">
           <List
             header={
               <span>专业列表</span>
@@ -29,8 +30,12 @@ class ProfessionList extends React.Component {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-
-                    <Link to={`/ProfessionIntroduction/${item.professionEnglishName}`}>{item.professionName}</Link>
+                    <Col span={20}>
+                      <Link to={`/ProfessionIntroduction/${item.professionEnglishName}`}>{item.professionName}</Link>
+                    </Col>
+                    <Col span={4}>
+                      <Link to={`/ProfessionCreate/${item.professionEnglishName}`}>编辑</Link>
+                    </Col>
                   </Row>
 
                 </Item>

@@ -40,7 +40,7 @@ class NewsNotice extends React.Component {
       <Spin spinning={loading}>
         <div className="news_container">
           <List
-            header={<div>新闻通知</div>}
+            header={<div><h2>新闻通知</h2></div>}
             footer={<div>Footer</div>}
             bordered
             dataSource={finalNewsList}

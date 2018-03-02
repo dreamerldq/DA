@@ -30,6 +30,7 @@ export default {
       yield put({ type: 'startSpin' })
       const { data, err } = yield call(getUser, payload);
       if (!err) {
+        console.log('SSSS', data)
         yield put({ type: 'save', payload: data })
         yield put({ type: 'endSpin' })
       } else {

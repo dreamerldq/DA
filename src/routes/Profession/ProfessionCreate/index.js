@@ -16,6 +16,7 @@ class ProfessionCreate extends React.Component {
       type: null
     }
     this.createProfession = this.createProfession.bind(this)
+    this.editProfession = this.editProfession.bind(this)
   }
   showModal(dispatch, type) {
     this.setState({
@@ -30,12 +31,23 @@ class ProfessionCreate extends React.Component {
     const value = getFieldsValue()
     dispatch({ type: 'professionCreate/createProfessionInfo', payload: value })
   }
+  editProfession() {
+    const { dispatch } = this.props
+    const { getFieldsValue } = this.props.form
+    const self = this
+    const value = getFieldsValue()
+    dispatch({ type: 'professionCreate/editProfessionInfo', payload: value })
+  }
   render() {
     const { form, dispatch, professionCreate } = this.props
     const { getFieldDecorator, getFieldValue } = form;
+    const { profession, id } = professionCreate
     return (
       <div className="registered_container" >
-        <Button onClick={this.createProfession}>创建</Button>
+        {id ?
+          <Button onClick={this.editProfession}>编辑</Button>
+        : <Button onClick={this.createProfession}>创建</Button> }
+
         <Form>
           <Row>
             <Col>
@@ -45,6 +57,7 @@ class ProfessionCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('professionName', {
+                     initialValue: `${profession.professionName || ''}`
                     })(<Input />)}
                 </FormItem>
               </Col>
@@ -56,6 +69,7 @@ class ProfessionCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('professionIntroduction', {
+                    initialValue: `${profession.professionIntroduction || ''}`
                     })(<TextArea autosize={{ minRows: 1, maxRows: 6 }} />)}
                 </FormItem>
               </Col>
@@ -67,6 +81,7 @@ class ProfessionCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('trainingPositioning', {
+                    initialValue: `${profession.trainingPositioning || ''}`
                     })(<TextArea autosize={{ minRows: 1, maxRows: 6 }} />)}
                 </FormItem>
               </Col>
@@ -78,6 +93,7 @@ class ProfessionCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('faculty', {
+                    initialValue: `${profession.faculty || ''}`
                     })(<TextArea autosize={{ minRows: 1, maxRows: 6 }} />)}
                 </FormItem>
               </Col>
@@ -89,6 +105,7 @@ class ProfessionCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('professionalAdvantage', {
+                    initialValue: `${profession.professionalAdvantage || ''}`
                     })(<TextArea autosize={{ minRows: 1, maxRows: 6 }} />)}
                 </FormItem>
               </Col>
@@ -100,6 +117,7 @@ class ProfessionCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('professionalFeatures', {
+                    initialValue: `${profession.professionalFeatures || ''}`
                     })(<TextArea autosize={{ minRows: 1, maxRows: 6 }} />)}
                 </FormItem>
               </Col>
