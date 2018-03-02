@@ -17,6 +17,7 @@ class CreateNews extends React.Component {
     };
     this.handleHTMLChange = this.handleHTMLChange.bind(this)
     this.submit = this.submit.bind(this)
+    this.edit = this.edit.bind(this)
   }
   handleHTMLChange(htmlContent) {
     this.setState({
@@ -34,14 +35,26 @@ class CreateNews extends React.Component {
       dispatch({ type: 'createNews/createNews', payload: this.state })
     })
   }
-  render() {
+  edit() {
     const { form, dispatch } = this.props
+    const title = form.getFieldValue('articleTitle')
+    const articleType = form.getFieldValue('articleType')
+    this.setState({
+      title,
+      articleType
+    }, () => {
+      dispatch({ type: 'createNews/editNews', payload: this.state })
+    })
+  }
+  render() {
+    const { form, dispatch, createNews } = this.props
+    const { news, id } = createNews
     const { getFieldDecorator, getFieldValue } = form;
 
     const editorProps = {
       contentFormat: 'html',
       placeholder: '',
-      initialContent: '',
+      initialContent: `${news.content}`,
       onHTMLChange: this.handleHTMLChange,
       viewWrapper: '.article',
       extendControls: [
@@ -68,7 +81,8 @@ class CreateNews extends React.Component {
           <Row>
             <FormItem>
               {getFieldDecorator('articleTitle', {
-            rules: [{ required: true, message: '请选择将要生成文章的类型!' }]
+              initialValue: `${news.title || ''}`,
+            rules: [{ required: true, message: '请输入文章标题!' }]
           })(<Input style={{ textAlign: 'center', marginBottom: '5px' }} placeholder="请输入文章标题" />)}
             </FormItem>
           </Row>
@@ -78,7 +92,8 @@ class CreateNews extends React.Component {
           <Row>
             <FormItem>
               {getFieldDecorator('articleType', {
-            rules: [{ required: true, message: '请输入文章标题!' }]
+                initialValue: `${news.articleType || '数字媒体技术'}`,
+            rules: [{ required: true, message: '请选择将要生成文章的类型!' }]
           })(<Select>
             <Option value="campusCulture">校园文化</Option>
             <Option value="news">新闻通知</Option>
@@ -98,11 +113,15 @@ class CreateNews extends React.Component {
           </div>
         </div>
         <Row>
-          <Button onClick={this.submit} className="postArticle_subButton" type="primary">提交文章</Button>
+          {id ? <Button onClick={this.edit} className="postArticle_subButton" type="primary">编辑文章</Button> :
+          <Button onClick={this.submit} className="postArticle_subButton" type="primary">提交文章</Button>}
         </Row>
       </div>
 
     )
   }
 }
-export default Form.create()(connect()(CreateNews))
+const mapStateToProps = ({ createNews }) => ({
+  createNews
+});
+export default Form.create()(connect(mapStateToProps)(CreateNews))

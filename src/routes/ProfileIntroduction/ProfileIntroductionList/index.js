@@ -12,6 +12,11 @@ class ProfileIntroductionList extends React.Component {
   constructor({ props }) {
     super(props);
   }
+  editNews(id) {
+    const { dispatch } = this.props;
+    const self = this
+    dispatch({ type: 'createNews/getNews', payload: id })
+  }
   render() {
     const { dispatch, profileManagement } = this.props;
     const { introduction } = profileManagement
@@ -28,7 +33,8 @@ class ProfileIntroductionList extends React.Component {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Link to={`/StudioIntroduction/${item.id}`}>{item.title}</Link>
+                    <Link to={`/News/detail/${item.id}`}>{item.title}</Link>
+                    <a onClick={this.editNews.bind(this, item.id)}>编辑</a>
                   </Row>
 
                 </Item>

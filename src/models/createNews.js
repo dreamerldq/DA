@@ -1,24 +1,26 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string'
-import {
-  createUser
-} from '.././services/news';
+import { createNews, editNews, getNewsDetail } from '.././services/news';
 
 export default {
 
   namespace: 'createNews',
 
   state: {
-    article: {}
+    article: {},
+    id: null,
+    news: {}
   },
 
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen(({ pathname, search }) => {
         const query = queryString.parse(search)
-        const match = pathToRegexp('/createNews').exec(pathname);
+        const match = pathToRegexp('/createNews/:id').exec(pathname);
         if (match) {
+          console.log('这是新闻的编辑界面')
+          dispatch({ type: 'saveID', payload: match[1] })
         }
       })
     }
@@ -26,16 +28,40 @@ export default {
 
   effects: {
     * createNews({ payload }, { select, call, put }) {
-      const { data, err } = yield call(createUser, { news: payload });
+      const { data, err } = yield call(createNews, { news: payload });
       if (!err) {
-        console.log('这是返回的Data', data)
       } else {
-        console.log('请求失败')
+      }
+    },
+    * getNews({ payload }, { select, call, put }) {
+      const { data, err } = yield call(getNewsDetail, payload);
+      if (!err) {
+        yield put({ type: 'saveNews', payload: data })
+        yield put(routerRedux.push({
+          pathname: `/createNews/${payload}`
+        }))
+      } else {
+      }
+    },
+    * editNews({ payload: value }, { select, call, put }) {
+      const { id } = yield select(state => state.createNews)
+      const { data, err } = yield call(editNews, id, value);
+      if (!err) {
+        yield put(routerRedux.push({
+          pathname: '/createNeProfileManagement'
+        }))
+      } else {
       }
     }
   },
 
   reducers: {
+    saveID(state, { payload }) {
+      return { ...state, id: payload }
+    },
+    saveNews(state, { payload }) {
+      return { ...state, news: payload }
+    }
   }
 
 };
