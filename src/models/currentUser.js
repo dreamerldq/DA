@@ -15,6 +15,7 @@ export default {
         const { pathname, query } = location;
         const match = pathToRegexp('/*').exec(pathname);
         if (match) {
+          dispatch({ type: 'getCurrentUser' })
         }
       })
     }
@@ -27,6 +28,10 @@ export default {
       yield put(routerRedux.push({
         pathname: '/login'
       }))
+    },
+    * getCurrentUser({ payload }, { call, put }) {
+      const data = window.localStorage.getItem('data');
+      yield put({ type: 'saveCurrentUser', payload: data })
     }
   },
 

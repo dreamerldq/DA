@@ -54,7 +54,7 @@ class CreateNews extends React.Component {
     const editorProps = {
       contentFormat: 'html',
       placeholder: '',
-      initialContent: `${news.content}`,
+      initialContent: `${news.content || ''}`,
       onHTMLChange: this.handleHTMLChange,
       viewWrapper: '.article',
       extendControls: [
