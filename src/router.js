@@ -69,7 +69,7 @@ export default ({ history }) => {
             <Route path="/CreateNews" component={CreateNews} />
             <Route path="/DepartmentSummary" component={DepartmentSummary} />
             <Route path="/StudioIntroduction/:id" component={StudioIntroductionDetail} />
-            <Route path="/StudioIntroduction/create" component={StudioIntroductionListCreate} />
+            <Route path="/StudioIntroductionCreate" component={StudioIntroductionListCreate} />
             <Route path="/StudioIntroduction" component={StudioIntroductionList} />
             <Route path="/ProfessionCreate" component={ProfessionCreate} />
             <Route path="/ProfessionIntroduction/:profession" component={ProfessionDetail} />

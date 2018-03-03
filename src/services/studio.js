@@ -12,6 +12,15 @@ export async function createStudio(params) {
     body: JSON.stringify(params)
   });
 }
+export async function editStudio(id, params) {
+  return request(`${url}/${id}`, {
+    method: 'PATCH',
+    headers: _.pickBy({
+      'Content-Type': 'application/json'
+    }),
+    body: JSON.stringify(params)
+  });
+}
 export async function getStudioList() {
   return request(`${url}`, {
     method: 'GET',
@@ -39,6 +48,14 @@ export async function getProfession(profession) {
 export async function getStudio(id) {
   return request(`${url}/${id}`, {
     method: 'GET',
+    headers: _.pickBy({
+      'Content-Type': 'application/json'
+    })
+  });
+}
+export async function deleteStudio(id) {
+  return request(`${url}/${id}`, {
+    method: 'DELETE',
     headers: _.pickBy({
       'Content-Type': 'application/json'
     })

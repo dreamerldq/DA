@@ -2,17 +2,14 @@ import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string';
 import _ from 'lodash';
-import { createStudio } from '../services/studio';
+import { createStudio, getStudio, editStudio, deleteStudio } from '../services/studio';
 
 const changeString = (studioInfo, arr) => {
-  console.log('卡四肢西华县')
   let stringName = ''
-  console.log('CCCC', studioInfo[arr].length)
   _.forEach(studioInfo[arr], (str) => {
     stringName += `${str}&`
   })
   stringName = stringName.substring(0, stringName.length - 1)
-  console.log('AAAAA', stringName)
   return stringName
 }
 export default {
@@ -28,7 +25,8 @@ export default {
       name: [],
       course: [],
       research: []
-    }
+    },
+    studio: {}
   },
 
   subscriptions: {
@@ -36,9 +34,15 @@ export default {
       history.listen(({ pathname, search }) => {
         const id = queryString.parse(search)
         dispatch({ type: 'saveFetchId', payload: id })
-        const match = pathToRegexp('/NewsNotice').exec(pathname);
+        const match = pathToRegexp('/StudioIntroductionCreate').exec(pathname);
+        const matchID = pathToRegexp('/StudioIntroductionCreate/:id').exec(pathname);
         if (match) {
-          dispatch({ type: 'getNewsList' })
+          console.log('这是创建的页面')
+        }
+        if (matchID) {
+          console.log('这是编辑的界面')
+          dispatch({ type: 'saveID', payload: matchID[1] })
+          dispatch({ type: 'getStudio', payload: matchID[1] })
         }
       })
     }
@@ -48,8 +52,6 @@ export default {
     * createStudioInfo({ payload }, { call, put, select }) {
       yield put({ type: 'startSpin' })
       const { studioInfo } = yield select(state => state.studioIntroductionListCreate)
-
-      console.log('传递的参数', params)
       const name = changeString(studioInfo, 'name')
       const course = changeString(studioInfo, 'course')
       const research = changeString(studioInfo, 'research')
@@ -62,19 +64,74 @@ export default {
         yield put(routerRedux.push({
           pathname: '/ProfileManagement'
         }))
-        console.log('这是返回的数据', data)
       } else {
-        console.log('请求错误')
+      }
+    },
+    * editStudioInfo({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
+      const { studioInfo, id } = yield select(state => state.studioIntroductionListCreate)
+      const name = changeString(studioInfo, 'name')
+      const course = changeString(studioInfo, 'course')
+      const research = changeString(studioInfo, 'research')
+      const params = {
+        name, course, research, ...payload
+      }
+      const { data, err } = yield call(editStudio, id, params)
+      if (!err) {
+        yield put({ type: 'endSpin' })
+        yield put(routerRedux.push({
+          pathname: '/ProfileManagement'
+        }))
+      } else {
+      }
+    },
+    * deleteStudioInfo({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(deleteStudio, payload)
+      if (!err) {
+        yield put({ type: 'endSpin' })
+        yield put(routerRedux.push({
+          pathname: '/ProfileManagement'
+        }))
+      } else {
+      }
+    },
+    * getStudio({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(getStudio, payload)
+      if (!err) {
+        const name = data.name.split('&')
+        const course = data.course.split('&')
+        const research = data.research.split('&')
+        const studioInfo = {
+          name,
+          course,
+          research
+        }
+        yield put({ type: 'saveArrInfo', payload: studioInfo })
+        const studio = {
+          ...data, name, course, research
+        }
+        yield put({ type: 'saveStudio', payload: studio })
+      } else {
       }
     }
   },
-
   reducers: {
     startSpin(state, { payload }) {
       return { ...state, loading: true }
     },
     endSpin(state, { payload }) {
       return { ...state, loading: false }
+    },
+    saveStudio(state, { payload }) {
+      return { ...state, studio: payload }
+    },
+    saveID(state, { payload }) {
+      return { ...state, id: payload }
+    },
+    saveArrInfo(state, { payload }) {
+      return { ...state, studioInfo: payload }
     },
     addInfo(state, { payload }) {
       switch (payload.type) {

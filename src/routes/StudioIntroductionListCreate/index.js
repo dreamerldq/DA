@@ -17,6 +17,7 @@ class StudioIntroductionListCreate extends React.Component {
     this.handleCancel = this.handleCancel.bind(this)
     this.handleOk = this.handleOk.bind(this)
     this.createStudio = this.createStudio.bind(this)
+    this.editStudio = this.editStudio.bind(this)
   }
   showModal(dispatch, type) {
     this.setState({
@@ -36,6 +37,19 @@ class StudioIntroductionListCreate extends React.Component {
     }
     dispatch({ type: 'studioIntroductionListCreate/createStudioInfo', payload: params })
   }
+
+  editStudio() {
+    const { dispatch } = this.props
+    const { getFieldsValue } = this.props.form
+    const value = getFieldsValue()
+    const params = {
+      address: value.address,
+      introduction: value.introduction,
+      principal: value.principal,
+      studioName: value.studioName
+    }
+    dispatch({ type: 'studioIntroductionListCreate/editStudioInfo', payload: params })
+  }
   handleCancel() {
     this.setState({
       visible: false
@@ -51,10 +65,12 @@ class StudioIntroductionListCreate extends React.Component {
   render() {
     const { form, dispatch, studioIntroductionListCreate } = this.props
     const { getFieldDecorator, getFieldValue } = form;
-    const { studioInfo: { name, research, course } } = studioIntroductionListCreate
+    const { studioInfo: { name, research, course }, id, studio } = studioIntroductionListCreate
+    console.log('ZZZZ', studio)
     return (
       <div className="registered_container" >
-        <Button onClick={this.createStudio}>创建</Button>
+        {id ? <Button onClick={this.editStudio}>编辑</Button> :
+        <Button onClick={this.createStudio}>创建</Button>}
         <Form>
           <Row>
             <Col>
@@ -64,6 +80,7 @@ class StudioIntroductionListCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('studioName', {
+                      initialValue: `${studio.studioName || ''}`
                     })(<Input />)}
                 </FormItem>
               </Col>
@@ -75,6 +92,7 @@ class StudioIntroductionListCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('principal', {
+                     initialValue: `${studio.principal || ''}`
                     })(<Input />)}
                 </FormItem>
               </Col>
@@ -86,6 +104,7 @@ class StudioIntroductionListCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('address', {
+                     initialValue: `${studio.address || ''}`
                     })(<Input />)}
                 </FormItem>
               </Col>
@@ -97,6 +116,7 @@ class StudioIntroductionListCreate extends React.Component {
               <Col span={20}>
                 <FormItem className="registered_container_form" >
                   {getFieldDecorator('introduction', {
+                     initialValue: `${studio.introduction || ''}`
                     })(<Input />)}
                 </FormItem>
               </Col>

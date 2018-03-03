@@ -12,6 +12,10 @@ class StudioIntroductionList extends React.Component {
   constructor({ props }) {
     super(props);
   }
+  deleteStudio(id) {
+    const { dispatch } = this.props
+    dispatch({ type: 'studioIntroductionListCreate/deleteStudioInfo', payload: id })
+  }
   render() {
     const { dispatch, profileManagement } = this.props;
     const { studio } = profileManagement
@@ -29,6 +33,9 @@ class StudioIntroductionList extends React.Component {
                 <Item>
                   <Row style={{ width: '100%' }}>
                     <Link to={`/StudioIntroduction/${item.id}`}>{item.studioName}</Link>
+                    <Link to={`/StudioIntroductionCreate/${item.id}`}>编辑</Link>
+
+                    <a onClick={this.deleteStudio.bind(this, item.id)}>删除</a>
                   </Row>
 
                 </Item>
