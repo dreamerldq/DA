@@ -75,9 +75,9 @@ class MultipleList extends React.Component {
           <Row>
             <Col>
               <div>
-                <span>{`${chineseNameCatagory}`}</span>
+
                 <List
-                  header={<Button onClick={this.showModal.bind(this, `${catagory}`)} icon="plus" type="primary">添加</Button>}
+                  header={<div style={{ position: 'relative', width: '100%', height: '20px' }}><span style={{ position: 'absolute', left: '20px' }}>{`${chineseNameCatagory}`}</span><Button style={{ position: 'absolute', right: '20px', top: '-5px' }} onClick={this.showModal.bind(this, `${catagory}`)} icon="plus" type="primary">添加</Button></div>}
                   bordered
                   dataSource={staffInfo[catagory]}
                   renderItem={(item) => {

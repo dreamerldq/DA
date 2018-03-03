@@ -21,10 +21,10 @@ const BasicInfo = ({
                 if (item.key === 'email') {
                   return (
                     <Col key={item.key} span={12}>
-                      <Col className="registered_container_lable" span={4}>
+                      <Col offset={2} className="registered_container_lable" span={4}>
                         {item.lable}
                       </Col>
-                      <Col span={20}>
+                      <Col span={18}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
                             initialValue: `${user.email || ''}`,
@@ -44,10 +44,10 @@ const BasicInfo = ({
                 if (item.key === 'password') {
                   return (
                     <Col key={item.key} span={12}>
-                      <Col className="registered_container_lable" span={4}>
+                      <Col offset={2} className="registered_container_lable" span={4}>
                         {item.lable}
                       </Col>
-                      <Col span={20}>
+                      <Col span={18}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
                              initialValue: `${user.password || ''}`,
@@ -62,10 +62,10 @@ const BasicInfo = ({
                 }
                 return (
                   <Col key={item.key} span={12}>
-                    <Col className="registered_container_lable" span={4}>
+                    <Col offset={2} className="registered_container_lable" span={4}>
                       {item.lable}
                     </Col>
-                    <Col span={20}>
+                    <Col span={18}>
                       <FormItem className="registered_container_form" >
                         {getFieldDecorator(`${item.key}`, {
                            initialValue: `${user[item.key] || ''}`,

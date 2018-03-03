@@ -47,7 +47,7 @@ export default ({ history }) => {
             {/* 师资介绍 end */}
 
             {/* 创业项目 start */}
-            <Route path="/VentureProject/create" component={VentureProjectCreate} />
+            <Route path="/VentureProjectCreate" component={VentureProjectCreate} />
             <Route path="/VentureProject/detail/:id" component={VentureProjectDetail} />
             <Route path="/VentureProject" component={VentureProjectList} />
             {/* 创业项目 end */}

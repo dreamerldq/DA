@@ -22,11 +22,11 @@ const Registered = ({ dispatch, registered, form }) => {
       <MenuBar configs={configs} />
       <Content form={form} />
       {registered.id ?
-        <div style={{ position: 'fixed', bottom: '0px' }}>
-          <Button onClick={editProfile}>编辑教师档案</Button>
+        <div style={{ position: 'absolute', right: '50px', top: '10px' }}>
+          <Button type="primary" onClick={editProfile}>编辑教师档案</Button>
         </div> :
-        <div style={{ position: 'fixed', bottom: '0px' }}>
-          <Button onClick={createProfile}>创建教师档案</Button>
+        <div style={{ position: 'absolute', right: '50px', top: '10px' }}>
+          <Button type="primary" onClick={createProfile}>创建教师档案</Button>
         </div>
       }
 

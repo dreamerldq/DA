@@ -1,7 +1,8 @@
 .profile_Container{
-    width: 1200px;
-    margin: 0 auto;
+    width: 1000px;
+    margin: 0 auto !important;
     position: relative;
+    padding-top: 50px;
 }
 
 .registered_container_lable{

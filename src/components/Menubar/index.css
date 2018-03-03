@@ -1,20 +1,24 @@
 .menu_bar{
-    width: 120px;
+    width: 150px;
     background:#fff;
     text-align: center;
-    padding: 0px;
+    padding: 0px !important;
    
+}
+.menu_bar ul{
+    padding: 0px !important;
 }
 .menu_bar li{
     margin-bottom: 20px;
     height: 35px;
     line-height: 35px;
     list-style: none;
-    width: 120px;
 }
 .menu_bar li a{
     color:#696969;
 }
 .menu_bar_link{
-    background: black;
+    background: #0077B4;
+    width: 120px;
+    display: inline-block;
 }

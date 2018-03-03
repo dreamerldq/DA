@@ -15,16 +15,17 @@ const StaffFiles = ({
   const { user } = model
   return (
     <div className="registered_container" >
-      <Form>
-        {
+      <Row>
+        <Form>
+          {
               basicInfo.map((item) => {
                 if (item.key === 'professionalTeam') {
                   return (
                     <Col key={item.key} span={12}>
-                      <Col className="registered_container_lable" span={4}>
+                      <Col offset={2} className="registered_container_lable" span={4}>
                         {item.lable}
                       </Col>
-                      <Col span={20}>
+                      <Col span={18}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
               initialValue: `${user.professionalTeam || '数字媒体技术'}`,
@@ -46,10 +47,10 @@ const StaffFiles = ({
                 if (item.key === 'jobTitle') {
                   return (
                     <Col key={item.key} span={12}>
-                      <Col className="registered_container_lable" span={4}>
+                      <Col offset={2} className="registered_container_lable" span={4}>
                         {item.lable}
                       </Col>
-                      <Col span={20}>
+                      <Col span={18}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
                             initialValue: `${user.jobTitle || '教授'}`,
@@ -69,10 +70,10 @@ const StaffFiles = ({
                 if (item.key === 'education') {
                   return (
                     <Col key={item.key} span={12}>
-                      <Col className="registered_container_lable" span={4}>
+                      <Col offset={2} className="registered_container_lable" span={4}>
                         {item.lable}
                       </Col>
-                      <Col span={20}>
+                      <Col span={18}>
                         <FormItem className="registered_container_form" >
                           {getFieldDecorator(`${item.key}`, {
                             initialValue: `${user.education || '学士'}`,
@@ -91,10 +92,10 @@ const StaffFiles = ({
                 }
                 return (
                   <Col key={item.key} span={12}>
-                    <Col className="registered_container_lable" span={4}>
+                    <Col offset={2} className="registered_container_lable" span={4}>
                       {item.lable}
                     </Col>
-                    <Col span={20}>
+                    <Col span={18}>
                       <FormItem className="registered_container_form" >
                         {getFieldDecorator(`${item.key}`, {
                            initialValue: `${user[item.key] || ''}`,
@@ -108,7 +109,9 @@ const StaffFiles = ({
                 )
               })
             }
-      </Form>
+        </Form>
+      </Row>
+
     </div>
 
 

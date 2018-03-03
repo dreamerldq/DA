@@ -1,14 +1,13 @@
 .section{
-    width: 1050px;
-    height: 500px;
+    width: 800px;
     background: #ffffff;
     margin-bottom: 50px;
-    margin-left: 30px;
+    margin-left: 50px;
     border: 1px solo black;
     padding: 0 20px;
 }
 .contenr_container{
     position: absolute;
-    top: 0;
+    top: 50px;
     left: 120px;
 }

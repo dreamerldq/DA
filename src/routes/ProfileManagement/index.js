@@ -3,9 +3,9 @@ import { connect } from 'dva';
 import { Tabs } from 'antd';
 import { routerRedux } from 'dva/router';
 import _ from 'lodash';
-import StudioIntroductionList from '../StudioIntroductionList';
+import ManageStudioList from '../ManageStudioList';
 import ProfessionList from '../Profession/ProfessionList';
-import VentureProjectList from '../VentureProject/VentureProjectList';
+import ManageVentureProjectList from '../VentureProject/ManageVentureProjectList';
 import ProfileIntroductionList from '../ProfileIntroduction/ProfileIntroductionList'
 
 import './index.css'
@@ -20,13 +20,13 @@ const ProfileManagement = ({ dispatch, profileManagement }) => {
     <div className="ProfileManagement">
       <Tabs className="ProfileManagementTab" defaultActiveKey="studio" onChange={callback}>
         <TabPane tab="工作室" key="studio" >
-          <StudioIntroductionList />
+          <ManageStudioList />
         </TabPane>
         <TabPane tab="专业" key="profession" >
           <ProfessionList />
         </TabPane>
         <TabPane tab="双创项目" key="ventureProject" >
-          <VentureProjectList />
+          <ManageVentureProjectList />
         </TabPane>
         <TabPane tab="简介" key="introduction" >
           <ProfileIntroductionList />

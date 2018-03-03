@@ -46,7 +46,7 @@ const AdminLogin = ({ form, visible, dispatch }) => {
               <FormItem >
                 {getFieldDecorator('password', {
             rules: [{ required: true, message: 'Please input your Password!' }]
-          })(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Password" />)}
+          })(<Input type="password" prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Password" />)}
               </FormItem>
 
             </Col>

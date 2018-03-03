@@ -30,12 +30,11 @@ class ProfessionList extends React.Component {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Col span={20}>
-                      <Link to={`/ProfessionIntroduction/${item.professionEnglishName}`}>{item.professionName}</Link>
-                    </Col>
-                    <Col span={4}>
-                      <Link to={`/ProfessionCreate/${item.professionEnglishName}`}>编辑</Link>
-                    </Col>
+
+                    <Link to={`/ProfessionIntroduction/${item.professionEnglishName}`}>{item.professionName}</Link>
+
+                    <Link style={{ marginLeft: '30px' }} to={`/ProfessionCreate/${item.professionEnglishName}`}>编辑</Link>
+
                   </Row>
 
                 </Item>

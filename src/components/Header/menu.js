@@ -41,13 +41,6 @@ export default [
     ]
 
   },
-  // {
-  //   title: '教师风采',
-  //   key: 'teacherStyle',
-  //   subTitle: [
-
-  //   ]
-  // },
   {
     title: '创新创业',
     key: 'innovation',
@@ -101,12 +94,6 @@ export default [
         key: 'CampusCulture'
       }
     ]
-  },
-
-  {
-    title: '概况管理',
-    key: 'ProfileManagement',
-    subTitle: null
   }
 ]
 

@@ -39,11 +39,18 @@ const Header = ({
 
   if (user && count) {
     count = false
-    title.push({
-      title: '发布文章',
-      key: 'CreateNews',
-      subTitle: null
-    })
+    title.push(
+      {
+        title: '发布文章',
+        key: 'CreateNews',
+        subTitle: null
+      },
+      {
+        title: '概况管理',
+        key: 'ProfileManagement',
+        subTitle: null
+      }
+    )
   }
   return (
     <div className="header_container_outer">
@@ -62,6 +69,9 @@ const Header = ({
               if (item.key === 'DepartmentSummary') {
                 return (
                   <SubMenu title={<span>{item.title}</span>}>
+                    <MenuItemGroup title="系部概括">
+                      <Item key={item.key}>{item.title}</Item>
+                    </MenuItemGroup>
                     <MenuItemGroup title="专业介绍">
                       {item.subTitle_professionIntroduction.map((sub) => {
                           return <Item key={sub.key}>{sub.title}</Item>

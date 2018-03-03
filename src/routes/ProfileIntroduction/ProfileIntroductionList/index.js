@@ -33,7 +33,7 @@ class ProfileIntroductionList extends React.Component {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Link to={`/News/detail/${item.id}`}>{item.title}</Link>
+                    <Link style={{ marginRight: '20px' }} to={`/News/detail/${item.id}`}>{item.title}</Link>
                     <a onClick={this.editNews.bind(this, item.id)}>编辑</a>
                   </Row>
 

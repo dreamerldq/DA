@@ -2,7 +2,7 @@ import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string';
 import _ from 'lodash';
-import { get, create, getAll } from '../services/ventureProject';
+import { get, create, getAll, deleteProject, editProject } from '../services/ventureProject';
 
 export default {
 
@@ -22,8 +22,12 @@ export default {
         dispatch({ type: 'saveFetchId', payload: id })
         const matchDetail = pathToRegexp('/ventureProject/detail/:id').exec(pathname);
         const matchAll = pathToRegexp('/ventureProject').exec(pathname);
+        const matchID = pathToRegexp('/ventureProjectCreate/:id').exec(pathname);
         if (matchDetail) {
           dispatch({ type: 'getVentureProject', payload: matchDetail[1] })
+        }
+        if (matchID) {
+          dispatch({ type: 'saveID', payload: matchID[1] })
         }
         if (matchAll) {
           dispatch({ type: 'getAllVentureProject' })
@@ -36,6 +40,18 @@ export default {
     * createVentureProject({ payload }, { call, put, select }) {
       yield put({ type: 'startSpin' })
       const { data, err } = yield call(create, { project: payload })
+      if (!err) {
+        yield put({ type: 'endSpin' })
+        yield put(routerRedux.push({
+          pathname: '/ventureProject'
+        }))
+      } else {
+      }
+    },
+    * editVentureProject({ payload }, { call, put, select }) {
+      const { id } = yield select(state => state.ventureProject)
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(editProject, id, payload)
       if (!err) {
         yield put({ type: 'endSpin' })
         yield put(routerRedux.push({
@@ -61,7 +77,19 @@ export default {
         yield put({ type: 'sava', payload: data })
       } else {
       }
+    },
+    * deleteVentureProject({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(deleteProject, payload)
+      if (!err) {
+        yield put({ type: 'endSpin' })
+        yield put(routerRedux.push({
+          pathname: '/ventureProject'
+        }))
+      } else {
+      }
     }
+
   },
 
   reducers: {
@@ -76,6 +104,9 @@ export default {
     },
     savaAll(state, { payload }) {
       return { ...state, allRecord: payload }
+    },
+    saveID(state, { payload }) {
+      return { ...state, id: payload }
     }
   }
 

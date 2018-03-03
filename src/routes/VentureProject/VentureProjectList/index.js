@@ -13,8 +13,8 @@ class VentureProjectList extends React.Component {
     super(props);
   }
   render() {
-    const { dispatch, profileManagement } = this.props;
-    const { ventureProject } = profileManagement
+    const { dispatch, ventureProject } = this.props;
+    const { allRecord } = ventureProject
     return (
 
 
@@ -24,7 +24,7 @@ class VentureProjectList extends React.Component {
             header={
               <span>双创项目</span>
             }
-            dataSource={ventureProject}
+            dataSource={allRecord}
             bordered
             renderItem={(item) => {
               return (
@@ -44,7 +44,7 @@ class VentureProjectList extends React.Component {
     )
   }
 }
-const mapStateToProps = ({ profileManagement }) => ({
-  profileManagement
+const mapStateToProps = ({ ventureProject }) => ({
+  ventureProject
 });
 export default connect(mapStateToProps)(VentureProjectList);
