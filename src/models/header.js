@@ -6,16 +6,18 @@ export default {
   namespace: 'header',
 
   state: {
-    modelVisiable: false,
-    HTMLContent: ''
+    headerDisplay: true
   },
 
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen((location) => {
         const { pathname, query } = location;
-        const match = pathToRegexp('/').exec(pathname);
+        const match = pathToRegexp('/login').exec(pathname);
         if (match) {
+          dispatch({ type: 'displayHeader', payload: false })
+        } else {
+          dispatch({ type: 'displayHeader', payload: true })
         }
       })
     }
@@ -41,6 +43,9 @@ export default {
     },
     saveHTMLContent(state, { payload }) {
       return { ...state, HTMLContent: payload }
+    },
+    displayHeader(state, { payload }) {
+      return { ...state, headerDisplay: payload }
     }
   }
 

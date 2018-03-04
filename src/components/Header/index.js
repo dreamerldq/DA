@@ -15,7 +15,7 @@ const text = '确定要退出当前用户?';
 const Header = ({
   dispatch, header, form, profileManagement, currentUser
 }) => {
-  const { modelVisiable } = header;
+  const { headerDisplay } = header
   const { user } = currentUser
   const { profession } = profileManagement
   const handleClick = (e) => {
@@ -53,92 +53,94 @@ const Header = ({
     )
   }
   return (
+
     <div className="header_container_outer">
-      <Row className="header_container">
-        <Col span={6}>
-          <div>
-            <span onClick={toIndex}><img className="logo" src={require('../../assets/logo.png')} alt="logo" /></span>
-          </div>
-        </Col>
-        <Col span={16}>
-          <Menu
-            onClick={handleClick}
-            mode="horizontal"
-          >
-            {title.map((item) => {
-              if (item.key === 'DepartmentSummary') {
-                return (
-                  <SubMenu title={<span>{item.title}</span>}>
-                    <MenuItemGroup title="系部概括">
-                      <Item key={item.key}>{item.title}</Item>
-                    </MenuItemGroup>
-                    <MenuItemGroup title="专业介绍">
-                      {item.subTitle_professionIntroduction.map((sub) => {
-                          return <Item key={sub.key}>{sub.title}</Item>
-                      })}
-                    </MenuItemGroup>
-                    <MenuItemGroup title="教师风采">
-                      {item.subTitle_teacherStyle.map((sub) => {
-                        return <Item key={sub.key}>{sub.title}</Item>
-                     })}
-                    </MenuItemGroup>
-                  </SubMenu>
-                )
-              }
-              if (item.key === 'innovation') {
-                return (
-                  <SubMenu title={<span>{item.title}</span>}>
-                    <MenuItemGroup title="创新创业">
-                      {item.subTitle_innovation.map((sub) => {
-                          return <Item key={sub.key}>{sub.title}</Item>
-                      })}
-                    </MenuItemGroup>
-                    <MenuItemGroup title="艺创空间">
-                      {item.subTitle_artSpace.map((sub) => {
-                        return <Item key={sub.key}>{sub.title}</Item>
-                     })}
-                    </MenuItemGroup>
-                  </SubMenu>
-                )
-              }
-              if (item.subTitle) {
-                  return (
-                    <SubMenu key={item.key} title={<span>{item.title}</span>}>
-                      {item.subTitle.map((sub) => {
-                        return <Item key={sub.key}>{sub.title}</Item>
-                      })}
-                    </SubMenu>
-                      )
-              }
-                return (
-                  <Item key={item.key}>
-                    {item.title}
-                  </Item>
-              )
-            })}
-          </Menu>
-        </Col>
-        <Col span={2}>
-          {user ?
+      {headerDisplay ?
+        <Row className="header_container">
+          <Col span={6}>
+            <div>
+              <span onClick={toIndex}><img className="logo" src={require('../../assets/logo.png')} alt="logo" /></span>
+            </div>
+          </Col>
+          <Col span={16}>
             <Menu
+              onClick={handleClick}
               mode="horizontal"
             >
-              <SubMenu title={<span><Icon type="menu-unfold" /> {user.name}</span>}>
-                <Item key="setting">
-                  <Link style={{ color: 'black' }} to={`/Registered/${user.id}`}>设置</Link>
+              {title.map((item) => {
+            if (item.key === 'DepartmentSummary') {
+              return (
+                <SubMenu title={<span>{item.title}</span>}>
+                  <MenuItemGroup title="系部概括">
+                    <Item key={item.key}>{item.title}</Item>
+                  </MenuItemGroup>
+                  <MenuItemGroup title="专业介绍">
+                    {item.subTitle_professionIntroduction.map((sub) => {
+                        return <Item key={sub.key}>{sub.title}</Item>
+                    })}
+                  </MenuItemGroup>
+                  <MenuItemGroup title="教师风采">
+                    {item.subTitle_teacherStyle.map((sub) => {
+                      return <Item key={sub.key}>{sub.title}</Item>
+                   })}
+                  </MenuItemGroup>
+                </SubMenu>
+              )
+            }
+            if (item.key === 'innovation') {
+              return (
+                <SubMenu title={<span>{item.title}</span>}>
+                  <MenuItemGroup title="创新创业">
+                    {item.subTitle_innovation.map((sub) => {
+                        return <Item key={sub.key}>{sub.title}</Item>
+                    })}
+                  </MenuItemGroup>
+                  <MenuItemGroup title="艺创空间">
+                    {item.subTitle_artSpace.map((sub) => {
+                      return <Item key={sub.key}>{sub.title}</Item>
+                   })}
+                  </MenuItemGroup>
+                </SubMenu>
+              )
+            }
+            if (item.subTitle) {
+                return (
+                  <SubMenu key={item.key} title={<span>{item.title}</span>}>
+                    {item.subTitle.map((sub) => {
+                      return <Item key={sub.key}>{sub.title}</Item>
+                    })}
+                  </SubMenu>
+                    )
+            }
+              return (
+                <Item key={item.key}>
+                  {item.title}
                 </Item>
-                <Item key="quit">
-                  <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
-                  退出
-                  </Popconfirm>
-                </Item>
-              </SubMenu>
-            </Menu> :
-            <Link to="/Login">登录 </Link>
-      }
-        </Col>
-      </Row>
-
+            )
+          })}
+            </Menu>
+          </Col>
+          <Col span={2}>
+            {user ?
+              <Menu
+                mode="horizontal"
+              >
+                <SubMenu title={<span><Icon type="menu-unfold" /> {user.name}</span>}>
+                  <Item key="setting">
+                    <Link style={{ color: 'black' }} to={`/Registered/${user.id}`}>设置</Link>
+                  </Item>
+                  <Item key="quit">
+                    <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+                退出
+                    </Popconfirm>
+                  </Item>
+                </SubMenu>
+              </Menu> :
+              <Link to="/Login">登录 </Link>
+    }
+          </Col>
+        </Row>
+      : null}
     </div>
 
 

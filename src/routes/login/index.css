@@ -1,11 +1,34 @@
-.login_container{
+/* .login_container{
     width: 400px;
     height: 300px;
-    background: #f7eaea;
     margin: 100px auto;
     text-align: center;
+
+} */
+.login{
+    width: 100%;
+    background-image: url('../../assets/neusoft.jpg');
+    height: 974px;
+    position: relative;
 }
-.login_container_form{
+.login_block{
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    background: #fff;
+    box-sizing: border-box !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%,-50%)
+}
+.login_block img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+/* .login_container_form{
     text-align: left;
     line-height: 32px;
 }
@@ -14,4 +37,5 @@
 }
 .login_container_inner{
     margin: 0 50px;
-}
+    float: left;
+} */
