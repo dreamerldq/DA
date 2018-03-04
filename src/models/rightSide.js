@@ -4,6 +4,7 @@ import queryString from 'query-string'
 import _ from 'lodash'
 import { getStudioList } from '../services/studio';
 import { getNews } from '../services/news';
+import { getAll } from '../services/ventureProject'
 
 export default {
 
@@ -25,6 +26,7 @@ export default {
         const match = pathToRegexp('/*').exec(pathname);
         if (match) {
           dispatch({ type: 'getList' })
+          dispatch({ type: 'getProject' })
         }
       })
     }
@@ -51,6 +53,14 @@ export default {
         yield put({ type: 'saveStudioRecord', payload: data })
         yield put({ type: 'endSpin' })
       }
+    },
+    * getProject({ payload }, { call, put, select }) {
+      yield put({ type: 'startSpin' })
+      const { data, err } = yield call(getAll)
+      if (!err) {
+        yield put({ type: 'saveProjectRecord', payload: data })
+        yield put({ type: 'endSpin' })
+      }
     }
   },
 
@@ -66,6 +76,9 @@ export default {
     },
     saveNewsRecord(state, { payload }) {
       return { ...state, data: { ...state.data, news: payload } }
+    },
+    saveProjectRecord(state, { payload }) {
+      return { ...state, data: { ...state.data, project: payload } }
     }
   }
 

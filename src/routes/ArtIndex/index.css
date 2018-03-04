@@ -26,3 +26,10 @@
 .img_05{
     background-image: url('../../assets/05.jpg')
 }
+
+.ant-card-head-title{
+    border-bottom: 4px solid rgb(247, 111, 0);
+}
+.ant-card-head{
+    border-bottom:0px;
+}
