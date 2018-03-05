@@ -66,11 +66,9 @@ class StudioIntroductionListCreate extends React.Component {
     const { form, dispatch, studioIntroductionListCreate } = this.props
     const { getFieldDecorator, getFieldValue } = form;
     const { studioInfo: { name, research, course }, id, studio } = studioIntroductionListCreate
-    console.log('ZZZZ', studio)
     return (
-      <div className="registered_container" >
-        {id ? <Button onClick={this.editStudio}>编辑</Button> :
-        <Button onClick={this.createStudio}>创建</Button>}
+      <div className="studio_create_container" >
+
         <Form>
           <Row>
             <Col>
@@ -123,7 +121,7 @@ class StudioIntroductionListCreate extends React.Component {
             </Col>
           </Row>
 
-          <Row gutter={16}>
+          <Row style={{ marginTop: '20px' }} gutter={16}>
             <Col span={8}>
               <div>
                 <span>工作室成员</span>
@@ -208,6 +206,8 @@ class StudioIntroductionListCreate extends React.Component {
 
           </Modal>
         </Form>
+        {id ? <Button style={{ width: '100%', marginTop: '30px' }} type="primary" onClick={this.editStudio}>编辑</Button> :
+        <Button style={{ width: '100%', marginTop: '30px' }} type="primary" onClick={this.createStudio}>创建</Button>}
       </div>
 
 

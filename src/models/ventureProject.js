@@ -23,11 +23,16 @@ export default {
         const matchDetail = pathToRegexp('/ventureProject/detail/:id').exec(pathname);
         const matchAll = pathToRegexp('/ventureProject').exec(pathname);
         const matchID = pathToRegexp('/ventureProjectCreate/:id').exec(pathname);
+        const match = pathToRegexp('/ventureProjectCreate').exec(pathname);
+        if (match) {
+          dispatch({ type: 'clearState' })
+        }
         if (matchDetail) {
           dispatch({ type: 'getVentureProject', payload: matchDetail[1] })
         }
         if (matchID) {
           dispatch({ type: 'saveID', payload: matchID[1] })
+          dispatch({ type: 'getVentureProject', payload: matchID[1] })
         }
         if (matchAll) {
           dispatch({ type: 'getAllVentureProject' })
@@ -107,6 +112,9 @@ export default {
     },
     saveID(state, { payload }) {
       return { ...state, id: payload }
+    },
+    clearState(state, { payload }) {
+      return { ...state, record: {} }
     }
   }
 

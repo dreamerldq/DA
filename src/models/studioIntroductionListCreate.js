@@ -37,10 +37,9 @@ export default {
         const match = pathToRegexp('/StudioIntroductionCreate').exec(pathname);
         const matchID = pathToRegexp('/StudioIntroductionCreate/:id').exec(pathname);
         if (match) {
-          console.log('这是创建的页面')
+          dispatch({ type: 'clearState' })
         }
         if (matchID) {
-          console.log('这是编辑的界面')
           dispatch({ type: 'saveID', payload: matchID[1] })
           dispatch({ type: 'getStudio', payload: matchID[1] })
         }
@@ -132,6 +131,9 @@ export default {
     },
     saveArrInfo(state, { payload }) {
       return { ...state, studioInfo: payload }
+    },
+    clearState(state, { payload }) {
+      return { ...state, studioInfo: {}, studio: {} }
     },
     addInfo(state, { payload }) {
       switch (payload.type) {

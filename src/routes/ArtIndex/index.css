@@ -33,3 +33,16 @@
 .ant-card-head{
     border-bottom:0px;
 }
+.title{
+    font-size: 3em;
+    color: #fff;
+}
+.sub_title{
+    font-size: 2em;
+    color: #fff;
+    margin-left: 20px;
+}
+/* .img_container{
+    width: 1000px;
+    margin: 0 auto;
+} */

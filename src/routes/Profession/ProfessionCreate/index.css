@@ -3,7 +3,8 @@
     line-height: 40px;
     height: 32px;
 }
-.registered_container_form{
-    line-height: 32px;
-    height: 32px;
+.profession_create_container{
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 50px;
 }

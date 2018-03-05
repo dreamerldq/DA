@@ -2,13 +2,9 @@
 .venture_container{
     width: 1000px;
     margin: 0 auto;
+    padding-top: 30px;
 }
 .venture_container_lable{
     line-height: 40px;
-    height: 32px;
-}
-.venture_textArea{
-    margin-bottom: 20px;
-    line-height: 32px;
     height: 32px;
 }

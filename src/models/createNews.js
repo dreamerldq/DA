@@ -17,10 +17,13 @@ export default {
     setup({ dispatch, history }) {
       history.listen(({ pathname, search }) => {
         const query = queryString.parse(search)
-        const match = pathToRegexp('/createNews/:id').exec(pathname);
+        const matchID = pathToRegexp('/createNews/:id').exec(pathname);
+        const match = pathToRegexp('/createNews').exec(pathname);
+        if (matchID) {
+          dispatch({ type: 'saveID', payload: matchID[1] })
+        }
         if (match) {
-          console.log('这是新闻的编辑界面')
-          dispatch({ type: 'saveID', payload: match[1] })
+          dispatch({ type: 'clearState' })
         }
       })
     }
@@ -61,6 +64,9 @@ export default {
     },
     saveNews(state, { payload }) {
       return { ...state, news: payload }
+    },
+    clearState(state, { payload }) {
+      return { ...state, news: {} }
     }
   }
 

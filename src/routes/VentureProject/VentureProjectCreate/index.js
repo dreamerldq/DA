@@ -38,8 +38,6 @@ class VentureProjectCreate extends React.Component {
     const { record, id } = ventureProject
     return (
       <div className="venture_container" >
-        {id ? <Button onClick={this.editProject}>编辑</Button> :
-        <Button type="primary" onClick={this.createProject}>创建</Button>}
         <Form>
           <Row>
             <Col>
@@ -47,7 +45,7 @@ class VentureProjectCreate extends React.Component {
               项目名称
               </Col>
               <Col span={20}>
-                <FormItem className="venture_container_form" >
+                <FormItem >
                   {getFieldDecorator('projectName', {
                      initialValue: `${record.projectName || ''}`
                     })(<Input />)}
@@ -59,7 +57,7 @@ class VentureProjectCreate extends React.Component {
               项目所属一级学科
               </Col>
               <Col span={20}>
-                <FormItem className="venture_container_form" >
+                <FormItem >
                   {getFieldDecorator('projectType', {
                      initialValue: `${record.projectType || ''}`
                     })(<Input />)}
@@ -72,7 +70,7 @@ class VentureProjectCreate extends React.Component {
               指导老师
               </Col>
               <Col span={20}>
-                <FormItem className="venture_container_form" >
+                <FormItem >
                   {getFieldDecorator('instructor', {
                      initialValue: `${record.instructor || ''}`
                     })(<Input />)}
@@ -84,7 +82,7 @@ class VentureProjectCreate extends React.Component {
               企业导师
               </Col>
               <Col span={20}>
-                <FormItem className="venture_container_form" >
+                <FormItem >
                   {getFieldDecorator('businessMentor', {
                      initialValue: `${record.businessMentor || ''}`
                     })(<Input />)}
@@ -96,7 +94,7 @@ class VentureProjectCreate extends React.Component {
               单位
               </Col>
               <Col span={20}>
-                <FormItem className="venture_container_form" >
+                <FormItem >
                   {getFieldDecorator('unit', {
                      initialValue: `${record.unit || ''}`
                     })(<Input />)}
@@ -108,7 +106,7 @@ class VentureProjectCreate extends React.Component {
               职称\职务
               </Col>
               <Col span={20}>
-                <FormItem className="venture_container_form" >
+                <FormItem >
                   {getFieldDecorator('title', {
                      initialValue: `${record.title || ''}`
                     })(<Input />)}
@@ -121,7 +119,7 @@ class VentureProjectCreate extends React.Component {
               产品介绍
             </Col>
             <Col>
-              <FormItem className="venture_container_form" >
+              <FormItem >
                 {getFieldDecorator('productDescription', {
                      initialValue: `${record.productDescription || ''}`
                     })(<TextArea autosize={{ minRows: 2, maxRows: 6 }} />)}
@@ -136,7 +134,7 @@ class VentureProjectCreate extends React.Component {
               产品技术水平
             </Col>
             <Col>
-              <FormItem className="venture_container_form" >
+              <FormItem >
                 {getFieldDecorator('productTechnicalLevel', {
                      initialValue: `${record.productTechnicalLevel || ''}`
                     })(<TextArea autosize={{ minRows: 2, maxRows: 6 }} />)}
@@ -151,7 +149,7 @@ class VentureProjectCreate extends React.Component {
               产品的竞争优势
             </Col>
             <Col>
-              <FormItem className="venture_container_form" >
+              <FormItem >
                 {getFieldDecorator('productCompetitive', {
                      initialValue: `${record.productCompetitive || ''}`
                     })(<TextArea autosize={{ minRows: 2, maxRows: 6 }} />)}
@@ -165,7 +163,7 @@ class VentureProjectCreate extends React.Component {
               先进性和独特性
             </Col>
             <Col>
-              <FormItem className="venture_container_form" >
+              <FormItem >
                 {getFieldDecorator('advanced', {
                      initialValue: `${record.advanced || ''}`
                     })(<TextArea autosize={{ minRows: 2, maxRows: 6 }} />)}
@@ -179,7 +177,7 @@ class VentureProjectCreate extends React.Component {
               产品的新颖性
             </Col>
             <Col>
-              <FormItem className="venture_container_form" >
+              <FormItem >
                 {getFieldDecorator('noveltyProducts', {
                      initialValue: `${record.noveltyProducts || ''}`
                     })(<TextArea autosize={{ minRows: 2, maxRows: 6 }} />)}
@@ -187,6 +185,8 @@ class VentureProjectCreate extends React.Component {
             </Col>
           </Row>
         </Form>
+        {id ? <Button style={{ width: '100%', marginTop: '30px' }} type="primary" onClick={this.editProject}>编辑</Button> :
+        <Button style={{ width: '100%', marginTop: '30px' }} type="primary" onClick={this.createProject}>创建</Button>}
       </div>
 
 

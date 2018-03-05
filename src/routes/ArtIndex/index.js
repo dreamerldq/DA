@@ -36,19 +36,34 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
     <div>
       <Carousel autoplay>
         <div className="img_01">
-          <h3>Neusoft Picture</h3>
+          <div className="img_container">
+            <span className="title">大连东软信息学院</span>
+            <span className="sub_title">数字艺术系</span>
+          </div>
         </div>
         <div className="img_02">
-          <h3>Neusoft Picture</h3>
+          <div className="img_container">
+            <span className="title">大连东软信息学院</span>
+            <span className="sub_title">数字艺术系</span>
+          </div>
         </div>
         <div className="img_03">
-          <h3>Neusoft Picture</h3>
+          <div className="img_container">
+            <span className="title">大连东软信息学院</span>
+            <span className="sub_title">数字艺术系</span>
+          </div>
         </div>
         <div className="img_04">
-          <h3>Neusoft Picture</h3>
+          <div className="img_container">
+            <span className="title">大连东软信息学院</span>
+            <span className="sub_title">数字艺术系</span>
+          </div>
         </div>
         <div className="img_05">
-          <h3>Neusoft Picture</h3>
+          <div className="img_container">
+            <span className="title">大连东软信息学院</span>
+            <span className="sub_title">数字艺术系</span>
+          </div>
         </div>
       </Carousel>
 

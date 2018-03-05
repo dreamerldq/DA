@@ -41,7 +41,6 @@ class NewsNotice extends React.Component {
         <div className="news_container">
           <List
             header={<div><h2>新闻通知</h2></div>}
-            footer={<div>Footer</div>}
             bordered
             dataSource={finalNewsList}
             renderItem={(item) => {
