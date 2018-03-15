@@ -63,7 +63,7 @@ const Header = ({
             </div>
           </Col>
           <Col span={16}>
-            <Menu
+            {/* <Menu
               onClick={handleClick}
               mode="horizontal"
             >
@@ -118,9 +118,9 @@ const Header = ({
                 </Item>
             )
           })}
-            </Menu>
+            </Menu> */}
           </Col>
-          <Col span={2}>
+          {/* <Col span={2}>
             {user ?
               <Menu
                 mode="horizontal"
@@ -138,7 +138,7 @@ const Header = ({
               </Menu> :
               <Link to="/Login">登录 </Link>
     }
-          </Col>
+          </Col> */}
         </Row>
       : null}
     </div>

@@ -67,9 +67,9 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
         </div>
       </Carousel>
 
-      <Row className="card" type="flex" justify="space-between">
+      <Row className="card">
         <Col>
-          <Card title="新闻资讯" extra={<Link to="/NewsNotice">更多</Link>} bordered={false} style={{ width: 300 }}>
+          <Card className="cardItem" title="新闻资讯" extra={<Link to="/NewsNotice">更多</Link>} bordered={false}>
             {
               (news || []).filter((item, index) => {
              return index < 3
@@ -83,7 +83,7 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
           </Card>
         </Col>
         <Col>
-          <Card title="双创项目" extra={<Link to="/ventureProject">更多</Link>} bordered={false} style={{ width: 300 }}>
+          <Card className="cardItem" title="双创项目" extra={<Link to="/ventureProject">更多</Link>} bordered={false}>
             {
               (project || []).filter((item, index) => {
              return index < 3
@@ -97,7 +97,7 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
           </Card>
         </Col>
         <Col>
-          <Card title="工作室" extra={<Link to="/StudioIntroduction">更多</Link>} bordered={false} style={{ width: 300 }}>
+          <Card className="cardItem" title="工作室" extra={<Link to="/StudioIntroduction">更多</Link>} bordered={false}>
             {
               (studio || []).filter((item, index) => {
              return index < 3

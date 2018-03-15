@@ -1,10 +1,32 @@
 .studioDetail_container{
+    display: flex;
     width: 1000px;
     background: #fff;
     margin: 0 auto;
     padding: 25px;
 }
-.studioDetail_contant{
-    width: 650px;
-    float: left;
+
+@media screen and (max-width: 600px) {
+    .studioDetail_container{
+        flex-direction: column;
+        width: 100%;
+        padding: 5px;
+    }
+    .studioDetail_contant{
+        width: 100%;
+    }
+    .rightSide{
+        width: 100% !important;
+    }
+
+    }
+@media screen and (min-width: 600px) {
+    .studioDetail_container{
+        width: 1000px;
+        margin: 0 auto;
+        padding: 25px;
+    }
+    .studioDetail_contant{
+        width: 650px;
+    }
 }

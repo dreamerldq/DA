@@ -1,6 +1,15 @@
-.ventureProjectDetail{
-    width: 1000px;
-    margin: 0 auto;
-    line-height: 30px;
-    padding: 50px;
+
+@media screen and (max-width: 600px) {
+    .ventureProjectDetail{
+        width: 100%;
+        padding: 10px;
+    }
+}
+@media screen and (min-width: 600px) {
+    .ventureProjectDetail{
+        width: 1000px;
+        margin: 0 auto;
+        line-height: 30px;
+        padding: 50px;
+    }
 }

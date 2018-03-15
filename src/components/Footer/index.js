@@ -6,7 +6,7 @@ import './index.css'
 const Footer = () => {
   return (
     <div className="footer">
-      <Row className="container">
+      <Row className="footer_container">
         <Col span={8} className="content_left">
           <img className="logo" src={require('../../assets/logo.png')} alt="logo" />
         </Col>

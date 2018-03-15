@@ -1,9 +1,24 @@
-
+*{
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 600px) {
+  body{
+    font-size: 8px !important;
+  }
+}
+@media screen and (min-width: 600px) {
+  body{
+    font-size: 14px !important;
+  }
+}
 html, body, :global(#root) {
   height: 100%;
 }
+html {
+  width: 100%;
+}
 body{
-  /* background-image: url('http://shimmer.neusoft.edu.cn/background/Uploads/2017-12-13/5a307c9334903.jpg'); */
   background-color: #fff !important;
   background-attachment: fixed;
 }

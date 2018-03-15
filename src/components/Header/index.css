@@ -1,3 +1,26 @@
+@media screen and (max-width: 600px) {
+.header_container{
+    width: 100%;
+
+}
+.header_container img{
+    width: 150%;
+    height: 150%;
+}
+}
+@media screen and (min-width: 600px) {
+    .header_container{
+        background: #0077B4;
+        height: 48px;
+        width: 1000px;
+        margin: 0 auto;
+        line-height: 48px;
+    }
+    .header_container img{
+        width: 75%;
+        height: 75%;
+    }
+}
 .ant-menu-horizontal{
     font-size: 0.9em !important;
     border: 0px;
@@ -5,17 +28,11 @@
     color: #ffffff;
 }
 .header_container_outer{
-    widows: 100%;
     background: #0077B4;
 }
 .header_container{
+    display: flex;
     background: #0077B4;
     height: 48px;
-    width: 1000px;
-    margin: 0 auto;
     line-height: 48px;
-}
-.header_container img{
-    width: 75%;
-    height: 75%;
 }

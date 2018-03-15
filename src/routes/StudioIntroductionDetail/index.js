@@ -63,7 +63,7 @@ const StudioIntroductionDetail = ({ studioIntroductionDetail }) => {
           </Row>
 
         </div>
-        <RightSide />
+        <RightSide className="rightSide" />
       </div>
     </Spin>
 
