@@ -24,9 +24,6 @@
     .cardItem{
         width: 300px;
     }
-    .ant-carousel{
-        width: 100%;
-    }
     .title{
         font-size: 3em;
         color: #fff;
@@ -41,6 +38,7 @@
     padding: 50px;
     line-height: 160px;
     overflow: hidden;
+    height: 500px;
   }
   .ant-carousel .slick-slide h3 {
     color: #fff;
@@ -51,18 +49,28 @@
 
   .img_01{
     background-image: url('../../assets/01.jpg');
+    background-size: cover
   }
   .img_02{
-    background-image: url('../../assets/02.jpg')
+    background-image: url('../../assets/02.jpg');
+    background-size: cover
 }
 .img_03{
-    background-image: url('../../assets/03.jpg')
+    background-image: url('../../assets/03.jpg');
+    background-size: cover
 }
 .img_04{
-    background-image: url('../../assets/04.jpg')
+    background-image: url('../../assets/04.jpg');
+    background-size: cover
 }
 .img_05{
-    background-image: url('../../assets/05.jpg')
+    background-image: url('../../assets/05.jpg');
+    background-size: cover
+}
+.img_container{
+    width: 100%;
+    height: 100%;
+
 }
 
 .ant-card-head-title{

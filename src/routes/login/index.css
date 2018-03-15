@@ -1,15 +1,10 @@
-/* .login_container{
-    width: 400px;
-    height: 300px;
-    margin: 100px auto;
-    text-align: center;
 
-} */
 .login{
     width: 100%;
     background-image: url('../../assets/neusoft.jpg');
-    height: 974px;
+    height: 100vh;
     position: relative;
+    background-size: cover;
 }
 .login_block{
     width: 400px;
@@ -28,14 +23,3 @@
     height: 100%;
     margin-bottom: 20px;
 }
-/* .login_container_form{
-    text-align: left;
-    line-height: 32px;
-}
-.login_container_button{
-    width: 100%;
-}
-.login_container_inner{
-    margin: 0 50px;
-    float: left;
-} */
