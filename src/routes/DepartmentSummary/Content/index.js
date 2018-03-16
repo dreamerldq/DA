@@ -12,9 +12,9 @@ const Content = () => {
       <Element className="section" name="DepartmentProfile">
         <Profile />
       </Element>
-      <Element className="section" name="DepartmentLeadership">
+      {/* <Element className="section" name="DepartmentLeadership">
         <Leadership />
-      </Element>
+      </Element> */}
       <Element className="section" name="OrganizationalStructure">
         <Organization />
       </Element>

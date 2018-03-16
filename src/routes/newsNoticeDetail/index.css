@@ -1,10 +1,24 @@
-.newsDetailContainer{
-    width: 1000px !important;
-    margin: 0 auto;
-    overflow: hidden;
+
+@media screen and (max-width: 600px) {
+    .newsDetailContainer{
+        padding: 2em;
+        width: 100% !important;
+        overflow: hidden;
+    }
+    .newsDetailContainer img{
+        width: 100%;
+        margin: 0 auto;
+    }
 }
-.newsDetailContainer img{
-    width: 50%;
-    height: 50%;
-    margin: 0 auto;
+@media screen and (min-width: 600px) {
+    .newsDetailContainer{
+        padding: 2em;
+        width: 1000px !important;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .newsDetailContainer img{
+        width: 100%;
+        margin: 0 auto;
+    }
 }

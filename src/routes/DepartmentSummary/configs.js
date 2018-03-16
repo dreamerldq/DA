@@ -3,10 +3,10 @@ const configs = [
     key: 'DepartmentProfile',
     name: '系部简介'
   },
-  {
-    key: 'DepartmentLeadership',
-    name: '系部领导'
-  },
+  // {
+  //   key: 'DepartmentLeadership',
+  //   name: '系部领导'
+  // },
   {
     key: 'OrganizationalStructure',
     name: '组织结构'
