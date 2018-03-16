@@ -1,14 +1,23 @@
-.right_side_container{
-    width: 250px;
-    height: 600px;
-    float: left;
-    margin-left: 50px;
-    color: rgb(253, 170, 128)
-}
-.right_side_container h3{
-    width: 150px;
-    border-bottom: rgb(247, 123, 51) solid 3px;
-}
+
 .right_side_container ul{
     list-style: none;
+}
+@media screen and (max-width: 600px) {
+    .right_side_container{
+        display: none;
+    }
+
+}
+@media screen and (min-width: 600px) {
+    .right_side_container{
+        width: 250px;
+        height: 600px;
+        float: left;
+        margin-left: 50px;
+        color: rgb(253, 170, 128)
+    }
+    .right_side_container h3{
+        width: 150px;
+        border-bottom: rgb(247, 123, 51) solid 3px;
+    }
 }

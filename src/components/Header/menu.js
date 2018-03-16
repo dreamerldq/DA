@@ -56,10 +56,6 @@ export default [
       {
         title: '双创项目',
         key: 'ventureProject'
-      },
-      {
-        title: '创业典范',
-        key: 'BusinessModel'
       }
     ],
     subTitle_artSpace: [
@@ -74,26 +70,8 @@ export default [
     ]
   },
   {
-    title: '学工党团',
-    key: 'academicWorkers',
-    subTitle: [
-      {
-        title: '素质教育',
-        key: 'QualityEducation'
-      },
-      {
-        title: '党建工作',
-        key: 'PartyBuilding'
-      },
-      {
-        title: '就业工作',
-        key: 'EmploymentWork'
-      },
-      {
-        title: '校园文化',
-        key: 'CampusCulture'
-      }
-    ]
+    title: '校园文化',
+    key: 'CampusCulture'
   }
 ]
 

@@ -16,23 +16,23 @@ const ProfessionDetail = ({ profileManagement }) => {
           </Row>
           <Row>
             <h3>专业介绍:</h3>
-            <Col>{content.professionIntroduction || ''}</Col>
+            <Col><p>{content.professionIntroduction || ''}</p></Col>
           </Row>
           <Row>
             <h3>专业特色:</h3>
-            <Col>{content.professionalFeatures || ''}</Col>
+            <Col><p>{content.professionalFeatures || ''}</p></Col>
           </Row>
           <Row>
             <h3>培训目标:</h3>
-            <Col>{content.trainingPositioning || ''}</Col>
+            <Col><p>{content.trainingPositioning || ''}</p></Col>
           </Row>
           <Row>
             <h3>师资力量:</h3>
-            <Col>{content.faculty || ''}</Col>
+            <Col><p>{content.faculty || ''}</p></Col>
           </Row>
           <Row>
             <h3>专业优势:</h3>
-            <Col>{content.professionalAdvantage || ''}</Col>
+            <Col><p>{content.professionalAdvantage || ''}</p></Col>
           </Row>
         </div>
         <RightSide style={{ float: 'right' }} />

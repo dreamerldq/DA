@@ -47,10 +47,10 @@ class NewsNotice extends React.Component {
               return (
                 <Item>
                   <Row style={{ width: '100%' }}>
-                    <Col span={22}>
+                    <Col span={20}>
                       <Link style={{ color: 'black' }} to={`/News/detail/${item.id}`}>{item.title}</Link>
                     </Col>
-                    <Col span={2}>
+                    <Col span={4}>
                       {item.time}
                     </Col>
                     {user && <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>}

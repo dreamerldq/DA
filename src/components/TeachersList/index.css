@@ -1,5 +1,14 @@
-.TeachersDetails{
-    text-align: center;
-    width: 1000px;
-    margin:  0 auto;
+
+@media screen and (max-width: 600px) {
+    .TeachersDetails{
+        text-align: center;
+        width: 100%;
+    }
+}
+@media screen and (min-width: 600px) {
+    .TeachersDetails{
+        text-align: center;
+        width: 1000px;
+        margin:  0 auto;
+    }
 }

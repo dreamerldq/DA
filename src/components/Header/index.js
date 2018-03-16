@@ -56,14 +56,17 @@ const Header = ({
 
     <div className="header_container_outer">
       {headerDisplay ?
-        <Row className="header_container">
+        <Row type="flex" justify="space-around" className="header_container">
           <Col span={6}>
             <div>
               <span onClick={toIndex}><img className="logo" src={require('../../assets/logo.png')} alt="logo" /></span>
             </div>
           </Col>
           <Col span={16}>
+
+
             <Menu
+              className="pcMenu"
               onClick={handleClick}
               mode="horizontal"
             >
@@ -119,8 +122,37 @@ const Header = ({
             )
           })}
             </Menu>
+
+
+            <Menu
+              onClick={handleClick}
+              mode="horizontal"
+              className="mobileMenu"
+            >
+              {title.map((item) => {
+            if (item.key === 'DepartmentSummary') {
+              return (
+                <SubMenu title={<Icon type="menu-unfold" />}>
+                  <MenuItemGroup title="系部概括">
+                    <Item key={item.key}>{item.title}</Item>
+                  </MenuItemGroup>
+                  <MenuItemGroup title="专业介绍">
+                    {item.subTitle_professionIntroduction.map((sub) => {
+                        return <Item key={sub.key}>{sub.title}</Item>
+                    })}
+                  </MenuItemGroup>
+                  <MenuItemGroup title="教师风采">
+                    {item.subTitle_teacherStyle.map((sub) => {
+                      return <Item key={sub.key}>{sub.title}</Item>
+                   })}
+                  </MenuItemGroup>
+                </SubMenu>
+              )
+            }
+          })}
+            </Menu>
           </Col>
-          <Col span={2}>
+          <Col className="loginMenu" span={2}>
             {user ?
               <Menu
                 mode="horizontal"
@@ -140,7 +172,7 @@ const Header = ({
     }
           </Col>
         </Row>
-      : null}
+      : <Col />}
     </div>
 
 

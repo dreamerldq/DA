@@ -1,4 +1,13 @@
-.studio_container{
-    width: 1000px;
-    margin: 0 auto;
+@media screen and (max-width: 600px) {
+    .studio_container{
+        width: 100%;
+        padding: 2em;
+    }
+}
+@media screen and (min-width: 600px) {
+    .studio_container{
+        width: 1000px;
+        margin: 0 auto;
+        padding: 2em;
+    }
 }

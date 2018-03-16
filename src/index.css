@@ -2,16 +2,6 @@
   margin: 0;
   padding: 0;
 }
-@media screen and (max-width: 600px) {
-  body{
-    font-size: 8px !important;
-  }
-}
-@media screen and (min-width: 600px) {
-  body{
-    font-size: 14px !important;
-  }
-}
 html, body, :global(#root) {
   height: 100%;
 }
@@ -22,4 +12,59 @@ body{
   background-color: #fff !important;
   background-attachment: fixed;
 }
+.globle_container{
+  width: 1000px;
+  margin: 0 auto;
+  padding: 25px;
+}
+p{
+  font-size: 1.0em !important;
+}
+p span{
+  font-size: 1.0em !important;
+}
+h1{
+  font-size: 2.5em
+}
+h2{
+  font-size: 2.0em;
+}
+h3{
+  font-size: 1.5em;
+}
 
+
+@media screen and (max-width: 600px) {
+  body{
+    font-size: 8px !important;
+  }
+
+  .section{
+      width: 100%;
+      background: #ffffff;
+      margin-bottom: 50px;
+      border: 1px solo black;
+      padding: 0 2em;
+  }
+  .contenr_container{
+    position: absolute;
+}
+}
+@media screen and (min-width: 600px) {
+  body{
+    font-size: 14px !important;
+  }
+  .section{
+      width: 800px;
+      background: #ffffff;
+      margin-bottom: 50px;
+      margin-left: 50px;
+      border: 1px solo black;
+      padding: 0 2em;
+  }
+  .contenr_container{
+    position: absolute;
+    top: 50px;
+    left: 120px;
+}
+}

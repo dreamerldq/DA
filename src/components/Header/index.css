@@ -1,20 +1,38 @@
 @media screen and (max-width: 600px) {
 .header_container{
     width: 100%;
-
 }
 .header_container img{
-    width: 150%;
-    height: 150%;
+    width: 120%;
+    height: 120%;
+}
+.pcMenu{
+    display: none;
+}
+.mobileMenu{
+    display: block;
+    position: absolute;
+    right: 0px;
+}
+.loginMenu{
+    display: none;
 }
 }
 @media screen and (min-width: 600px) {
+    .pcMenu{
+        display: block;
+    }
+    .mobileMenu{
+        display: none;
+    }
+    .loginMenu{
+        display: block;
+      
+    }
     .header_container{
-        background: #0077B4;
-        height: 48px;
         width: 1000px;
         margin: 0 auto;
-        line-height: 48px;
+
     }
     .header_container img{
         width: 75%;
@@ -31,8 +49,8 @@
     background: #0077B4;
 }
 .header_container{
-    display: flex;
     background: #0077B4;
     height: 48px;
     line-height: 48px;
+    position: relative;
 }
