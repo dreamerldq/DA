@@ -24,20 +24,21 @@
 //     return arr1;
 // }
 // console.log(zhuanhuan(arr))
-function gongyue(a,b){
-    let max,min;
-    if(a>b){
-        max = a;
-        min = b;
-    }else{
-        max =b;
-        min=a;
+function gongyue(a, b) {
+  let max,
+    min;
+  if (a > b) {
+    max = a;
+    min = b;
+  } else {
+    max = b;
+    min = a;
+  }
+  for (let i = min; i > 0; i--) {
+    console.log(i)
+    if (max % i == 0 && min % i == 0) {
+      return i
     }
-    for(let i =min;i>0;i--){
-        console.log(i)
-        if(max%i==0&&min%i==0){
-            return i
-        }
-    }
+  }
 }
-console.log(gongyue(27,9))
+console.log(gongyue(27, 9))

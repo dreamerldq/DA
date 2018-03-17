@@ -30,6 +30,8 @@ import CampusCultureList from './routes/CampusCulture/CampusCultureList'
 import CampusCultureDetail from './routes/CampusCulture/CampusCultureDetail'
 import DisciplineCompetition from './routes/ProfileIntroduction/DisciplineCompetition'
 import ArtSpaceProfile from './routes/ProfileIntroduction/ArtSpaceProfile'
+import Footer from './components/Footer'
+import BatchCreateProfile from './routes/BatchCreateProfile'
 
 export default ({ history }) => {
   return (
@@ -75,13 +77,14 @@ export default ({ history }) => {
             <Route path="/ProfessionIntroduction/:profession" component={ProfessionDetail} />
             <Route path="/Login" component={AdminLogin} />
             <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
-
+            <Route path="/BatchCreateProfile" component={BatchCreateProfile} />
             <Route path="/Registered/:id" component={Registered} />
             <Route path="/Registered" component={Registered} />
             <Route path="/" component={ArtIndex} />
           </Switch>
 
         </div>
+        {/* <Footer /> */}
       </div>
 
     </Router>

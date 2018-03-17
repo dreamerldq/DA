@@ -32,7 +32,8 @@ const app = dva();
   'campusCulture',
   'currentUser',
   'rightSide',
-  'profileIntroduction'
+  'profileIntroduction',
+  'batchCreateProfile'
 ].forEach((model) => {
   app.model(require(`./models/${model}`).default)
 })

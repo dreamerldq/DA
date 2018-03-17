@@ -20,7 +20,8 @@
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
     "react-scripts": "1.0.17",
-    "react-scroll": "^1.7.6"
+    "react-scroll": "^1.7.6",
+    "xlsx": "^0.12.5"
   },
   "scripts": {
     "start": "react-scripts start",
