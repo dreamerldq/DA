@@ -11,6 +11,7 @@ const DisciplineCompetition = ({ dispatch, profileIntroduction }) => {
 
     <div className="contentDetail_container">
       <div className="contentDetail_content">
+      <h2  className="globalTitle">学科竞赛</h2>
         <div className="profileIntroductionContainer">
           <div style={{ width: '100%' }} dangerouslySetInnerHTML={{ __html: (news || {}).content }} />
         </div>

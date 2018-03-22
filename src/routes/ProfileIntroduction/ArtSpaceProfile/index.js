@@ -11,6 +11,7 @@ const ArtSpaceProfile = ({ dispatch, profileIntroduction }) => {
   return (
     <div className="contentDetail_container">
       <div className="contentDetail_content">
+      <h2 style={{width:'8em'}} className="globalTitle">艺创空间简介</h2>
         <div className="profileIntroductionContainer">
           <div style={{ width: '100%' }} dangerouslySetInnerHTML={{ __html: (news || {}).content }} />
         </div>

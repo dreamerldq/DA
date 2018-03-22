@@ -9,7 +9,7 @@ html {
   width: 100%;
 }
 body{
-  background-color: #fff !important;
+  background: #fff !important;
   background-attachment: fixed;
 }
 .globle_container{
@@ -32,7 +32,11 @@ h2{
 h3{
   font-size: 1.5em;
 }
-
+.globalTitle{
+  color: #0077B4 !important;
+  border-bottom: 3px solid #ff9100 !important;
+  width: 5em;
+}
 
 @media screen and (max-width: 600px) {
   body{

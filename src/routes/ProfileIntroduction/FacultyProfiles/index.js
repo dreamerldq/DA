@@ -12,7 +12,7 @@ const FacultyProfiles = ({ dispatch, profileIntroduction }) => {
 
     <div className="contentDetail_container">
       <div className="contentDetail_content">
-        <h2 className="contentDetail_introduction">专业简介</h2>
+        <h2 className="contentDetail_introduction">师资概况</h2>
         <div className="profileIntroductionContainer">
           <div style={{ width: '100%' }} dangerouslySetInnerHTML={{ __html: (news || {}).content }} />
         </div>

@@ -12,7 +12,7 @@ const ProfessionDetail = ({ profileManagement }) => {
       <div className="professionDetail_Container">
         <div className="professionDetail_content">
           <Row>
-            <h2>{content.professionName || ''}</h2>
+            <h2 style={{width:'10em'}} className="globalTitle">{content.professionName || ''}</h2>
           </Row>
           <Row>
             <h3>专业介绍:</h3>

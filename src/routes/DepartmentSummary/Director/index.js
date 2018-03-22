@@ -7,7 +7,7 @@ const Director = ({ profileIntroduction }) => {
   const news = _.find(newsList, { title: '主任寄语' });
   return (
     <div>
-      <h3>主任寄语</h3>
+      <h2 className="globalTitle">主任寄语</h2>
       <div className="departmentSummaryContent" dangerouslySetInnerHTML={{ __html: (news || {}).content }} />
     </div>
   )

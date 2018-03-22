@@ -10,6 +10,7 @@ const InnovationProfiles = ({ dispatch, profileIntroduction }) => {
   return (
     <div className="contentDetail_container">
       <div className="contentDetail_content">
+      <h2  style={{width:'10em'}} className="globalTitle">创新创业概况</h2>
         <div className="profileIntroductionContainer">
           <div style={{ width: '100%' }} dangerouslySetInnerHTML={{ __html: (news || {}).content }} />
         </div>

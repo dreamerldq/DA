@@ -13,7 +13,7 @@
 }
 .menu_bar_link{
     background: #0077B4;
-    width: 120px;
+    width: 100%;
     display: inline-block;
 }
 
@@ -25,9 +25,14 @@
 @media screen and (min-width: 600px) {
     .menu_bar{
         width: 150px;
-        background:#fff;
+        background: #fff;
+        height: 300px;
         text-align: center;
         padding: 0px !important;
        
+    }
+    .ant-affix{
+        background: #fff;
+        height: 300px;
     }
 }
