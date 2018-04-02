@@ -32,6 +32,8 @@ import DisciplineCompetition from './routes/ProfileIntroduction/DisciplineCompet
 import ArtSpaceProfile from './routes/ProfileIntroduction/ArtSpaceProfile'
 import Footer from './components/Footer'
 import BatchCreateProfile from './routes/BatchCreateProfile'
+import QuanJing from './routes/QuanJing'
+import QuanJingList from './routes/QuanJing/QuanJingList'
 
 export default ({ history }) => {
   return (
@@ -63,6 +65,8 @@ export default ({ history }) => {
             <Route path="/InnovationProfile" component={InnovationProfiles} />
             <Route path="/DisciplineCompetition" component={DisciplineCompetition} />
             <Route path="/ArtSpaceProfile" component={ArtSpaceProfile} />
+            <Route path="/QuanJing/:id" component={QuanJing} />
+            <Route path="/QuanJingList" component={QuanJingList} />
             {/* 简介  end*/}
             <Route path="/NewsNotice" component={NewsList} />
             <Route path="/ProfileManagement" component={ProfileManagement} />

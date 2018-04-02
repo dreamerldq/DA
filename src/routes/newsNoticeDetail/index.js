@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Spin } from 'antd'
-import { newsContainer, newsTitle } from '../../data'
 import './index.css'
 
 const NewsNoticeDetail = ({ dispatch, newsNoticeDetail }) => {

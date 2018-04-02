@@ -33,7 +33,8 @@ const app = dva();
   'currentUser',
   'rightSide',
   'profileIntroduction',
-  'batchCreateProfile'
+  'batchCreateProfile',
+  'quanjing'
 ].forEach((model) => {
   app.model(require(`./models/${model}`).default)
 })

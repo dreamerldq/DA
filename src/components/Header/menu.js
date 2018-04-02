@@ -72,6 +72,10 @@ export default [
   {
     title: '校园文化',
     key: 'CampusCulture'
+  },
+  {
+    title: '全景展览',
+    key: 'QuanJingList'
   }
 ]
 
