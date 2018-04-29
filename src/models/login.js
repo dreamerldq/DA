@@ -25,12 +25,10 @@ export default {
     * saveUserData({ payload }, { call, put }) {
       const { data, err } = yield call(createSession, { session: payload });
       if (!err) {
-        // yield put({ type: 'header/saveCurrentUser', payload: data })
         const dataString = JSON.stringify(data)
         window.localStorage.setItem('data', dataString);
         yield put({ type: 'currentUser/saveCurrentUser', payload: dataString })
         yield put(routerRedux.push({
-          // pathname: `/TeacherDetail/${data}`
           pathname: './index'
         }))
       } else {
