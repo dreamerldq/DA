@@ -1,15 +1,24 @@
 import React from 'react';
 import { connect } from 'dva';
 import _ from 'lodash';
-import { Carousel, Card, Upload, message, Button, Icon, Row, Col } from 'antd';
+import { Carousel, Card, Upload, message, Button, Icon, Row, Col, Collapse } from 'antd';
 import { routerRedux, Link } from 'dva/router';
 import './index.css'
 import Footer from '../../components/Footer';
 
+const { Panel } = Collapse;
 const { Meta } = Card;
 const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
   const { data } = rightSide
+  const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
   const { news, studio, project } = data
+  console.log('QQQQ', project)
+  console.log('AAAA', news)
+  console.log('PPP', studio)
   const imageInfo = [
     {
       title: '大连东软信息学院',
@@ -32,6 +41,46 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
       sub_title: '数字艺术系'
     }
   ]
+  const panelContent = [
+    {
+      header: '系部简介',
+      content: `
+      数字艺术系成立于2004年。自建系以来，该系一直强调数字技术与艺术的有机融合
+      ，强调产学深度融合，并致力于为数字内容产业培养急需的数字艺术应用型人才。`
+    },
+    {
+      header: '组织架构',
+      content: `
+      数字艺术系结合TOPCARES-CDIO教育教学改革，将原专业教研室和学生工作办公室合并，成立专业教育管理团队，使专业教师与素质教师（辅导员）融合互动
+      、形成合力，实现专业教育与思想政治教育和学生日常管理的一体化。`
+    },
+    {
+      header: '主任寄语',
+      content: `
+      数字技术与文化创意产业的深度融合发展，不仅催生了一个极具发展潜力的朝阳产业，还
+      使其在短短十来年时间里迅速发展成为我国的支柱性产业。这个令全球瞩目的新兴产业就是数字内容产业。`
+    }
+  ]
+  const RouteCard = [
+    {
+      title: '新闻资讯',
+      path: '/NewsNotice',
+      detail: '/News/detail/',
+      data: news
+    },
+    {
+      title: '双创项目',
+      path: '/ventureProject',
+      detail: '/VentureProject/detail/',
+      data: project
+    },
+    {
+      title: '工作室',
+      path: '/StudioIntroduction',
+      detail: '/StudioIntroduction/',
+      data: studio
+    }
+  ]
   return (
     <div>
       <Carousel autoplay>
@@ -47,48 +96,33 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
         })}
       </Carousel>
       <Row className="card" type="flex" justify="space-between">
-        <Col>
-          <Card className="cardItem" title="新闻资讯" extra={<Link to="/NewsNotice">更多</Link>} bordered={false}>
-            {
-              (news || []).filter((item, index) => {
-             return index < 3
-           }).map((item) => {
-           const title = `${(item.title).slice(0, 16)}...`
-             return (
-               <Link to={`/News/detail/${item.id}`}><p>{title}</p></Link>
-             )
-           })
-           }
-          </Card>
-        </Col>
-        <Col>
-          <Card className="cardItem" title="双创项目" extra={<Link to="/ventureProject">更多</Link>} bordered={false}>
-            {
-              (project || []).filter((item, index) => {
-             return index < 3
-           }).map((item) => {
-            const title = `${(item.projectName).slice(0, 16)}...`
-             return (
-               <Link to={`/VentureProject/detail/${item.id}`}><p>{title}</p></Link>
-             )
-           })
-           }
-          </Card>
-        </Col>
-        <Col>
-          <Card className="cardItem" title="工作室" extra={<Link to="/StudioIntroduction">更多</Link>} bordered={false}>
-            {
-              (studio || []).filter((item, index) => {
-             return index < 3
-           }).map((item) => {
-            const title = `${(item.studioName).slice(0, 16)}...`
-             return (
-               <Link to={`/StudioIntroduction/${item.id}`}><p>{title}</p></Link>
-             )
-           })
-           }
-          </Card>
-        </Col>
+        {RouteCard.map((card, index) => (
+          <Col>
+            <Card className="cardItem" title={card.title} extra={<Link to={card.path}>更多</Link>} bordered={false}>
+              {
+                      (card.data || []).filter((item, index) => {
+                     return index < 3
+                   }).map((item) => {
+                   const title = item.studioName ? `${(item.studioName)}...` : `${(item.title)}...`
+                     return (
+                       <Link to={`${card.detail}${item.id}`}><p>{title}</p></Link>
+                     )
+                   })
+                   }
+            </Card>
+          </Col>
+      ))}
+      </Row>
+      <Row className="background2">
+        <div className="block" >
+          <Collapse className="collapse" bordered={false} defaultActiveKey={['1']}>
+            {panelContent.map((item, index) => (
+              <Panel style={{ color: '#fff' }} className={`panel${index + 1}`} header={<span style={{ color: '#fff' }}>{item.header}</span>} key={index + 1}>
+                <p style={{ color: '#fff' }}>{item.content}</p>
+              </Panel>
+          ))}
+          </Collapse>
+        </div>
       </Row>
       <Row className="introduction background1">
         <div className="block">
@@ -116,11 +150,6 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
               </Col>
             </Row>
           </div>
-        </div>
-      </Row>
-      <Row>
-        <div className="block">
-          <h1>这是介绍界面</h1>
         </div>
       </Row>
       <Row>

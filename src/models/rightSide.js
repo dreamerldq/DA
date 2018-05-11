@@ -13,7 +13,8 @@ export default {
   state: {
     data: {
       studio: null,
-      news: null
+      news: null,
+      project: null
     },
     loading: false
   },

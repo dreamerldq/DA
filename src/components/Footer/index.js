@@ -12,7 +12,7 @@ const Footer = () => {
         </Col>
         <Col span={12} className="content_right">
           <ul>
-            <li>Powered by 素妆</li>
+            <li>Created by LDQ</li>
             <li>大连东软信息学院</li>
             <li>Neusoft University</li>
           </ul>
