@@ -50,7 +50,8 @@ class CampusCultureList extends React.Component {
                     <Col span={2}>
                       {item.time}
                     </Col>
-                    {user && <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>}
+                    {user &&
+                    <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>}
                   </Row>
 
                 </Item>

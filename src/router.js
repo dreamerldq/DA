@@ -88,7 +88,6 @@ export default ({ history }) => {
           </Switch>
 
         </div>
-        {/* <Footer /> */}
       </div>
 
     </Router>

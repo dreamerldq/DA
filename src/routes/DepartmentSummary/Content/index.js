@@ -2,7 +2,6 @@ import React, { PropTypes, Component } from 'react'
 import { Element } from 'react-scroll';
 import './index.css'
 import Director from '../Director'
-import Leadership from '../Leadership'
 import Organization from '../Organization'
 import Profile from '../Profile'
 
@@ -12,9 +11,6 @@ const Content = () => {
       <Element className="section" name="DepartmentProfile">
         <Profile />
       </Element>
-      {/* <Element className="section" name="DepartmentLeadership">
-        <Leadership />
-      </Element> */}
       <Element className="section" name="OrganizationalStructure">
         <Organization />
       </Element>

@@ -167,6 +167,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+animate.css@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-3.6.1.tgz#4ea8a48556378bc8d7535224296c4c0dac9229de"
+
 ansi-align@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-1.1.0.tgz#2f0c1658829739add5ebb15e6b0c6e3423f016ba"
@@ -5110,9 +5114,9 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
-photo-sphere-viewer@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/photo-sphere-viewer/-/photo-sphere-viewer-3.3.2.tgz#037e724c400ec09a88b750d5b32438321717ed3b"
+photo-sphere-viewer@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/photo-sphere-viewer/-/photo-sphere-viewer-3.3.3.tgz#b429a544044466a1312269b32a19b88e3af43102"
   dependencies:
     d.js "~0.7.3"
     dot ">=1.0.3"

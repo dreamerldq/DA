@@ -76,9 +76,6 @@ class AdminLogin extends React.Component {
           </Row>
           <Row type="flex" justify="space-between" style={{ margin: '10px 0' }}>
             <Col >
-              <a>忘记密码？</a>
-            </Col>
-            <Col >
               <a onClick={this.registered}>注册</a>/<a onClick={this.normal}>游客登录</a>
             </Col>
           </Row>

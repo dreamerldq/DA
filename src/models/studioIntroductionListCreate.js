@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import queryString from 'query-string';
