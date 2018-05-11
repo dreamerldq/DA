@@ -49,8 +49,10 @@
     background: #0077B4;
 }
 .header_container{
+    display: flex;
+    align-items: center;
     background: #0077B4;
-    height: 48px;
-    line-height: 48px;
+    height:64px;
+    line-height: 64px;
     position: relative;
 }
