@@ -5,6 +5,7 @@ import { Link, routerRedux } from 'dva/router'
 import _ from 'lodash';
 import { Row, Col } from 'antd/lib/grid';
 import './index.css'
+import AddBackgroundImage from '../../components/BackgroundImage'
 
 const { Item } = List
 
@@ -48,4 +49,4 @@ class StudioIntroductionList extends React.Component {
 const mapStateToProps = ({ studioIntroduction }) => ({
   studioIntroduction
 });
-export default connect(mapStateToProps)(StudioIntroductionList);
+export default AddBackgroundImage('01')(connect(mapStateToProps)(StudioIntroductionList));

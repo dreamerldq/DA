@@ -6,6 +6,7 @@ import { Spin } from 'antd'
 import TeachersList from '../../../components/TeachersList'
 import DetailsTable from '../../../components/DetailsTable'
 import '../index.css'
+import AddBackgroundImage from '../../../components/BackgroundImage'
 
 const DigitalMediaTechnologyTeam = ({ dispatch, digitalMediaTechnologyTeam: model }) => {
   const dataSource = model.user

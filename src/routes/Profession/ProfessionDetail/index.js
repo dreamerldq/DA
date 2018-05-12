@@ -3,6 +3,7 @@ import { connect } from 'dva'
 import { Col, Row, Spin } from 'antd'
 import './index.css'
 import RightSide from '../../RightSide'
+import AddBackgroundImage from '../../../components/BackgroundImage'
 
 const ProfessionDetail = ({ profileManagement }) => {
   const { content, loading } = profileManagement;
@@ -12,7 +13,7 @@ const ProfessionDetail = ({ profileManagement }) => {
       <div className="professionDetail_Container">
         <div className="professionDetail_content">
           <Row>
-            <h2 style={{width:'10em'}} className="globalTitle">{content.professionName || ''}</h2>
+            <h2 style={{ width: '10em' }} className="globalTitle">{content.professionName || ''}</h2>
           </Row>
           <Row>
             <h3>专业介绍:</h3>
@@ -47,5 +48,5 @@ const mapStateToProps = ({ profileManagement }) => {
     profileManagement
   }
 }
-export default connect(mapStateToProps)(ProfessionDetail)
+export default AddBackgroundImage('01')(connect(mapStateToProps)(ProfessionDetail))
 

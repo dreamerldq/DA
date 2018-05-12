@@ -3,6 +3,7 @@ import { routerRedux, Link } from 'dva/router';
 import { Row, Col } from 'antd'
 import Data from '../../../QuanJingData'
 import './index.css'
+import AddBackgroundImage from '../../../components/BackgroundImage'
 
 const QuanJingList = ({ imgData }) => {
   return (

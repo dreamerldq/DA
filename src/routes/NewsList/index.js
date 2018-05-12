@@ -6,6 +6,7 @@ import _ from 'lodash';
 import { Row, Col } from 'antd/lib/grid';
 import Header from '../../components/Header'
 import './index.css';
+import AddBackgroundImage from '../../components/BackgroundImage'
 
 const { Item } = List
 
@@ -53,7 +54,8 @@ class NewsNotice extends React.Component {
                     <Col span={4}>
                       {item.time}
                     </Col>
-                    {user && <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>}
+                    {user &&
+                    <Col><a onClick={this.deleteNews.bind(this, item.id, dispatch)}>删除</a></Col>}
 
                   </Row>
 
@@ -79,4 +81,4 @@ const mapStateToProps = ({ newsNotice, currentUser }) => ({
   newsNotice,
   currentUser
 });
-export default connect(mapStateToProps)(NewsNotice);
+export default AddBackgroundImage('01')(connect(mapStateToProps)(NewsNotice));

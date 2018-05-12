@@ -1,7 +1,8 @@
 .postArticle_container{
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 10px 50px;
     width: 1000px;
+    background: #fff;
 }
 .postArticle_content{
     border: 1px solid blue;

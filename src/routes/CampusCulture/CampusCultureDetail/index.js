@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import './index.css'
+import AddBackgroundImage from '../../../components/BackgroundImage'
 
 const CampusCultureDetail = ({ dispatch, campusCulture }) => {
   const { record } = campusCulture
@@ -14,4 +15,4 @@ const CampusCultureDetail = ({ dispatch, campusCulture }) => {
 const mapStateToProps = ({ campusCulture }) => ({
   campusCulture
 })
-export default connect(mapStateToProps)(CampusCultureDetail)
+export default AddBackgroundImage('01')(connect(mapStateToProps)(CampusCultureDetail))

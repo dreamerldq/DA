@@ -7,6 +7,7 @@ import ManageStudioList from '../ManageStudioList';
 import ProfessionList from '../Profession/ProfessionList';
 import ManageVentureProjectList from '../VentureProject/ManageVentureProjectList';
 import ProfileIntroductionList from '../ProfileIntroduction/ProfileIntroductionList'
+import AddBackgroundImage from '../../components/BackgroundImage'
 
 import './index.css'
 
@@ -40,4 +41,4 @@ const mapStateToProps = ({ profileManagement }) => {
     profileManagement
   }
 }
-export default connect(mapStateToProps)(ProfileManagement);
+export default AddBackgroundImage('01')(connect(mapStateToProps)(ProfileManagement));

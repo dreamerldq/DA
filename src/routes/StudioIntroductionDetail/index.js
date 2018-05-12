@@ -3,6 +3,7 @@ import { connect } from 'dva'
 import { Col, Row, Spin } from 'antd'
 import RightSide from '../RightSide'
 import './index.css'
+import AddBackgroundImage from '../../components/BackgroundImage'
 
 const StudioIntroductionDetail = ({ studioIntroductionDetail }) => {
   const { studio, loading } = studioIntroductionDetail
@@ -29,7 +30,7 @@ const StudioIntroductionDetail = ({ studioIntroductionDetail }) => {
             <Col span={4}>工作室成员:</Col>
           </Row>
           <Row>
-            <ul>
+            <ul className="introductionList">
               {(studio.name || []).map((item, index) => {
             return (
               <li key={index}>{item}</li>
@@ -41,7 +42,7 @@ const StudioIntroductionDetail = ({ studioIntroductionDetail }) => {
             <Col>工作室承担课程:</Col>
           </Row>
           <Row>
-            <ul>
+            <ul className="introductionList">
               {(studio.course || []).map((item, index) => {
             return (
               <li key={index}>{item}</li>
@@ -53,7 +54,7 @@ const StudioIntroductionDetail = ({ studioIntroductionDetail }) => {
             <Col>工作室承担项目方向:</Col>
           </Row>
           <Row>
-            <ul>
+            <ul className="introductionList">
               {(studio.research || []).map((item, index) => {
             return (
               <li key={index}>{item}</li>
@@ -74,5 +75,5 @@ const mapStateToProps = ({ studioIntroductionDetail }) => {
     studioIntroductionDetail
   }
 }
-export default connect(mapStateToProps)(StudioIntroductionDetail)
+export default AddBackgroundImage('01')(connect(mapStateToProps)(StudioIntroductionDetail))
 

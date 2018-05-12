@@ -3,6 +3,7 @@ import { Menu, Icon, List, Spin } from 'antd';
 import { connect } from 'dva';
 import _ from 'lodash';
 import RightSide from '../../RightSide'
+import AddBackgroundImage from '../../../components/BackgroundImage'
 
 const ArtSpaceProfile = ({ dispatch, profileIntroduction }) => {
   const { newsList, loading } = profileIntroduction
@@ -26,4 +27,4 @@ ArtSpaceProfile.propTypes = {
 const mapStateToProps = ({ newsNoticeDetail, profileIntroduction }) => ({
   newsNoticeDetail, profileIntroduction
 })
-export default connect(mapStateToProps)(ArtSpaceProfile);
+export default AddBackgroundImage('01')(connect(mapStateToProps)(ArtSpaceProfile));

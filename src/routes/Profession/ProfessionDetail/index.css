@@ -12,9 +12,11 @@
         margin: 0 auto;
         padding: 25px;
         width: 1000px;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
     }
     .professionDetail_content{
         width: 650px;
-        float: left;
     }
 }

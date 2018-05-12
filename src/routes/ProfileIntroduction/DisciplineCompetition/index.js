@@ -3,6 +3,7 @@ import { Menu, Icon, List, Spin } from 'antd';
 import { connect } from 'dva';
 import _ from 'lodash';
 import RightSide from '../../RightSide'
+import AddBackgroundImage from '../../../components/BackgroundImage'
 
 const DisciplineCompetition = ({ dispatch, profileIntroduction }) => {
   const { newsList, loading } = profileIntroduction
@@ -11,7 +12,7 @@ const DisciplineCompetition = ({ dispatch, profileIntroduction }) => {
 
     <div className="contentDetail_container">
       <div className="contentDetail_content">
-      <h2  className="globalTitle">学科竞赛</h2>
+        <h2 className="globalTitle">学科竞赛</h2>
         <div className="profileIntroductionContainer">
           <div style={{ width: '100%' }} dangerouslySetInnerHTML={{ __html: (news || {}).content }} />
         </div>
@@ -27,4 +28,4 @@ DisciplineCompetition.propTypes = {
 const mapStateToProps = ({ newsNoticeDetail, profileIntroduction }) => ({
   newsNoticeDetail, profileIntroduction
 })
-export default connect(mapStateToProps)(DisciplineCompetition);
+export default AddBackgroundImage('01')(connect(mapStateToProps)(DisciplineCompetition));

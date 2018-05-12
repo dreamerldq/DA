@@ -23,10 +23,13 @@
 @media screen and (min-width: 600px) {
     .studioDetail_container{
         width: 1000px;
-        margin: 0 auto;
+        margin: 50px auto;
         padding: 25px;
     }
     .studioDetail_contant{
         width: 650px;
     }
+}
+.introductionList{
+    list-style: none;
 }

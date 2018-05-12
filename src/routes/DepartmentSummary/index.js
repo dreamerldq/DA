@@ -5,6 +5,7 @@ import MenuBar from '../../components/Menubar'
 import Content from './Content/index'
 import './index.css'
 import configs from './configs'
+import AddBackgroundImage from '../../components/BackgroundImage'
 
 const DepartmentSummary = () => {
   return (
@@ -15,4 +16,4 @@ const DepartmentSummary = () => {
   );
 }
 
-export default DepartmentSummary;
+export default AddBackgroundImage('01')(DepartmentSummary);

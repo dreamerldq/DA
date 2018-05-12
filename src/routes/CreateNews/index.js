@@ -4,6 +4,7 @@ import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/braft.css'
 import { connect } from 'dva';
 import './index.css'
+import AddBackgroundImage from '../../components/BackgroundImage'
 
 const FormItem = Form.Item;
 const { Option } = Select;
@@ -124,4 +125,4 @@ class CreateNews extends React.Component {
 const mapStateToProps = ({ createNews }) => ({
   createNews
 });
-export default Form.create()(connect(mapStateToProps)(CreateNews))
+export default AddBackgroundImage('01')(Form.create()(connect(mapStateToProps)(CreateNews)))

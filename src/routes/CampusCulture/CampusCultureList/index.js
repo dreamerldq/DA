@@ -5,6 +5,7 @@ import { Link } from 'dva/router'
 import _ from 'lodash';
 import { Row, Col } from 'antd/lib/grid';
 import './index.css'
+import AddBackgroundImage from '../../../components/BackgroundImage'
 
 const { Item } = List
 
@@ -37,7 +38,6 @@ class CampusCultureList extends React.Component {
         <div className="campus_container">
           <List
             header={<div>校园文化列表</div>}
-            footer={<div>Footer</div>}
             bordered
             dataSource={allRecord}
             renderItem={(item) => {
@@ -75,4 +75,4 @@ class CampusCultureList extends React.Component {
 const mapStateToProps = ({ campusCulture, currentUser }) => ({
   campusCulture, currentUser
 });
-export default connect(mapStateToProps)(CampusCultureList);
+export default AddBackgroundImage('01')(connect(mapStateToProps)(CampusCultureList));

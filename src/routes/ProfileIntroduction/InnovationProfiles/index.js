@@ -3,6 +3,7 @@ import { Menu, Icon, List, Spin } from 'antd';
 import { connect } from 'dva';
 import _ from 'lodash';
 import RightSide from '../../RightSide'
+import AddBackgroundImage from '../../../components/BackgroundImage'
 
 const InnovationProfiles = ({ dispatch, profileIntroduction }) => {
   const { newsList, loading } = profileIntroduction
@@ -10,7 +11,7 @@ const InnovationProfiles = ({ dispatch, profileIntroduction }) => {
   return (
     <div className="contentDetail_container">
       <div className="contentDetail_content">
-      <h2  style={{width:'10em'}} className="globalTitle">创新创业概况</h2>
+        <h2 style={{ width: '10em' }} className="globalTitle">创新创业概况</h2>
         <div className="profileIntroductionContainer">
           <div style={{ width: '100%' }} dangerouslySetInnerHTML={{ __html: (news || {}).content }} />
         </div>
@@ -26,4 +27,4 @@ InnovationProfiles.propTypes = {
 const mapStateToProps = ({ newsNoticeDetail, profileIntroduction }) => ({
   newsNoticeDetail, profileIntroduction
 })
-export default connect(mapStateToProps)(InnovationProfiles);
+export default AddBackgroundImage('01')(connect(mapStateToProps)(InnovationProfiles));
