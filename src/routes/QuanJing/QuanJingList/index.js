@@ -12,7 +12,7 @@ const QuanJingList = ({ imgData }) => {
         {Data.map((item) => {
           return (
             <Col >
-              <Link to={`/quanjing/${item.path}`}><img className="image" src={require(`../asset/${item.path}.jpg`)} alt="tushuguan" /></Link>
+              <Link to={`/quanjing/${item.path}`}><img className="image" src={`http://oli7sq88l.bkt.clouddn.com/quanjing/${item.path}.jpg`} alt="tushuguan" /></Link>
               <h3>{item.name}</h3>
             </Col>
           )

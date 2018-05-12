@@ -59,7 +59,7 @@ const Header = ({
         <Row type="flex" justify="space-around" className="header_container">
           <Col span={6}>
             <div>
-              <span onClick={toIndex}><img className="logo" src={require('../../assets/logo.png')} alt="logo" /></span>
+              <span onClick={toIndex}><img className="logo" src="http://oli7sq88l.bkt.clouddn.com/logo/logo.png" alt="logo" /></span>
             </div>
           </Col>
           <Col span={16}>

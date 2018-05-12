@@ -6,7 +6,7 @@ export default type => (Component) => {
     render() {
       return (
         <div>
-          <img className="EnhanceImage_background" src={require(`../../assets/background${type}.jpg`)} alt="背景图" />
+          <img className="EnhanceImage_background" src={`http://oli7sq88l.bkt.clouddn.com/background${type}.jpg`} alt="背景图" />
           <Component />
         </div>
 

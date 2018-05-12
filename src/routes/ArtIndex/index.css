@@ -67,23 +67,23 @@
 }
 
   .img_01{
-    background-image: url('../../assets/01.jpg');
+    background-image: url('http://oli7sq88l.bkt.clouddn.com/banner/01.jpg');
     background-size: cover
   }
   .img_02{
-    background-image: url('../../assets/02.jpg');
+    background-image: url('http://oli7sq88l.bkt.clouddn.com/banner/02.jpg');
     background-size: cover
 }
 .img_03{
-    background-image: url('../../assets/03.jpg');
+    background-image: url('http://oli7sq88l.bkt.clouddn.com/banner/03.jpg');
     background-size: cover
 }
 .img_04{
-    background-image: url('../../assets/04.jpg');
+    background-image: url('http://oli7sq88l.bkt.clouddn.com/banner/04.jpg');
     background-size: cover
 }
 .img_05{
-    background-image: url('../../assets/05.jpg');
+    background-image: url('http://oli7sq88l.bkt.clouddn.com/banner/05.jpg');
     background-size: cover
 }
 .img_container{
@@ -106,7 +106,7 @@
     height: 550px;
 }
 .background1{
-    background-image: url('../../assets/banner01.jpg');
+    background-image: url('http://oli7sq88l.bkt.clouddn.com/index/banner01.jpg');
     background-size: cover;
 }
 .background1 .ant-card-head-title{
@@ -117,9 +117,6 @@
 }
 .collapse{
     width: 100%;
-}
-.collapse{
-
 }
 .panel{
     margin-bottom: 24 !important;

@@ -48,7 +48,7 @@ class AdminLogin extends React.Component {
         <div className="login_block" >
           <Form>
             <Row>
-              <img src={require('../../assets/color_logo.png')} alt="NEUSOFT" />
+              <img src='http://oli7sq88l.bkt.clouddn.com/logo/color_logo.png' alt="NEUSOFT" />
             </Row>
             <Row >
               <Col>
