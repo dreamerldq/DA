@@ -8,7 +8,7 @@ import ProfessionList from '../Profession/ProfessionList';
 import ManageVentureProjectList from '../VentureProject/ManageVentureProjectList';
 import ProfileIntroductionList from '../ProfileIntroduction/ProfileIntroductionList'
 import AddBackgroundImage from '../../components/BackgroundImage'
-
+import Charts from './Chart'
 import './index.css'
 
 const { TabPane } = Tabs;
@@ -31,6 +31,9 @@ const ProfileManagement = ({ dispatch, profileManagement }) => {
         </TabPane>
         <TabPane tab="简介" key="introduction" >
           <ProfileIntroductionList />
+        </TabPane>
+        <TabPane tab="数据图表" key="charts" >
+          < Charts/>
         </TabPane>
       </Tabs>
     </div>
