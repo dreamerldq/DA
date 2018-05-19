@@ -2,3 +2,16 @@
   width: 100%;
   height: 500px;
 }
+#teacher_charts{
+  width: 100%;
+  height: 500px;
+}
+.chartsContainer{
+  position: relative;
+}
+.chartsButtonGroup{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10
+}

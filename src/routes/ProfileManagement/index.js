@@ -33,7 +33,7 @@ const ProfileManagement = ({ dispatch, profileManagement }) => {
           <ProfileIntroductionList />
         </TabPane>
         <TabPane tab="数据图表" key="charts" >
-          < Charts/>
+          <Charts />
         </TabPane>
       </Tabs>
     </div>

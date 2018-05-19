@@ -26,6 +26,11 @@ export default {
         const id = queryString.parse(search)
         dispatch({ type: 'saveFetchId', payload: id })
         const match = pathToRegexp('/ProfileManagement').exec(pathname);
+        dispatch({ type: 'animationTeam/getProfile', payload: 'AnimationTeam' })
+        dispatch({ type: 'digitalMediaTechnologyTeam/getProfile', payload: 'DigitalMediaTechnologyTeam' })
+        dispatch({ type: 'digitalMediaArtTeam/getProfile', payload: 'DigitalMediaArtTeam' })
+        dispatch({ type: 'filmPhotographyTeam/getProfile', payload: 'FilmPhotographyTeam' })
+        dispatch({ type: 'visualCommunicationDesignTeam/getProfile', payload: 'VisualCommunicationDesignTeam' })
         const matchProfession = pathToRegexp('/ProfessionIntroduction/:introduction').exec(pathname);
         if (matchProfession) {
           dispatch({ type: 'getProfesstion', payload: matchProfession[1] })
