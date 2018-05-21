@@ -90,7 +90,7 @@ const TeacherDetail = ({ teacherDetail }) => {
         </Row>
         <Row>
           {
-            research.length > 1 ?
+            research.length >= 1 ?
               <List
                 className="list"
                 header={<span>科研成果</span>}
@@ -112,7 +112,7 @@ const TeacherDetail = ({ teacherDetail }) => {
         </Row>
         <Row>
           {
-            award.length > 1 ?
+            award.length >= 1 ?
               <List
                 className="list"
                 header={<span>获奖情况</span>}
@@ -134,7 +134,7 @@ const TeacherDetail = ({ teacherDetail }) => {
         </Row>
         <Row>
           {
-            studentAward.length > 1 ?
+            studentAward.length >= 1 ?
               <List
                 className="list"
                 header={<span>指导学生获奖情况</span>}

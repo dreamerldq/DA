@@ -35,7 +35,7 @@ const StaffFiles = ({
               <Option value="数字媒体艺术">数字媒体艺术</Option>
               <Option value="动画" >动画</Option>
               <Option value="视觉传达设计">视觉传达设计</Option>
-              <Option value="摄影">影视设计与制作</Option>
+              <Option value="影视设计与制作">影视摄影与制作</Option>
             </Select>)}
                         </FormItem>
                       </Col>

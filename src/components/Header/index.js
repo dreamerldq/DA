@@ -73,7 +73,7 @@ const Header = ({
               {title.map((item) => {
             if (item.key === 'DepartmentSummary') {
               return (
-                <SubMenu title={<span>{item.title}</span>}>
+                <SubMenu key={item.key} title={<span>{item.title}</span>}>
                   <MenuItemGroup title="系部概括">
                     <Item key={item.key}>{item.title}</Item>
                   </MenuItemGroup>
@@ -92,7 +92,7 @@ const Header = ({
             }
             if (item.key === 'innovation') {
               return (
-                <SubMenu title={<span>{item.title}</span>}>
+                <SubMenu key={item.key} title={<span>{item.title}</span>}>
                   <MenuItemGroup title="创新创业">
                     {item.subTitle_innovation.map((sub) => {
                         return <Item key={sub.key}>{sub.title}</Item>
@@ -132,7 +132,7 @@ const Header = ({
               {title.map((item) => {
             if (item.key === 'DepartmentSummary') {
               return (
-                <SubMenu title={<Icon type="menu-unfold" />}>
+                <SubMenu key={item.key} title={<Icon type="menu-unfold" />}>
                   <MenuItemGroup title="系部概括">
                     <Item key={item.key}>{item.title}</Item>
                   </MenuItemGroup>

@@ -13,25 +13,14 @@ class QuanJing extends React.Component {
   componentDidMount() {
     const { quanjing, dispatch } = this.props
     const { imgData } = quanjing
-    const navbar = imgData.navbar.map((item) => {
-      return {
-        id: 'my-button',
-        title: `前往${item.name}`,
-        className: 'custom-button',
-        content: `前往${item.name}`,
-        onClick() {
-          dispatch(routerRedux.push({
-            pathname: `/quanjing/${item.path}`
-          }))
-        }
-      }
-    })
+    const navbar = this.getNavBar()
     const viewer = PhotoSphereViewer({
       container: 'view',
       panorama: require(`./asset/${imgData.path}.jpg`),
       navbar
     });
   }
+
   componentDidUpdate() {
     const view = document.getElementById('view')
     while (view.hasChildNodes()) {
@@ -39,24 +28,37 @@ class QuanJing extends React.Component {
     }
     const { quanjing, dispatch } = this.props
     const { imgData } = quanjing
-    const navbar = imgData.navbar.map((item) => {
-      return {
-        id: 'my-button',
-        title: `前往${item.name}`,
-        className: 'custom-button',
-        content: `前往${item.name}`,
-        onClick() {
-          dispatch(routerRedux.push({
-            pathname: `/quanjing/${item.path}`
-          }))
-        }
-      }
-    })
+
+    const navbar = this.getNavBar()
     const viewer = PhotoSphereViewer({
       container: 'view',
       panorama: require(`./asset/${imgData.path}.jpg`),
       navbar
     });
+  }
+  getNavBar() {
+    const { quanjing, dispatch } = this.props
+    const { imgData } = quanjing
+    console.log('AAAA', imgData)
+    const navbar = [
+      {
+        id: 'my-button',
+        title: `前往${imgData.navbar.name}`,
+        className: 'button',
+        content: `前往${imgData.navbar.name}`,
+        onClick() {
+          dispatch(routerRedux.push({
+            pathname: `/quanjing/${imgData.navbar.path}`
+          }))
+        }
+      },
+      'autorotate',
+      'zoom',
+      'markers',
+      'caption',
+      'fullscreen'
+    ]
+    return navbar
   }
   render() {
     return (

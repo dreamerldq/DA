@@ -1,26 +1,42 @@
 export default [
   {
-    name: '图书馆',
-    path: 'tushuguan',
-    navbar: [
+    name: '雪山',
+    path: 'panorama_01',
+    navbar:
       {
-        name: '数字艺术系',
-        path: 'shuziyishuxi'
-      },
-      {
-        name: '数字艺术系',
-        path: 'shuziyishuxi'
+        name: '丛林',
+        path: 'panorama_02'
       }
-    ]
+
   },
   {
-    name: '数字艺术系',
-    path: 'shuziyishuxi',
-    navbar: [
+    name: '丛林',
+    path: 'panorama_02',
+    navbar:
       {
-        name: '图书馆',
-        path: 'tushuguan'
+        name: '湿地',
+        path: 'panorama_03'
       }
-    ]
+
+  },
+  {
+    name: '湿地',
+    path: 'panorama_03',
+    navbar:
+      {
+        name: '湖畔',
+        path: 'panorama_04'
+      }
+
+  },
+  {
+    name: '湖畔',
+    path: 'panorama_04',
+    navbar:
+      {
+        name: '雪山',
+        path: 'panorama_01'
+      }
+
   }
 ]
