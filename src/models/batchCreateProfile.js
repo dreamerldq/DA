@@ -1,6 +1,7 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
 import { createUser, getUser } from '../services/registered';
+
 export default {
 
   namespace: 'batchCreateProfile',
@@ -15,18 +16,18 @@ export default {
 
   effects: {
     * createProfile({ payload }, { call, put }) {
-    yield put({type:'saveDataSource',payload:payload})
-    yield put({type:'create',payload:0})
+      yield put({ type: 'saveDataSource', payload })
+      yield put({ type: 'create', payload: 0 })
     },
-    *create({payload},{call,put,select}){
-      const {dataSource} = yield select (state => state.batchCreateProfile)
+    * create({ payload }, { call, put, select }) {
+      const { dataSource } = yield select(state => state.batchCreateProfile)
       let count = payload
-      if(count<=dataSource.length-1){
+      if (count <= dataSource.length - 1) {
         const { data, err } = yield call(createUser, { user: dataSource[count] });
         if (!err) {
-          console.log("创建成功",data)
-          count++
-          yield put({type:'create',payload:count})
+          console.log('创建成功', data)
+          count += 1
+          yield put({ type: 'create', payload: count })
         }
       }
     }
@@ -43,8 +44,8 @@ export default {
     endSpin(state, { payload }) {
       return { ...state, loading: false }
     },
-    saveDataSource(state,{payload}){
-      return {...state,dataSource:payload||[]}
+    saveDataSource(state, { payload }) {
+      return { ...state, dataSource: payload || [] }
     }
   }
 

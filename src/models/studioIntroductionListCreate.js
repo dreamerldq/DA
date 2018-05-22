@@ -134,7 +134,10 @@ export default {
       return { ...state, studioInfo: payload }
     },
     clearState(state, { payload }) {
-      return { ...state, studioInfo: {}, studio: {} }
+      return { ...state, name: [],
+        course: [],
+        research: [], 
+        studio: {} }
     },
     addInfo(state, { payload }) {
       switch (payload.type) {

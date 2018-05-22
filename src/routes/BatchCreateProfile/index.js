@@ -65,7 +65,7 @@ class BatchCreateProfile extends React.Component {
       <div style={{ width: '600px', margin: '0 auto' }}>
         <Row type="flex" justify="space-between">
           <Col>
-            <Input onChange={this.resoleXlsx} type="file" />
+            <input onChange={this.resoleXlsx} type="file" />
           </Col>
           <Col>
             <Button onClick={this.createProfile}>批量创建教师档案</Button>

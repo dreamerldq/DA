@@ -161,6 +161,12 @@ const Header = ({
                   <Item key="setting">
                     <Link style={{ color: 'black' }} to={`/Registered/${user.id}`}>设置</Link>
                   </Item>
+                  <Item key="createProfile">
+                    <Link style={{ color: 'black' }} to={`/Registered`}>创建个人档案</Link>
+                  </Item>
+                  <Item key="batchCreateProfile">
+                    <Link style={{ color: 'black' }} to={`/BatchCreateProfile`}>批量创建档案</Link>
+                  </Item>
                   <Item key="quit">
                     <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
                 退出

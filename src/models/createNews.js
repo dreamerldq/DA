@@ -33,6 +33,9 @@ export default {
     * createNews({ payload }, { select, call, put }) {
       const { data, err } = yield call(createNews, { news: payload });
       if (!err) {
+        yield put(routerRedux.push({
+          pathname: '/NewsNotice'
+        }))
       } else {
       }
     },

@@ -1,7 +1,8 @@
 import pathToRegexp from 'path-to-regexp';
 import { routerRedux } from 'dva/router';
-import { createUser, updateUser, getAloneUser } from '../services/registered';
 import _ from 'lodash';
+import { createUser, updateUser, getAloneUser } from '../services/registered';
+
 
 const changeString = (staffInfo, arr) => {
   let stringName = ''
@@ -34,6 +35,9 @@ export default {
         const { pathname, query } = location;
         const match = pathToRegexp('/registered').exec(pathname);
         const matchId = pathToRegexp('/registered/:id').exec(pathname);
+        if (match) {
+          dispatch({ type: 'clearData' })
+        }
         if (matchId) {
           dispatch({ type: 'saveId', payload: matchId[1] })
           dispatch({ type: 'getProfile', payload: matchId[1] })
@@ -127,6 +131,19 @@ export default {
     },
     saveBasicInfo(state, { payload }) {
       return { ...state, basicInfo: payload }
+    },
+    clearData(state, { payload }) {
+      return {
+        ...state,
+        staffInfo: {
+          patent: [],
+          research: [],
+          award: [],
+          studentAward: [],
+          teacherTrainning: []
+        },
+        user: {}
+      }
     },
     saveInfo(state, { payload }) {
       return { ...state, staffInfo: payload }
