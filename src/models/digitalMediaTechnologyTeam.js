@@ -26,7 +26,6 @@ export default {
 
   effects: {
     * getProfile({ payload }, { call, put }) {
-      console.log('开始执行请求')
       yield put({ type: 'startSpin' })
       const { data, err } = yield call(getUser, payload);
       if (!err) {

@@ -93,7 +93,7 @@ class CreateNews extends React.Component {
           <Row>
             <FormItem>
               {getFieldDecorator('articleType', {
-                initialValue: `${news.articleType || '数字媒体技术'}`,
+                initialValue: `${news.articleType || 'news'}`,
             rules: [{ required: true, message: '请选择将要生成文章的类型!' }]
           })(<Select>
             <Option value="campusCulture">校园文化</Option>

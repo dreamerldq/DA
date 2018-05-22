@@ -2,6 +2,16 @@
     .cardItem{
         width: 100%;
     }
+    .blockCard{
+        height: 100%;
+    }
+    .introduction_card{
+        width: 100%;
+        background: '#ECECEC';
+        padding: '30px';
+        display: flex;
+        flex-direction: column;
+    }
     .card{
         flex-direction: column;
         width: 100%;
@@ -15,11 +25,42 @@
         color: #fff;
         margin-left: 10px;
     }
+    .introduction{
+        background: rgba(240, 240, 240, 0.651);
+        width: 100%;
+    }
+    .block{
+        width: 100%;
+    }
 }
 @media screen and (min-width: 600px) {
+    .blockCard{
+        width: 400px;
+    }
     .card{
         width: 1200px;
         margin: 25px auto;
+    }
+    .block{
+        width: 1200px;
+        margin: 50px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+      }
+    .introduction{
+        background: rgba(240, 240, 240, 0.651);
+        width: 100%;
+        height: 550px;
+    }
+    .introduction_card{
+        width: '1200px';
+        background: '#ECECEC';
+        padding: '30px';
+        display: flex;
+        flex-direction: row;
     }
     .cardItem{
         width: 300px;
@@ -50,15 +91,6 @@
   }
   .card{
       display: flex;
-  }
-  .block{
-    width: 1200px;
-    margin: 50px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
   }
   .block  h1{
     color: #fff;
@@ -100,11 +132,7 @@
     border-bottom:0px;
 }
 
-.introduction{
-    background: rgba(240, 240, 240, 0.651);
-    width: 100%;
-    height: 550px;
-}
+
 .background1{
     background-image: url('http://oli7sq88l.bkt.clouddn.com/index/banner01.jpg');
     background-size: cover;
@@ -115,6 +143,7 @@
 .blockCard{
     height: 300px;
 }
+
 .collapse{
     width: 100%;
 }

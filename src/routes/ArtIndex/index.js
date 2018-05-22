@@ -69,7 +69,7 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
           <Collapse className="collapse" bordered={false} defaultActiveKey={['1']}>
             {panelContent.map((item, index) => (
               <Panel style={{ color: '#fff' }} className={`panel${index + 1}`} header={<span style={{ color: '#fff' }}>{item.header}</span>} key={index + 1}>
-                <p style={{ color: '#fff' }}>{item.content}</p>
+                <div style={{ color: '#fff' }}>{item.content}</div>
               </Panel>
           ))}
           </Collapse>
@@ -78,17 +78,15 @@ const ArtIndex = ({ dispatch, departmentProfile, rightSide }) => {
       <Row className="introduction background1">
         <div className="block">
           <h1>教育创造学生价值</h1>
-          <div style={{ width: '1200px', background: '#ECECEC', padding: '30px' }}>
-            <Row gutter={16}>
+          <div className="introduction_card">
+           
               {IntroductionCard.map((item, index) => (
-                <Col key={index} span={8}>
+                <div key={index} span={8}>
                   <Card className="blockCard" title={<Link to={item.path}>{item.title}</Link>} bordered={false}>
                     {item.content}
                   </Card>
-                </Col>
+                </div>
             ))}
-
-            </Row>
           </div>
         </div>
       </Row>
