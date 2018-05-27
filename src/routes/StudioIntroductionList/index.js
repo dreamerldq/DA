@@ -49,4 +49,4 @@ class StudioIntroductionList extends React.Component {
 const mapStateToProps = ({ studioIntroduction }) => ({
   studioIntroduction
 });
-export default AddBackgroundImage('01')(connect(mapStateToProps)(StudioIntroductionList));
+export default AddBackgroundImage('02')(connect(mapStateToProps)(StudioIntroductionList));

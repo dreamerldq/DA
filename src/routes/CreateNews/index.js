@@ -125,4 +125,4 @@ class CreateNews extends React.Component {
 const mapStateToProps = ({ createNews }) => ({
   createNews
 });
-export default AddBackgroundImage('01')(Form.create()(connect(mapStateToProps)(CreateNews)))
+export default AddBackgroundImage('02')(Form.create()(connect(mapStateToProps)(CreateNews)))

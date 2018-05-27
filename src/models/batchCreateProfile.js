@@ -25,7 +25,6 @@ export default {
       if (count <= dataSource.length - 1) {
         const { data, err } = yield call(createUser, { user: dataSource[count] });
         if (!err) {
-          console.log('创建成功', data)
           count += 1
           yield put({ type: 'create', payload: count })
         }

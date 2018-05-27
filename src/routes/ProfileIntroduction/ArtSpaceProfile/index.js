@@ -27,4 +27,4 @@ ArtSpaceProfile.propTypes = {
 const mapStateToProps = ({ newsNoticeDetail, profileIntroduction }) => ({
   newsNoticeDetail, profileIntroduction
 })
-export default AddBackgroundImage('01')(connect(mapStateToProps)(ArtSpaceProfile));
+export default AddBackgroundImage('02')(connect(mapStateToProps)(ArtSpaceProfile));

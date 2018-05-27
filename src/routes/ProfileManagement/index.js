@@ -44,4 +44,4 @@ const mapStateToProps = ({ profileManagement }) => {
     profileManagement
   }
 }
-export default AddBackgroundImage('01')(connect(mapStateToProps)(ProfileManagement));
+export default AddBackgroundImage('02')(connect(mapStateToProps)(ProfileManagement));

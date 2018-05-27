@@ -16,7 +16,7 @@
 }
 @media screen and (min-width: 600px) {
     .contentDetail_container{
-        margin: 0 auto;
+        margin: 50px auto;
         background: #fff;
         padding: 25px;
         width: 1000px;

@@ -42,16 +42,20 @@
 .ant-menu-horizontal{
     font-size: 0.9em !important;
     border: 0px;
-    background: #0077B4;
+    background: #324902;
     color: #ffffff;
 }
+.ant-menu-horizontal .ant-menu-submenu-active {
+    border-bottom: 2px solid #324902 !important;
+    color: #324902 !important;
+  }
 .header_container_outer{
-    background: #0077B4;
+    background: #324902;
 }
 .header_container{
     display: flex;
     align-items: center;
-    background: #0077B4;
+    background: #324902;
     height:64px;
     line-height: 64px;
     position: relative;

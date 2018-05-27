@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import _ from 'lodash'
+import './index.css'
 
 const Profile = ({ profileIntroduction }) => {
   const { newsList, loading } = profileIntroduction

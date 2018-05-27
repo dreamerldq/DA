@@ -9,7 +9,7 @@
 @media screen and (min-width: 600px) {
     .ventureProject{
         width: 1000px;
-        margin: 0 auto;
+        margin: 50px auto;
         padding: 2em;
     }
 }

@@ -28,4 +28,4 @@ DisciplineCompetition.propTypes = {
 const mapStateToProps = ({ newsNoticeDetail, profileIntroduction }) => ({
   newsNoticeDetail, profileIntroduction
 })
-export default AddBackgroundImage('01')(connect(mapStateToProps)(DisciplineCompetition));
+export default AddBackgroundImage('02')(connect(mapStateToProps)(DisciplineCompetition));

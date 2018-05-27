@@ -15,4 +15,4 @@ const CampusCultureDetail = ({ dispatch, campusCulture }) => {
 const mapStateToProps = ({ campusCulture }) => ({
   campusCulture
 })
-export default AddBackgroundImage('01')(connect(mapStateToProps)(CampusCultureDetail))
+export default AddBackgroundImage('02')(connect(mapStateToProps)(CampusCultureDetail))

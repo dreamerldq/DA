@@ -75,4 +75,4 @@ class CampusCultureList extends React.Component {
 const mapStateToProps = ({ campusCulture, currentUser }) => ({
   campusCulture, currentUser
 });
-export default AddBackgroundImage('01')(connect(mapStateToProps)(CampusCultureList));
+export default AddBackgroundImage('02')(connect(mapStateToProps)(CampusCultureList));

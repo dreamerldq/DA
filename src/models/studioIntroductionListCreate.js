@@ -134,9 +134,11 @@ export default {
       return { ...state, studioInfo: payload }
     },
     clearState(state, { payload }) {
-      return { ...state, name: [],
+      return { ...state, studioInfo:{
+        name: [],
         course: [],
         research: [], 
+      },
         studio: {} }
     },
     addInfo(state, { payload }) {

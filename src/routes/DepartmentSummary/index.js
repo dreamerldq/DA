@@ -16,4 +16,4 @@ const DepartmentSummary = () => {
   );
 }
 
-export default AddBackgroundImage('01')(DepartmentSummary);
+export default AddBackgroundImage('02')(DepartmentSummary);

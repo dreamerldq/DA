@@ -81,4 +81,4 @@ const mapStateToProps = ({ newsNotice, currentUser }) => ({
   newsNotice,
   currentUser
 });
-export default AddBackgroundImage('01')(connect(mapStateToProps)(NewsNotice));
+export default AddBackgroundImage('02')(connect(mapStateToProps)(NewsNotice));

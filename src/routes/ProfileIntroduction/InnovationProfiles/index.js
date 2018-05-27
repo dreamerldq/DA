@@ -4,6 +4,7 @@ import { connect } from 'dva';
 import _ from 'lodash';
 import RightSide from '../../RightSide'
 import AddBackgroundImage from '../../../components/BackgroundImage'
+import './index.css'
 
 const InnovationProfiles = ({ dispatch, profileIntroduction }) => {
   const { newsList, loading } = profileIntroduction
@@ -27,4 +28,4 @@ InnovationProfiles.propTypes = {
 const mapStateToProps = ({ newsNoticeDetail, profileIntroduction }) => ({
   newsNoticeDetail, profileIntroduction
 })
-export default AddBackgroundImage('01')(connect(mapStateToProps)(InnovationProfiles));
+export default AddBackgroundImage('02')(connect(mapStateToProps)(InnovationProfiles));

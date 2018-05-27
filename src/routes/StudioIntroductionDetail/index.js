@@ -75,5 +75,5 @@ const mapStateToProps = ({ studioIntroductionDetail }) => {
     studioIntroductionDetail
   }
 }
-export default AddBackgroundImage('01')(connect(mapStateToProps)(StudioIntroductionDetail))
+export default AddBackgroundImage('02')(connect(mapStateToProps)(StudioIntroductionDetail))
 

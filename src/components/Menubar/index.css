@@ -12,9 +12,10 @@
     color:#696969;
 }
 .menu_bar_link{
-    background: #0077B4;
+    background: #324902;
     width: 100%;
     display: inline-block;
+    color: #fff !important;
 }
 
 @media screen and (max-width: 600px) {
